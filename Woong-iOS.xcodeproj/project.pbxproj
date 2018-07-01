@@ -16,6 +16,11 @@
 		B39568BF20E88EDC00379A48 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39568BE20E88EDC00379A48 /* Splash.storyboard */; };
 		B39568C120E8906700379A48 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39568C020E8906700379A48 /* Sign.storyboard */; };
 		B39568C420E8914900379A48 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568C320E8914900379A48 /* SplashVC.swift */; };
+		B39568C820E8A53C00379A48 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568C720E8A53C00379A48 /* HomeVC.swift */; };
+		B39568CA20E8A56300379A48 /* MarketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568C920E8A56300379A48 /* MarketVC.swift */; };
+		B39568CC20E8A58F00379A48 /* MyProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CB20E8A58F00379A48 /* MyProductVC.swift */; };
+		B39568CE20E8A8DE00379A48 /* NoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CD20E8A8DE00379A48 /* NoticeVC.swift */; };
+		B39568D020E8A8F200379A48 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CF20E8A8F200379A48 /* MyPageVC.swift */; };
 		FDFDCBFCB5F94786020B6694 /* Pods_Woong_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA9E516F276581A6D8C8E7D /* Pods_Woong_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +39,11 @@
 		B39568BE20E88EDC00379A48 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		B39568C020E8906700379A48 /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		B39568C320E8914900379A48 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		B39568C720E8A53C00379A48 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		B39568C920E8A56300379A48 /* MarketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketVC.swift; sourceTree = "<group>"; };
+		B39568CB20E8A58F00379A48 /* MyProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductVC.swift; sourceTree = "<group>"; };
+		B39568CD20E8A8DE00379A48 /* NoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeVC.swift; sourceTree = "<group>"; };
+		B39568CF20E8A8F200379A48 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +132,11 @@
 			isa = PBXGroup;
 			children = (
 				B39568C320E8914900379A48 /* SplashVC.swift */,
+				B39568C720E8A53C00379A48 /* HomeVC.swift */,
+				B39568C920E8A56300379A48 /* MarketVC.swift */,
+				B39568CB20E8A58F00379A48 /* MyProductVC.swift */,
+				B39568CD20E8A8DE00379A48 /* NoticeVC.swift */,
+				B39568CF20E8A8F200379A48 /* MyPageVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -288,8 +303,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B39568A120E888E800379A48 /* AppDelegate.swift in Sources */,
+				B39568C820E8A53C00379A48 /* HomeVC.swift in Sources */,
+				B39568CC20E8A58F00379A48 /* MyProductVC.swift in Sources */,
 				B39568BB20E88C8500379A48 /* APIServices.swift in Sources */,
 				B39568C420E8914900379A48 /* SplashVC.swift in Sources */,
+				B39568D020E8A8F200379A48 /* MyPageVC.swift in Sources */,
+				B39568CA20E8A56300379A48 /* MarketVC.swift in Sources */,
+				B39568CE20E8A8DE00379A48 /* NoticeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +458,10 @@
 				DEVELOPMENT_TEAM = CXVMJWVF32;
 				INFOPLIST_FILE = "$(SRCROOT)/Woong-iOS/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Leess.Woong-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -455,7 +478,10 @@
 				DEVELOPMENT_TEAM = CXVMJWVF32;
 				INFOPLIST_FILE = "$(SRCROOT)/Woong-iOS/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Leess.Woong-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
