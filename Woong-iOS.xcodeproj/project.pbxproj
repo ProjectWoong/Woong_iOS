@@ -16,6 +16,10 @@
 		B39568BF20E88EDC00379A48 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39568BE20E88EDC00379A48 /* Splash.storyboard */; };
 		B39568C120E8906700379A48 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39568C020E8906700379A48 /* Sign.storyboard */; };
 		B39568C420E8914900379A48 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568C320E8914900379A48 /* SplashVC.swift */; };
+		CBF7E21F20E8A8DB00F9145D /* TutorialPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E21E20E8A8DB00F9145D /* TutorialPageVC.swift */; };
+		CBF7E22520E8CC5A00F9145D /* Tutorial1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E22420E8CC5A00F9145D /* Tutorial1VC.swift */; };
+		CBF7E22720E8CC6C00F9145D /* Tutorial2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E22620E8CC6C00F9145D /* Tutorial2VC.swift */; };
+		CBF7E22920E8CC7500F9145D /* Tutorial3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E22820E8CC7500F9145D /* Tutorial3VC.swift */; };
 		FDFDCBFCB5F94786020B6694 /* Pods_Woong_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA9E516F276581A6D8C8E7D /* Pods_Woong_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +38,10 @@
 		B39568BE20E88EDC00379A48 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		B39568C020E8906700379A48 /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		B39568C320E8914900379A48 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		CBF7E21E20E8A8DB00F9145D /* TutorialPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageVC.swift; sourceTree = "<group>"; };
+		CBF7E22420E8CC5A00F9145D /* Tutorial1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial1VC.swift; sourceTree = "<group>"; };
+		CBF7E22620E8CC6C00F9145D /* Tutorial2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial2VC.swift; sourceTree = "<group>"; };
+		CBF7E22820E8CC7500F9145D /* Tutorial3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial3VC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,10 @@
 			isa = PBXGroup;
 			children = (
 				B39568C320E8914900379A48 /* SplashVC.swift */,
+				CBF7E21E20E8A8DB00F9145D /* TutorialPageVC.swift */,
+				CBF7E22420E8CC5A00F9145D /* Tutorial1VC.swift */,
+				CBF7E22620E8CC6C00F9145D /* Tutorial2VC.swift */,
+				CBF7E22820E8CC7500F9145D /* Tutorial3VC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -288,6 +300,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B39568A120E888E800379A48 /* AppDelegate.swift in Sources */,
+				CBF7E21F20E8A8DB00F9145D /* TutorialPageVC.swift in Sources */,
+				CBF7E22920E8CC7500F9145D /* Tutorial3VC.swift in Sources */,
+				CBF7E22520E8CC5A00F9145D /* Tutorial1VC.swift in Sources */,
+				CBF7E22720E8CC6C00F9145D /* Tutorial2VC.swift in Sources */,
 				B39568BB20E88C8500379A48 /* APIServices.swift in Sources */,
 				B39568C420E8914900379A48 /* SplashVC.swift in Sources */,
 			);
@@ -435,10 +451,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CXVMJWVF32;
+				DEVELOPMENT_TEAM = N6JH7RBUA4;
 				INFOPLIST_FILE = "$(SRCROOT)/Woong-iOS/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Leess.Woong-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -452,10 +471,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CXVMJWVF32;
+				DEVELOPMENT_TEAM = N6JH7RBUA4;
 				INFOPLIST_FILE = "$(SRCROOT)/Woong-iOS/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Leess.Woong-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
