@@ -12,10 +12,19 @@ class HomeVC: UIViewController {
 
 
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNaviBar()
         
         // Do any additional setup after loading the view.
+    }
+    
+    private func setupNaviBar() {
+        self.navigationController?.navigationBar.topItem?.title = "Your Title"
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
     }
     
     
@@ -25,7 +34,11 @@ class HomeVC: UIViewController {
         
     }
     
-
+    @IBAction func NextView(_ sender: Any) {
+        let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "CategoryVC")
+        self.navigationController?.pushViewController(destvc, animated: true)
+    }
+    
     
 
 }
