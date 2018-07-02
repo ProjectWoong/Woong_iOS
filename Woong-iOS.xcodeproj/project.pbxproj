@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B350089720E9FC79009E0683 /* BigCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089620E9FC79009E0683 /* BigCategoryCell.swift */; };
+		B350089920EA3913009E0683 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350089820EA3913009E0683 /* Home.storyboard */; };
+		B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089A20EA3C9C009E0683 /* CategoryVC.swift */; };
 		B39568A120E888E800379A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568A020E888E800379A48 /* AppDelegate.swift */; };
 		B39568A620E888E800379A48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39568A420E888E800379A48 /* Main.storyboard */; };
 		B39568A820E888E900379A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39568A720E888E900379A48 /* Assets.xcassets */; };
@@ -16,10 +19,22 @@
 		B39568BF20E88EDC00379A48 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39568BE20E88EDC00379A48 /* Splash.storyboard */; };
 		B39568C120E8906700379A48 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39568C020E8906700379A48 /* Sign.storyboard */; };
 		B39568C420E8914900379A48 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568C320E8914900379A48 /* SplashVC.swift */; };
+<<<<<<< HEAD
 		CBF7E21F20E8A8DB00F9145D /* TutorialPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E21E20E8A8DB00F9145D /* TutorialPageVC.swift */; };
 		CBF7E22520E8CC5A00F9145D /* Tutorial1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E22420E8CC5A00F9145D /* Tutorial1VC.swift */; };
 		CBF7E22720E8CC6C00F9145D /* Tutorial2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E22620E8CC6C00F9145D /* Tutorial2VC.swift */; };
 		CBF7E22920E8CC7500F9145D /* Tutorial3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E22820E8CC7500F9145D /* Tutorial3VC.swift */; };
+=======
+		B39568C820E8A53C00379A48 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568C720E8A53C00379A48 /* HomeVC.swift */; };
+		B39568CA20E8A56300379A48 /* MarketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568C920E8A56300379A48 /* MarketVC.swift */; };
+		B39568CC20E8A58F00379A48 /* MyProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CB20E8A58F00379A48 /* MyProductVC.swift */; };
+		B39568CE20E8A8DE00379A48 /* NoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CD20E8A8DE00379A48 /* NoticeVC.swift */; };
+		B39568D020E8A8F200379A48 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CF20E8A8F200379A48 /* MyPageVC.swift */; };
+		B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */; };
+		B39568DA20E8DE9200379A48 /* UIColor+rgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D920E8DE9200379A48 /* UIColor+rgb.swift */; };
+		B39568DC20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568DB20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift */; };
+		B3BF3DA820EA4DD80082802D /* SmallCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF3DA720EA4DD80082802D /* SmallCategoryCell.swift */; };
+>>>>>>> MainTab
 		FDFDCBFCB5F94786020B6694 /* Pods_Woong_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA9E516F276581A6D8C8E7D /* Pods_Woong_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +42,9 @@
 		46B40C54DC93383C5991E3B2 /* Pods-Woong-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woong-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Woong-iOS/Pods-Woong-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5D408FE751F38258291B6C95 /* Pods-Woong-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woong-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Woong-iOS/Pods-Woong-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		6FA9E516F276581A6D8C8E7D /* Pods_Woong_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Woong_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B350089620E9FC79009E0683 /* BigCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCategoryCell.swift; sourceTree = "<group>"; };
+		B350089820EA3913009E0683 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		B350089A20EA3C9C009E0683 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		B395689D20E888E800379A48 /* Woong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39568A020E888E800379A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B39568A520E888E800379A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,10 +56,22 @@
 		B39568BE20E88EDC00379A48 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		B39568C020E8906700379A48 /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		B39568C320E8914900379A48 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		CBF7E21E20E8A8DB00F9145D /* TutorialPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageVC.swift; sourceTree = "<group>"; };
 		CBF7E22420E8CC5A00F9145D /* Tutorial1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial1VC.swift; sourceTree = "<group>"; };
 		CBF7E22620E8CC6C00F9145D /* Tutorial2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial2VC.swift; sourceTree = "<group>"; };
 		CBF7E22820E8CC7500F9145D /* Tutorial3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial3VC.swift; sourceTree = "<group>"; };
+=======
+		B39568C720E8A53C00379A48 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		B39568C920E8A56300379A48 /* MarketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketVC.swift; sourceTree = "<group>"; };
+		B39568CB20E8A58F00379A48 /* MyProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductVC.swift; sourceTree = "<group>"; };
+		B39568CD20E8A8DE00379A48 /* NoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeVC.swift; sourceTree = "<group>"; };
+		B39568CF20E8A8F200379A48 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		B39568D920E8DE9200379A48 /* UIColor+rgb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgb.swift"; sourceTree = "<group>"; };
+		B39568DB20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addConstraintWithFormat.swift"; sourceTree = "<group>"; };
+		B3BF3DA720EA4DD80082802D /* SmallCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCategoryCell.swift; sourceTree = "<group>"; };
+>>>>>>> MainTab
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +152,7 @@
 				B39568C220E8907500379A48 /* Tutorial&Sign */,
 				B39568A420E888E800379A48 /* Main.storyboard */,
 				B39568A920E888E900379A48 /* LaunchScreen.storyboard */,
+				B350089820EA3913009E0683 /* Home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -130,10 +161,19 @@
 			isa = PBXGroup;
 			children = (
 				B39568C320E8914900379A48 /* SplashVC.swift */,
+<<<<<<< HEAD
 				CBF7E21E20E8A8DB00F9145D /* TutorialPageVC.swift */,
 				CBF7E22420E8CC5A00F9145D /* Tutorial1VC.swift */,
 				CBF7E22620E8CC6C00F9145D /* Tutorial2VC.swift */,
 				CBF7E22820E8CC7500F9145D /* Tutorial3VC.swift */,
+=======
+				B39568C720E8A53C00379A48 /* HomeVC.swift */,
+				B39568C920E8A56300379A48 /* MarketVC.swift */,
+				B39568CB20E8A58F00379A48 /* MyProductVC.swift */,
+				B39568CD20E8A8DE00379A48 /* NoticeVC.swift */,
+				B39568CF20E8A8F200379A48 /* MyPageVC.swift */,
+				B350089A20EA3C9C009E0683 /* CategoryVC.swift */,
+>>>>>>> MainTab
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -141,6 +181,9 @@
 		B39568B620E88AC200379A48 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */,
+				B350089620E9FC79009E0683 /* BigCategoryCell.swift */,
+				B3BF3DA720EA4DD80082802D /* SmallCategoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -155,6 +198,8 @@
 		B39568B820E88AC800379A48 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B39568D920E8DE9200379A48 /* UIColor+rgb.swift */,
+				B39568DB20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -244,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B350089920EA3913009E0683 /* Home.storyboard in Resources */,
 				B39568AB20E888E900379A48 /* LaunchScreen.storyboard in Resources */,
 				B39568C120E8906700379A48 /* Sign.storyboard in Resources */,
 				B39568A820E888E900379A48 /* Assets.xcassets in Resources */,
@@ -300,12 +346,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				B39568A120E888E800379A48 /* AppDelegate.swift in Sources */,
+<<<<<<< HEAD
 				CBF7E21F20E8A8DB00F9145D /* TutorialPageVC.swift in Sources */,
 				CBF7E22920E8CC7500F9145D /* Tutorial3VC.swift in Sources */,
 				CBF7E22520E8CC5A00F9145D /* Tutorial1VC.swift in Sources */,
 				CBF7E22720E8CC6C00F9145D /* Tutorial2VC.swift in Sources */,
+=======
+				B350089720E9FC79009E0683 /* BigCategoryCell.swift in Sources */,
+				B39568C820E8A53C00379A48 /* HomeVC.swift in Sources */,
+				B39568CC20E8A58F00379A48 /* MyProductVC.swift in Sources */,
+				B39568DA20E8DE9200379A48 /* UIColor+rgb.swift in Sources */,
+>>>>>>> MainTab
 				B39568BB20E88C8500379A48 /* APIServices.swift in Sources */,
 				B39568C420E8914900379A48 /* SplashVC.swift in Sources */,
+				B3BF3DA820EA4DD80082802D /* SmallCategoryCell.swift in Sources */,
+				B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */,
+				B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */,
+				B39568DC20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift in Sources */,
+				B39568D020E8A8F200379A48 /* MyPageVC.swift in Sources */,
+				B39568CA20E8A56300379A48 /* MarketVC.swift in Sources */,
+				B39568CE20E8A8DE00379A48 /* NoticeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
