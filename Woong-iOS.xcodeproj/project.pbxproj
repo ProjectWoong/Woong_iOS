@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B350089720E9FC79009E0683 /* BigCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089620E9FC79009E0683 /* BigCategoryCell.swift */; };
 		B39568A120E888E800379A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568A020E888E800379A48 /* AppDelegate.swift */; };
 		B39568A620E888E800379A48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39568A420E888E800379A48 /* Main.storyboard */; };
 		B39568A820E888E900379A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39568A720E888E900379A48 /* Assets.xcassets */; };
@@ -21,6 +22,9 @@
 		B39568CC20E8A58F00379A48 /* MyProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CB20E8A58F00379A48 /* MyProductVC.swift */; };
 		B39568CE20E8A8DE00379A48 /* NoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CD20E8A8DE00379A48 /* NoticeVC.swift */; };
 		B39568D020E8A8F200379A48 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CF20E8A8F200379A48 /* MyPageVC.swift */; };
+		B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */; };
+		B39568DA20E8DE9200379A48 /* UIColor+rgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D920E8DE9200379A48 /* UIColor+rgb.swift */; };
+		B39568DC20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568DB20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift */; };
 		FDFDCBFCB5F94786020B6694 /* Pods_Woong_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA9E516F276581A6D8C8E7D /* Pods_Woong_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +32,7 @@
 		46B40C54DC93383C5991E3B2 /* Pods-Woong-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woong-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Woong-iOS/Pods-Woong-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5D408FE751F38258291B6C95 /* Pods-Woong-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woong-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Woong-iOS/Pods-Woong-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		6FA9E516F276581A6D8C8E7D /* Pods_Woong_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Woong_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B350089620E9FC79009E0683 /* BigCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCategoryCell.swift; sourceTree = "<group>"; };
 		B395689D20E888E800379A48 /* Woong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39568A020E888E800379A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B39568A520E888E800379A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,6 +49,9 @@
 		B39568CB20E8A58F00379A48 /* MyProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductVC.swift; sourceTree = "<group>"; };
 		B39568CD20E8A8DE00379A48 /* NoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeVC.swift; sourceTree = "<group>"; };
 		B39568CF20E8A8F200379A48 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		B39568D920E8DE9200379A48 /* UIColor+rgb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgb.swift"; sourceTree = "<group>"; };
+		B39568DB20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addConstraintWithFormat.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +152,8 @@
 		B39568B620E88AC200379A48 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */,
+				B350089620E9FC79009E0683 /* BigCategoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -158,6 +168,8 @@
 		B39568B820E88AC800379A48 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B39568D920E8DE9200379A48 /* UIColor+rgb.swift */,
+				B39568DB20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -303,10 +315,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B39568A120E888E800379A48 /* AppDelegate.swift in Sources */,
+				B350089720E9FC79009E0683 /* BigCategoryCell.swift in Sources */,
 				B39568C820E8A53C00379A48 /* HomeVC.swift in Sources */,
 				B39568CC20E8A58F00379A48 /* MyProductVC.swift in Sources */,
+				B39568DA20E8DE9200379A48 /* UIColor+rgb.swift in Sources */,
 				B39568BB20E88C8500379A48 /* APIServices.swift in Sources */,
 				B39568C420E8914900379A48 /* SplashVC.swift in Sources */,
+				B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */,
+				B39568DC20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift in Sources */,
 				B39568D020E8A8F200379A48 /* MyPageVC.swift in Sources */,
 				B39568CA20E8A56300379A48 /* MarketVC.swift in Sources */,
 				B39568CE20E8A8DE00379A48 /* NoticeVC.swift in Sources */,
