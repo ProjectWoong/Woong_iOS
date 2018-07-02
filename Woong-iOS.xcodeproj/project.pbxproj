@@ -20,6 +20,9 @@
 		CBF7E22520E8CC5A00F9145D /* Tutorial1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E22420E8CC5A00F9145D /* Tutorial1VC.swift */; };
 		CBF7E22720E8CC6C00F9145D /* Tutorial2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E22620E8CC6C00F9145D /* Tutorial2VC.swift */; };
 		CBF7E22920E8CC7500F9145D /* Tutorial3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E22820E8CC7500F9145D /* Tutorial3VC.swift */; };
+		CBF7E22B20EA294700F9145D /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF7E22A20EA294700F9145D /* Notice.storyboard */; };
+		CBF7E22D20EA2D9300F9145D /* MyProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF7E22C20EA2D9300F9145D /* MyProduct.storyboard */; };
+		CBF7E22F20EA39C200F9145D /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E22E20EA39C200F9145D /* PaymentVC.swift */; };
 		FDFDCBFCB5F94786020B6694 /* Pods_Woong_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA9E516F276581A6D8C8E7D /* Pods_Woong_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,9 @@
 		CBF7E22420E8CC5A00F9145D /* Tutorial1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial1VC.swift; sourceTree = "<group>"; };
 		CBF7E22620E8CC6C00F9145D /* Tutorial2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial2VC.swift; sourceTree = "<group>"; };
 		CBF7E22820E8CC7500F9145D /* Tutorial3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial3VC.swift; sourceTree = "<group>"; };
+		CBF7E22A20EA294700F9145D /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
+		CBF7E22C20EA2D9300F9145D /* MyProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyProduct.storyboard; sourceTree = "<group>"; };
+		CBF7E22E20EA39C200F9145D /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,8 @@
 				B39568C220E8907500379A48 /* Tutorial&Sign */,
 				B39568A420E888E800379A48 /* Main.storyboard */,
 				B39568A920E888E900379A48 /* LaunchScreen.storyboard */,
+				CBF7E22A20EA294700F9145D /* Notice.storyboard */,
+				CBF7E22C20EA2D9300F9145D /* MyProduct.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 				CBF7E22420E8CC5A00F9145D /* Tutorial1VC.swift */,
 				CBF7E22620E8CC6C00F9145D /* Tutorial2VC.swift */,
 				CBF7E22820E8CC7500F9145D /* Tutorial3VC.swift */,
+				CBF7E22E20EA39C200F9145D /* PaymentVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -246,6 +255,8 @@
 			files = (
 				B39568AB20E888E900379A48 /* LaunchScreen.storyboard in Resources */,
 				B39568C120E8906700379A48 /* Sign.storyboard in Resources */,
+				CBF7E22D20EA2D9300F9145D /* MyProduct.storyboard in Resources */,
+				CBF7E22B20EA294700F9145D /* Notice.storyboard in Resources */,
 				B39568A820E888E900379A48 /* Assets.xcassets in Resources */,
 				B39568BD20E88ECA00379A48 /* Tutorial.storyboard in Resources */,
 				B39568BF20E88EDC00379A48 /* Splash.storyboard in Resources */,
@@ -300,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B39568A120E888E800379A48 /* AppDelegate.swift in Sources */,
+				CBF7E22F20EA39C200F9145D /* PaymentVC.swift in Sources */,
 				CBF7E21F20E8A8DB00F9145D /* TutorialPageVC.swift in Sources */,
 				CBF7E22920E8CC7500F9145D /* Tutorial3VC.swift in Sources */,
 				CBF7E22520E8CC5A00F9145D /* Tutorial1VC.swift in Sources */,
