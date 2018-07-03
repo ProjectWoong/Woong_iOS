@@ -25,7 +25,9 @@ class CategoryVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backBarButtonItem?.title = ""
+        let shadowImage = UIImage()
+        navigationController?.navigationBar.shadowImage = shadowImage
+        navigationController?.navigationBar.setBackgroundImage(shadowImage, for: .default)
         setupCollectionView()
         setupHorizontalBar()
         // Do any additional setup after loading the view.
@@ -64,7 +66,18 @@ class CategoryVC: UIViewController {
 
 }
 
-extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == bigCategoryCollectionView {
+             return CGSize(width: bigCategoryView.frame.width / 4, height: bigCategoryView.frame.height)
+        }
+        else {
+            let rectSize = self.view.frame.width / 3
+            return CGSize(width: rectSize, height: rectSize)
+        }
+       
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == smallCategoryCollectionView {
             return 1
@@ -91,7 +104,7 @@ extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource {
         } else {
             let cell = smallCategoryCollectionView.dequeueReusableCell(withReuseIdentifier: smallCellId, for: indexPath) as! SmallCategoryCell
             cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.rgb(red: 225, green: 225, blue: 225) : UIColor.white
-            cell.smallCategoryLabel.text = sampleArr[indexPath.row]
+            cell.smallCategoryLabel.text = sampleArr[indexPath.item]
             cell.smallCategoryLabel.sizeToFit()
             return cell
         }
