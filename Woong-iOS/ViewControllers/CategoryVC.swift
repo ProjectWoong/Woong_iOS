@@ -60,6 +60,10 @@ class CategoryVC: UIViewController {
         horizontalBarView.widthAnchor.constraint(equalTo: bigCategoryView.widthAnchor, multiplier: 1/4).isActive = true
         horizontalBarView.heightAnchor.constraint(equalToConstant: 2).isActive = true
     }
+    
+    func selectCategory(categoryIndex: Int) {
+        
+    }
  
 
 }
@@ -101,6 +105,7 @@ extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == bigCategoryCollectionView {
             horizontalBarLeftAnchorConstraint?.constant = CGFloat(indexPath.item) * (self.view.frame.width / 4)
+            selectCategory(categoryIndex: indexPath.item)
         }
     }
 }

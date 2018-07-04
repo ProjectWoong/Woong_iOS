@@ -99,28 +99,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="L0f-HJ-HTJ">
-                                <rect key="frame" x="16" y="78" width="220" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="9Ho-UK-bDe"/>
-                                    <constraint firstAttribute="height" constant="28" id="lrd-WX-ekH"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="이름순"/>
-                                    <segment title="제철식품"/>
-                                    <segment title="사계절식품"/>
-                                </segments>
-                                <color key="tintColor" red="0.37254901959999998" green="0.75686274509999996" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bYV-hX-cQy" firstAttribute="trailing" secondItem="Ssi-bg-DaZ" secondAttribute="trailing" id="9Mt-xP-c0g"/>
-                            <constraint firstItem="L0f-HJ-HTJ" firstAttribute="top" secondItem="bYV-hX-cQy" secondAttribute="bottom" constant="14" id="Bwj-tl-lpR"/>
                             <constraint firstItem="bYV-hX-cQy" firstAttribute="leading" secondItem="Ssi-bg-DaZ" secondAttribute="leading" id="QQL-16-QFy"/>
                             <constraint firstItem="bYV-hX-cQy" firstAttribute="top" secondItem="Ssi-bg-DaZ" secondAttribute="top" id="R3M-QB-O9u"/>
                             <constraint firstItem="T6d-QG-oRl" firstAttribute="bottom" secondItem="Ssi-bg-DaZ" secondAttribute="bottom" id="Z46-t9-awV"/>
-                            <constraint firstItem="L0f-HJ-HTJ" firstAttribute="leading" secondItem="Ssi-bg-DaZ" secondAttribute="leading" constant="16" id="f2X-Vd-OvD"/>
                             <constraint firstItem="T6d-QG-oRl" firstAttribute="trailing" secondItem="Ssi-bg-DaZ" secondAttribute="trailing" id="jKf-mk-g5W"/>
                             <constraint firstItem="T6d-QG-oRl" firstAttribute="leading" secondItem="Ssi-bg-DaZ" secondAttribute="leading" id="oor-7c-oYa"/>
                             <constraint firstItem="T6d-QG-oRl" firstAttribute="top" secondItem="bYV-hX-cQy" secondAttribute="bottom" constant="80" id="pXb-c2-oBU"/>
