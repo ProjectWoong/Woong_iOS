@@ -17,8 +17,13 @@ class PaymentVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.title = "결제 페이지"
         shadowView.isHidden = true
         setTableView()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     @IBAction func payMethodAction(_ sender: UIButton) {

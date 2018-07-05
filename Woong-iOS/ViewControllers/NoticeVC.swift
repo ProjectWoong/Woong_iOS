@@ -17,16 +17,27 @@ class NoticeVC: UIViewController {
     @IBOutlet var categoryView: UIView!
     @IBOutlet var categoryCollectionView: UICollectionView!
     @IBOutlet var messageTableView: UITableView!
+    @IBOutlet weak var deliveryTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupTableView()
         setupCollectionView()
     }
-    
+   
     private func setupTableView() {
+        deliveryTableView.isHidden = true
+        
         self.messageTableView.delegate = self
         self.messageTableView.dataSource = self
+        self.messageTableView.tableFooterView = UIView(frame: .zero)
+        self.messageTableView.separatorStyle = .none
+        
+        self.deliveryTableView.delegate = self
+        self.deliveryTableView.dataSource = self
+        self.deliveryTableView.tableFooterView = UIView(frame: .zero)
+        self.deliveryTableView.separatorStyle = .none
     }
     
     private func setupCollectionView() {
@@ -49,47 +60,87 @@ extension NoticeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            messageTableView.isHidden = false
+            deliveryTableView.isHidden = true
+        } else {
+            messageTableView.isHidden = true
+            deliveryTableView.isHidden = false
+        }
+    }
 }
 
 extension NoticeVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        if readMessageArr.count == 0 && unreadMessageArr.count == 0 {
+        
+        if tableView == messageTableView {
+            if readMessageArr.count == 0 && unreadMessageArr.count == 0 {
+                return 1
+            } else if readMessageArr.count == 0 || unreadMessageArr.count == 0  {
+                return 1
+            } else {
+                return 2
+            }
+        } else {                    //  배송
             return 1
-        } else if readMessageArr.count == 0 || unreadMessageArr.count == 0  {
-            return 1
-        } else {
-            return 2
         }
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if readMessageArr.count == 0 && unreadMessageArr.count == 0 {
-            return 1
-        } else if readMessageArr.count == 0 || unreadMessageArr.count == 0  {
-            if readMessageArr.count == 0 {
-                return unreadMessageArr.count
+        
+        if tableView == messageTableView {
+            if readMessageArr.count == 0 && unreadMessageArr.count == 0 {
+                return 1
+            } else if readMessageArr.count == 0 || unreadMessageArr.count == 0  {
+                if readMessageArr.count == 0 {
+                    return unreadMessageArr.count
+                } else {
+                    return readMessageArr.count
+                }
+                
             } else {
-                return readMessageArr.count
+                if section == 0 {
+                    return unreadMessageArr.count
+                } else {
+                    return readMessageArr.count
+                }
             }
-            
         } else {
-            if section == 0 {
-                return unreadMessageArr.count
-            } else {
-                return readMessageArr.count
-            }
+            return 5
         }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.section == 0 {
-            let cell = messageTableView.dequeueReusableCell(withIdentifier: "UnreadMessageCell", for: indexPath)
-            return cell
+        if tableView == messageTableView {
+            if indexPath.section == 0 {
+                let cell = messageTableView.dequeueReusableCell(withIdentifier: "UnreadMessageCell", for: indexPath)
+                return cell
+            } else {
+                let cell = messageTableView.dequeueReusableCell(withIdentifier: "ReadMessageCell", for: indexPath)
+                return cell
+            }
         } else {
-            let cell = messageTableView.dequeueReusableCell(withIdentifier: "ReadMessageCell", for: indexPath)
+            let cell = deliveryTableView.dequeueReusableCell(withIdentifier: "DeliveredCell", for: indexPath) as! DeliveredCell
+            cell.reviewButton.addTarget(self, action: #selector(reviewRegisterationAction(button:)), for: .touchUpInside)
             return cell
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == messageTableView {
+            let MessageVC = UIStoryboard(name: "Notice", bundle: nil).instantiateViewController(withIdentifier: "MessageVC")
+            self.tabBarController?.tabBar.isHidden = true
+            self.navigationController?.pushViewController(MessageVC, animated: true)
+        }
+    }
+    
+    @objc func reviewRegisterationAction(button: UIButton){
+        let reviewRegisterationVC = UIStoryboard(name: "Notice", bundle: nil).instantiateViewController(withIdentifier: "ReviewRegisterationVC")
+        
+        self.present(reviewRegisterationVC, animated: true, completion: nil)
+    }
     
 }

@@ -21,7 +21,7 @@ class MyProductVC: UIViewController {
     
     // Cart View Outlet
     @IBOutlet var cartView: UIView!
-    @IBOutlet var CartTableView: UITableView!
+    @IBOutlet var cartTableView: UITableView!
 
     
     override func viewDidLoad() {
@@ -38,11 +38,24 @@ class MyProductVC: UIViewController {
         
         let selectedIndexPath = NSIndexPath(item: 0, section: 0)
         categoryCollectionView.selectItem(at: selectedIndexPath as IndexPath, animated: false, scrollPosition: .init(rawValue: 0))
+        cartView.isHidden = true
     }
+    
     private func setupTableView() {
-        self.CartTableView.delegate = self
-        self.CartTableView.dataSource = self
+        self.cartTableView.delegate = self
+        self.cartTableView.dataSource = self
+        self.cartTableView.tableFooterView = UIView(frame: .zero)
+        self.cartTableView.separatorStyle = .none
     }
+    
+    @IBAction func orderAction(_ sender: UIButton) {
+        
+        let PaymentVC = UIStoryboard(name: "MyProduct", bundle: nil).instantiateViewController(withIdentifier: "PaymentVC")
+        
+        self.navigationController?.pushViewController(PaymentVC, animated: true)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
 }
 
 // Category & LikedProduct CollectionView
@@ -86,6 +99,17 @@ extension MyProductVC: UICollectionViewDelegate, UICollectionViewDataSource {
         if collectionView == categoryCollectionView {
             horizontalBarLeftAnchorConstraint?.constant = CGFloat(indexPath.item) * (self.view.frame.width / 2)
         }
+        
+        if collectionView == categoryCollectionView {
+            if indexPath.row == 0{
+                cartView.isHidden = true
+                productCollectionView.isHidden = false
+                
+            } else {
+                cartView.isHidden = false
+                productCollectionView.isHidden = true
+            }
+        }
     }
 }
 
@@ -111,17 +135,17 @@ extension MyProductVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if cartProductArr.count == 0 {
-            let cell = CartTableView.dequeueReusableCell(withIdentifier: "EmptyCartCell", for: indexPath)
+            let cell = cartTableView.dequeueReusableCell(withIdentifier: "EmptyCartCell", for: indexPath)
             return cell
         } else {
             if indexPath.section == 0 {
-                let cell = CartTableView.dequeueReusableCell(withIdentifier: "CartCheckCell", for: indexPath) as! CartCheckCell
+                let cell = cartTableView.dequeueReusableCell(withIdentifier: "CartCheckCell", for: indexPath) as! CartCheckCell
                 return cell
             } else if indexPath.section == 1{
-                let cell = CartTableView.dequeueReusableCell(withIdentifier: "CartProductCell", for: indexPath) as! CartProductCell
+                let cell = cartTableView.dequeueReusableCell(withIdentifier: "CartProductCell", for: indexPath) as! CartProductCell
                 return cell
             } else {
-                let cell = CartTableView.dequeueReusableCell(withIdentifier: "SumPriceCell", for: indexPath)
+                let cell = cartTableView.dequeueReusableCell(withIdentifier: "SumPriceCell", for: indexPath)
                 return cell
             }
         }
