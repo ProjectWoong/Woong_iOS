@@ -10,6 +10,7 @@
 		B350089720E9FC79009E0683 /* BigCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089620E9FC79009E0683 /* BigCategoryCell.swift */; };
 		B350089920EA3913009E0683 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350089820EA3913009E0683 /* Home.storyboard */; };
 		B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089A20EA3C9C009E0683 /* CategoryVC.swift */; };
+		B35A346D20EE42E8006B0AAE /* SellerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35A346C20EE42E8006B0AAE /* SellerInfoCell.swift */; };
 		B3918F4720EB45B600E05134 /* UIView+applyDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3918F4620EB45B600E05134 /* UIView+applyDesign.swift */; };
 		B3918F4920EB483900E05134 /* Market.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3918F4820EB483900E05134 /* Market.storyboard */; };
 		B3918F4D20EB5CB700E05134 /* SellerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3918F4C20EB5CB700E05134 /* SellerVC.swift */; };
@@ -51,6 +52,7 @@
 		B350089620E9FC79009E0683 /* BigCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCategoryCell.swift; sourceTree = "<group>"; };
 		B350089820EA3913009E0683 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		B350089A20EA3C9C009E0683 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
+		B35A346C20EE42E8006B0AAE /* SellerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerInfoCell.swift; sourceTree = "<group>"; };
 		B3918F4620EB45B600E05134 /* UIView+applyDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+applyDesign.swift"; sourceTree = "<group>"; };
 		B3918F4820EB483900E05134 /* Market.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Market.storyboard; sourceTree = "<group>"; };
 		B3918F4C20EB5CB700E05134 /* SellerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerVC.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				B350089620E9FC79009E0683 /* BigCategoryCell.swift */,
 				B3BF3DA720EA4DD80082802D /* SmallCategoryCell.swift */,
 				B3918F4E20EB5E6600E05134 /* SellerMenuCell.swift */,
+				B35A346C20EE42E8006B0AAE /* SellerInfoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */,
 				B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */,
 				B3918F5720EBA12900E05134 /* SellerNaviController.swift in Sources */,
+				B35A346D20EE42E8006B0AAE /* SellerInfoCell.swift in Sources */,
 				B3918F4F20EB5E6600E05134 /* SellerMenuCell.swift in Sources */,
 				B39568DC20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift in Sources */,
 				B39568D020E8A8F200379A48 /* MyPageVC.swift in Sources */,
@@ -543,7 +547,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N6JH7RBUA4;
+				DEVELOPMENT_TEAM = CXVMJWVF32;
 				INFOPLIST_FILE = "$(SRCROOT)/Woong-iOS/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -563,7 +567,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N6JH7RBUA4;
+				DEVELOPMENT_TEAM = CXVMJWVF32;
 				INFOPLIST_FILE = "$(SRCROOT)/Woong-iOS/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
