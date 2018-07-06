@@ -41,7 +41,7 @@ class CategoryVC: UIViewController {
         self.bigCategoryCollectionView.dataSource = self
         self.smallCategoryCollectionView.delegate = self
         self.smallCategoryCollectionView.dataSource = self
-        
+        self.bigCategoryView.applyShadow(radius: 5, color: UIColor.darkGray, offset: CGSize(width: 0, height: 0), opacity: 0.5)
         let selectedIndexPath = NSIndexPath(item: 0, section: 0)
         bigCategoryCollectionView.selectItem(at: selectedIndexPath as IndexPath, animated: false, scrollPosition: .init(rawValue: 0))
     }

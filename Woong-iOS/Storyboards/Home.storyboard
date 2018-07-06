@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3TN-cz-dbo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -123,7 +123,163 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijI-t7-biR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="913" y="-696"/>
+            <point key="canvasLocation" x="713" y="-807"/>
+        </scene>
+        <!--Weekend FarmerVC-->
+        <scene sceneID="wpI-WL-sp6">
+            <objects>
+                <viewController id="XOb-R5-OeJ" customClass="WeekendFarmerVC" customModule="Woong_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vNA-0f-4J2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="912"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jot-uE-Kx3">
+                                <rect key="frame" x="0.0" y="20" width="375" height="892"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="892" translatesAutoresizingMaskIntoConstraints="NO" id="c1P-tp-6nO">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="892"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DgD-jF-Atm">
+                                                <rect key="frame" x="0.0" y="220" width="375" height="1"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NrX-EW-Thg">
+                                                <rect key="frame" x="0.0" y="440" width="375" height="1"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0UR-6b-bOO">
+                                                <rect key="frame" x="142" y="44" width="91" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qUc-lu-M4P">
+                                                <rect key="frame" x="146" y="155" width="82" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="현듀 마켓" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOW-1n-J1R">
+                                                        <rect key="frame" x="18.5" y="0.0" width="45" height="18"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="9Gi-MV-8v7"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                        <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="이현듀 농부님" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwZ-Xb-esa">
+                                                        <rect key="frame" x="0.0" y="18" width="82" height="18"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="18" id="oWZ-cG-gWk"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="rw2-Ji-o6z"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                                        <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="6kI-ce-AXs" userLabel="IStack View">
+                                                <rect key="frame" x="71" y="244" width="233.5" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad5-og-N7C">
+                                                        <rect key="frame" x="0.0" y="0.0" width="15" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="15" id="73j-k4-jGp"/>
+                                                            <constraint firstAttribute="height" constant="36" id="7oK-3p-f2r"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="맛있는 충격, 홍감자 먹어봤슈?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQi-K4-We8">
+                                                        <rect key="frame" x="15" y="15.5" width="203.5" height="20.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="240" id="1AV-Pz-pvA"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlS-mc-j6i">
+                                                        <rect key="frame" x="218.5" y="0.0" width="15" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="jET-k5-8JL"/>
+                                                            <constraint firstAttribute="width" constant="15" id="rZJ-1y-UgT"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iw-NV-qZ9">
+                                                <rect key="frame" x="92" y="307" width="190" height="101"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <string key="text">감자는 말이여 알감자가 진리재~! 
+현듀네 알감자 먹고 예뻐지세유~!
+현듀 프로필 보슈 얼마나 이쁜지^^
+증명됐자나유~?
+무농약 친환경 알감자라 그래유
+알감자만 10년 키워온 프로 알감자 셀러 
+믿고 잡숴보슈~</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="현듀 농부님이 공개한 홍감자 추천요리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAF-2P-1eb">
+                                                <rect key="frame" x="76" y="476" width="223" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="추천요리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-l8-T4Q">
+                                                <rect key="frame" x="33" y="524" width="52" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="홍감자 조림, 홍감자 볶음, 홍감자 된장찌개, 홍감자 짜글이" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSh-yS-SJ8">
+                                                <rect key="frame" x="33" y="550" width="253" height="42"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.90427276229999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="c1P-tp-6nO" secondAttribute="bottom" id="AJW-MU-Hy9"/>
+                                    <constraint firstItem="c1P-tp-6nO" firstAttribute="leading" secondItem="jot-uE-Kx3" secondAttribute="leading" id="R57-0E-O7U"/>
+                                    <constraint firstItem="c1P-tp-6nO" firstAttribute="top" secondItem="jot-uE-Kx3" secondAttribute="top" id="TsS-lz-4Zt"/>
+                                    <constraint firstAttribute="trailing" secondItem="c1P-tp-6nO" secondAttribute="trailing" id="X7O-mg-9m2"/>
+                                    <constraint firstItem="c1P-tp-6nO" firstAttribute="width" secondItem="jot-uE-Kx3" secondAttribute="width" id="vTk-dr-Ay6"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jot-uE-Kx3" firstAttribute="top" secondItem="YZY-zU-OcU" secondAttribute="top" id="1Wz-Bb-sbd"/>
+                            <constraint firstItem="jot-uE-Kx3" firstAttribute="bottom" secondItem="YZY-zU-OcU" secondAttribute="bottom" id="Moc-MN-06z"/>
+                            <constraint firstItem="jot-uE-Kx3" firstAttribute="trailing" secondItem="YZY-zU-OcU" secondAttribute="trailing" id="i1w-SY-A63"/>
+                            <constraint firstItem="jot-uE-Kx3" firstAttribute="leading" secondItem="YZY-zU-OcU" secondAttribute="leading" id="ond-1Q-VTZ"/>
+                            <constraint firstItem="jot-uE-Kx3" firstAttribute="width" secondItem="vNA-0f-4J2" secondAttribute="width" id="rke-Gp-zTG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YZY-zU-OcU"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="912"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="60r-pt-9aX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98.400000000000006" y="-697.15142428785612"/>
         </scene>
         <!--CategoryVC-->
         <scene sceneID="M0z-2X-7nw">
@@ -179,7 +335,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T6d-QG-oRl">
-                                <rect key="frame" x="0.0" y="144" width="375" height="523"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="mJT-LJ-sqD">
                                     <size key="itemSize" width="125" height="125"/>
@@ -223,7 +379,7 @@
                             <constraint firstItem="T6d-QG-oRl" firstAttribute="bottom" secondItem="Ssi-bg-DaZ" secondAttribute="bottom" id="Z46-t9-awV"/>
                             <constraint firstItem="T6d-QG-oRl" firstAttribute="trailing" secondItem="Ssi-bg-DaZ" secondAttribute="trailing" id="jKf-mk-g5W"/>
                             <constraint firstItem="T6d-QG-oRl" firstAttribute="leading" secondItem="Ssi-bg-DaZ" secondAttribute="leading" id="oor-7c-oYa"/>
-                            <constraint firstItem="T6d-QG-oRl" firstAttribute="top" secondItem="bYV-hX-cQy" secondAttribute="bottom" constant="80" id="pXb-c2-oBU"/>
+                            <constraint firstItem="T6d-QG-oRl" firstAttribute="top" secondItem="bYV-hX-cQy" secondAttribute="bottom" constant="20" id="pXb-c2-oBU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ssi-bg-DaZ"/>
                     </view>
@@ -236,7 +392,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHb-OH-80t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912.79999999999995" y="79.610194902548727"/>
+            <point key="canvasLocation" x="1852" y="137.18140929535232"/>
+        </scene>
+        <!--ProductVC-->
+        <scene sceneID="X52-xx-Tcb">
+            <objects>
+                <viewController id="OJL-GM-qd6" customClass="ProductVC" customModule="Woong_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wfr-wk-F2K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ynb-3J-Oed">
+                                <rect key="frame" x="16" y="62" width="213" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="짧은거리"/>
+                                    <segment title="최고인기"/>
+                                    <segment title="낮은가격"/>
+                                </segments>
+                                <color key="tintColor" red="0.13725490200000001" green="0.47843137250000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99215686270000003" green="0.74509803919999995" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="HRo-pj-1mA"/>
+                    </view>
+                    <connections>
+                        <outlet property="segmentControl" destination="Ynb-3J-Oed" id="XgB-lQ-to4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1cc-4v-evl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2624.8000000000002" y="136.28185907046478"/>
         </scene>
     </scenes>
 </document>
