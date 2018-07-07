@@ -295,7 +295,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wcy-Sg-pGk">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="1" id="Mee-lj-67G">
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Mee-lj-67G">
                                             <size key="itemSize" width="93" height="44"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -335,7 +335,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T6d-QG-oRl">
-                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="573"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="mJT-LJ-sqD">
                                     <size key="itemSize" width="125" height="125"/>
@@ -379,7 +379,7 @@
                             <constraint firstItem="T6d-QG-oRl" firstAttribute="bottom" secondItem="Ssi-bg-DaZ" secondAttribute="bottom" id="Z46-t9-awV"/>
                             <constraint firstItem="T6d-QG-oRl" firstAttribute="trailing" secondItem="Ssi-bg-DaZ" secondAttribute="trailing" id="jKf-mk-g5W"/>
                             <constraint firstItem="T6d-QG-oRl" firstAttribute="leading" secondItem="Ssi-bg-DaZ" secondAttribute="leading" id="oor-7c-oYa"/>
-                            <constraint firstItem="T6d-QG-oRl" firstAttribute="top" secondItem="bYV-hX-cQy" secondAttribute="bottom" constant="20" id="pXb-c2-oBU"/>
+                            <constraint firstItem="T6d-QG-oRl" firstAttribute="top" secondItem="bYV-hX-cQy" secondAttribute="bottom" constant="30" id="pXb-c2-oBU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ssi-bg-DaZ"/>
                     </view>

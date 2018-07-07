@@ -10,6 +10,12 @@
 		B350089720E9FC79009E0683 /* BigCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089620E9FC79009E0683 /* BigCategoryCell.swift */; };
 		B350089920EA3913009E0683 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350089820EA3913009E0683 /* Home.storyboard */; };
 		B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089A20EA3C9C009E0683 /* CategoryVC.swift */; };
+		B3918F4720EB45B600E05134 /* UIView+applyDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3918F4620EB45B600E05134 /* UIView+applyDesign.swift */; };
+		B3918F4920EB483900E05134 /* Market.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3918F4820EB483900E05134 /* Market.storyboard */; };
+		B3918F4D20EB5CB700E05134 /* SellerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3918F4C20EB5CB700E05134 /* SellerVC.swift */; };
+		B3918F4F20EB5E6600E05134 /* SellerMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3918F4E20EB5E6600E05134 /* SellerMenuCell.swift */; };
+		B3918F5520EB9CDE00E05134 /* SampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3918F5420EB9CDE00E05134 /* SampleVC.swift */; };
+		B3918F5720EBA12900E05134 /* SellerNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3918F5620EBA12900E05134 /* SellerNaviController.swift */; };
 		B39568A120E888E800379A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568A020E888E800379A48 /* AppDelegate.swift */; };
 		B39568A620E888E800379A48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39568A420E888E800379A48 /* Main.storyboard */; };
 		B39568A820E888E900379A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39568A720E888E900379A48 /* Assets.xcassets */; };
@@ -26,9 +32,11 @@
 		B39568D020E8A8F200379A48 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CF20E8A8F200379A48 /* MyPageVC.swift */; };
 		B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */; };
 		B39568DA20E8DE9200379A48 /* UIColor+rgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D920E8DE9200379A48 /* UIColor+rgb.swift */; };
-		B39568DC20E8DF3400379A48 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568DB20E8DF3400379A48 /* UIView+extension.swift */; };
 		B39D89E920EF48F400FEA426 /* WeekendFarmerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E820EF48F400FEA426 /* WeekendFarmerVC.swift */; };
 		B39D89EB20EF5BAD00FEA426 /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89EA20EF5BAD00FEA426 /* ProductVC.swift */; };
+		B39D89F920EFADF700FEA426 /* SellerAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89F820EFADF700FEA426 /* SellerAlbumCell.swift */; };
+		B39D89FB20EFAFB300FEA426 /* SellerIntroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89FA20EFAFB300FEA426 /* SellerIntroCell.swift */; };
+		B39D89FD20EFB1CE00FEA426 /* SellerProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89FC20EFB1CE00FEA426 /* SellerProductCell.swift */; };
 		B3BF3DA820EA4DD80082802D /* SmallCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF3DA720EA4DD80082802D /* SmallCategoryCell.swift */; };
 		B3C4B61D20ECA872007EE7E2 /* LocationSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C4B61C20ECA872007EE7E2 /* LocationSearchVC.swift */; };
 		B3C4B61F20ECAB98007EE7E2 /* LocationSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C4B61E20ECAB98007EE7E2 /* LocationSearchCell.swift */; };
@@ -50,6 +58,12 @@
 		B350089620E9FC79009E0683 /* BigCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCategoryCell.swift; sourceTree = "<group>"; };
 		B350089820EA3913009E0683 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		B350089A20EA3C9C009E0683 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
+		B3918F4620EB45B600E05134 /* UIView+applyDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+applyDesign.swift"; sourceTree = "<group>"; };
+		B3918F4820EB483900E05134 /* Market.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Market.storyboard; sourceTree = "<group>"; };
+		B3918F4C20EB5CB700E05134 /* SellerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerVC.swift; sourceTree = "<group>"; };
+		B3918F4E20EB5E6600E05134 /* SellerMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerMenuCell.swift; sourceTree = "<group>"; };
+		B3918F5420EB9CDE00E05134 /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
+		B3918F5620EBA12900E05134 /* SellerNaviController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerNaviController.swift; sourceTree = "<group>"; };
 		B395689D20E888E800379A48 /* Woong-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woong-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39568A020E888E800379A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B39568A520E888E800379A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,9 +82,11 @@
 		B39568CF20E8A8F200379A48 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39568D920E8DE9200379A48 /* UIColor+rgb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgb.swift"; sourceTree = "<group>"; };
-		B39568DB20E8DF3400379A48 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		B39D89E820EF48F400FEA426 /* WeekendFarmerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekendFarmerVC.swift; sourceTree = "<group>"; };
 		B39D89EA20EF5BAD00FEA426 /* ProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
+		B39D89F820EFADF700FEA426 /* SellerAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAlbumCell.swift; sourceTree = "<group>"; };
+		B39D89FA20EFAFB300FEA426 /* SellerIntroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerIntroCell.swift; sourceTree = "<group>"; };
+		B39D89FC20EFB1CE00FEA426 /* SellerProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerProductCell.swift; sourceTree = "<group>"; };
 		B3BF3DA720EA4DD80082802D /* SmallCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCategoryCell.swift; sourceTree = "<group>"; };
 		B3C4B61C20ECA872007EE7E2 /* LocationSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchVC.swift; sourceTree = "<group>"; };
 		B3C4B61E20ECAB98007EE7E2 /* LocationSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchCell.swift; sourceTree = "<group>"; };
@@ -105,6 +121,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B3918F5020EB688B00E05134 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		B395689420E888E800379A48 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +151,7 @@
 			children = (
 				B39568A020E888E800379A48 /* AppDelegate.swift */,
 				B39568B920E88B8500379A48 /* Services */,
+				B3918F5020EB688B00E05134 /* Protocols */,
 				B39568B720E88AC600379A48 /* Models */,
 				B39568B620E88AC200379A48 /* Views */,
 				B39568B520E88AC100379A48 /* ViewControllers */,
@@ -163,6 +187,7 @@
 				B39568A420E888E800379A48 /* Main.storyboard */,
 				B39568A920E888E900379A48 /* LaunchScreen.storyboard */,
 				B350089820EA3913009E0683 /* Home.storyboard */,
+				B3918F4820EB483900E05134 /* Market.storyboard */,
 				CBF7E22A20EA294700F9145D /* Notice.storyboard */,
 				CBF7E22C20EA2D9300F9145D /* MyProduct.storyboard */,
 			);
@@ -187,6 +212,9 @@
 				B3C4B61C20ECA872007EE7E2 /* LocationSearchVC.swift */,
 				B39D89E820EF48F400FEA426 /* WeekendFarmerVC.swift */,
 				B39D89EA20EF5BAD00FEA426 /* ProductVC.swift */,
+				B3918F4C20EB5CB700E05134 /* SellerVC.swift */,
+				B3918F5420EB9CDE00E05134 /* SampleVC.swift */,
+				B3918F5620EBA12900E05134 /* SellerNaviController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -198,6 +226,10 @@
 				B350089620E9FC79009E0683 /* BigCategoryCell.swift */,
 				B3BF3DA720EA4DD80082802D /* SmallCategoryCell.swift */,
 				B3C4B61E20ECAB98007EE7E2 /* LocationSearchCell.swift */,
+				B3918F4E20EB5E6600E05134 /* SellerMenuCell.swift */,
+				B39D89FA20EFAFB300FEA426 /* SellerIntroCell.swift */,
+				B39D89FC20EFB1CE00FEA426 /* SellerProductCell.swift */,
+				B39D89F820EFADF700FEA426 /* SellerAlbumCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,8 +245,8 @@
 			isa = PBXGroup;
 			children = (
 				B39568D920E8DE9200379A48 /* UIColor+rgb.swift */,
-				B39568DB20E8DF3400379A48 /* UIView+extension.swift */,
 				B3C4B62020ECDBE6007EE7E2 /* UIViewController+extesion.swift */,
+				B3918F4620EB45B600E05134 /* UIView+applyDesign.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -306,6 +338,7 @@
 			files = (
 				B350089920EA3913009E0683 /* Home.storyboard in Resources */,
 				B39568AB20E888E900379A48 /* LaunchScreen.storyboard in Resources */,
+				B3918F4920EB483900E05134 /* Market.storyboard in Resources */,
 				B39568C120E8906700379A48 /* Sign.storyboard in Resources */,
 				CBF7E22D20EA2D9300F9145D /* MyProduct.storyboard in Resources */,
 				CBF7E22B20EA294700F9145D /* Notice.storyboard in Resources */,
@@ -365,7 +398,11 @@
 				B39568A120E888E800379A48 /* AppDelegate.swift in Sources */,
 				B3C4B61D20ECA872007EE7E2 /* LocationSearchVC.swift in Sources */,
 				CBF7E22F20EA39C200F9145D /* PaymentVC.swift in Sources */,
+				B39D89FB20EFAFB300FEA426 /* SellerIntroCell.swift in Sources */,
+				CBF7E22F20EA39C200F9145D /* PaymentVC.swift in Sources */,
+				B39D89FD20EFB1CE00FEA426 /* SellerProductCell.swift in Sources */,
 				CBF7E21F20E8A8DB00F9145D /* TutorialPageVC.swift in Sources */,
+				B3918F4720EB45B600E05134 /* UIView+applyDesign.swift in Sources */,
 				CBF7E22920E8CC7500F9145D /* Tutorial3VC.swift in Sources */,
 				B39D89E920EF48F400FEA426 /* WeekendFarmerVC.swift in Sources */,
 				CBF7E22520E8CC5A00F9145D /* Tutorial1VC.swift in Sources */,
@@ -378,13 +415,17 @@
 				B39568CC20E8A58F00379A48 /* MyProductVC.swift in Sources */,
 				B39568DA20E8DE9200379A48 /* UIColor+rgb.swift in Sources */,
 				B39568BB20E88C8500379A48 /* APIServices.swift in Sources */,
+				B3918F4D20EB5CB700E05134 /* SellerVC.swift in Sources */,
 				B39568C420E8914900379A48 /* SplashVC.swift in Sources */,
 				B3BF3DA820EA4DD80082802D /* SmallCategoryCell.swift in Sources */,
 				B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */,
 				B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */,
-				B39568DC20E8DF3400379A48 /* UIView+extension.swift in Sources */,
+				B3918F5720EBA12900E05134 /* SellerNaviController.swift in Sources */,
+				B3918F4F20EB5E6600E05134 /* SellerMenuCell.swift in Sources */,
 				B39568D020E8A8F200379A48 /* MyPageVC.swift in Sources */,
+				B3918F5520EB9CDE00E05134 /* SampleVC.swift in Sources */,
 				B39568CA20E8A56300379A48 /* MarketVC.swift in Sources */,
+				B39D89F920EFADF700FEA426 /* SellerAlbumCell.swift in Sources */,
 				B39568CE20E8A8DE00379A48 /* NoticeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,7 +572,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N6JH7RBUA4;
+				DEVELOPMENT_TEAM = CXVMJWVF32;
 				INFOPLIST_FILE = "$(SRCROOT)/Woong-iOS/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -551,7 +592,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N6JH7RBUA4;
+				DEVELOPMENT_TEAM = CXVMJWVF32;
 				INFOPLIST_FILE = "$(SRCROOT)/Woong-iOS/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
