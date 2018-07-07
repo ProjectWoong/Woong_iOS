@@ -150,6 +150,4 @@ extension MyProductVC: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
-    
 }

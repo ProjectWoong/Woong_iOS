@@ -28,6 +28,7 @@
 		B39568DA20E8DE9200379A48 /* UIColor+rgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D920E8DE9200379A48 /* UIColor+rgb.swift */; };
 		B39568DC20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568DB20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift */; };
 		B3BF3DA820EA4DD80082802D /* SmallCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF3DA720EA4DD80082802D /* SmallCategoryCell.swift */; };
+		CB26753420EF4A6400485979 /* BookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB26753320EF4A6400485979 /* BookMarkCell.swift */; };
 		CBF7E21F20E8A8DB00F9145D /* TutorialPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E21E20E8A8DB00F9145D /* TutorialPageVC.swift */; };
 		CBF7E22520E8CC5A00F9145D /* Tutorial1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E22420E8CC5A00F9145D /* Tutorial1VC.swift */; };
 		CBF7E22720E8CC6C00F9145D /* Tutorial2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E22620E8CC6C00F9145D /* Tutorial2VC.swift */; };
@@ -49,6 +50,7 @@
 		CBF7E24920EE23E100F9145D /* DeliveredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E24820EE23E100F9145D /* DeliveredCell.swift */; };
 		CBF7E24B20EE23F300F9145D /* DeliveringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E24A20EE23F300F9145D /* DeliveringCell.swift */; };
 		CBF7E24D20EE3AF000F9145D /* UITableView+scrollToLastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E24C20EE3AEF00F9145D /* UITableView+scrollToLastCell.swift */; };
+		CBF7E24F20EF3D7300F9145D /* NearMarketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7E24E20EF3D7300F9145D /* NearMarketCell.swift */; };
 		FDFDCBFCB5F94786020B6694 /* Pods_Woong_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA9E516F276581A6D8C8E7D /* Pods_Woong_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,7 @@
 		B39568D920E8DE9200379A48 /* UIColor+rgb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgb.swift"; sourceTree = "<group>"; };
 		B39568DB20E8DF3400379A48 /* UIView+addConstraintWithFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addConstraintWithFormat.swift"; sourceTree = "<group>"; };
 		B3BF3DA720EA4DD80082802D /* SmallCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCategoryCell.swift; sourceTree = "<group>"; };
+		CB26753320EF4A6400485979 /* BookMarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkCell.swift; sourceTree = "<group>"; };
 		CBF7E21E20E8A8DB00F9145D /* TutorialPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageVC.swift; sourceTree = "<group>"; };
 		CBF7E22420E8CC5A00F9145D /* Tutorial1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial1VC.swift; sourceTree = "<group>"; };
 		CBF7E22620E8CC6C00F9145D /* Tutorial2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial2VC.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		CBF7E24820EE23E100F9145D /* DeliveredCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveredCell.swift; sourceTree = "<group>"; };
 		CBF7E24A20EE23F300F9145D /* DeliveringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveringCell.swift; sourceTree = "<group>"; };
 		CBF7E24C20EE3AEF00F9145D /* UITableView+scrollToLastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+scrollToLastCell.swift"; sourceTree = "<group>"; };
+		CBF7E24E20EF3D7300F9145D /* NearMarketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearMarketCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,8 @@
 				CBF7E24620EDF5F800F9145D /* reviewImageCell.swift */,
 				CBF7E24820EE23E100F9145D /* DeliveredCell.swift */,
 				CBF7E24A20EE23F300F9145D /* DeliveringCell.swift */,
+				CBF7E24E20EF3D7300F9145D /* NearMarketCell.swift */,
+				CB26753320EF4A6400485979 /* BookMarkCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -404,12 +410,14 @@
 				B350089720E9FC79009E0683 /* BigCategoryCell.swift in Sources */,
 				B39568C820E8A53C00379A48 /* HomeVC.swift in Sources */,
 				B39568CC20E8A58F00379A48 /* MyProductVC.swift in Sources */,
+				CBF7E24F20EF3D7300F9145D /* NearMarketCell.swift in Sources */,
 				CBF7E24120EC97F300F9145D /* SendMessageCell.swift in Sources */,
 				B39568DA20E8DE9200379A48 /* UIColor+rgb.swift in Sources */,
 				B39568BB20E88C8500379A48 /* APIServices.swift in Sources */,
 				CBF7E24720EDF5F800F9145D /* reviewImageCell.swift in Sources */,
 				B39568C420E8914900379A48 /* SplashVC.swift in Sources */,
 				CBF7E24520ECF90500F9145D /* ReviewRegisterationVC.swift in Sources */,
+				CB26753420EF4A6400485979 /* BookMarkCell.swift in Sources */,
 				B3BF3DA820EA4DD80082802D /* SmallCategoryCell.swift in Sources */,
 				CBF7E23B20EBA40D00F9145D /* OrderProductCell.swift in Sources */,
 				B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */,
