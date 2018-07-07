@@ -11,15 +11,17 @@ import UIKit
 class SellerVC: UIViewController {
     
     let menuCellId = "SellerMenuCell"
-    let infoCellId = "SellerInfoCell"
+    let introCellId = "SellerIntroCell"
+    let productCellId = "SellerProductCell"
+    let albumCellId = "SellerAlbumCell"
     let menu = ["소개", "물품", "앨범", "후기"]
     
-    var selectedIndexPath = IndexPath(item: 0, section: 0)
+    var flag = 0
     
+    var selectedIndexPath = IndexPath(item: 0, section: 0)
     var sellerMenuConstraint: NSLayoutConstraint?
     
     @IBOutlet var sellerMenuTopConstraint: NSLayoutConstraint!
-    
     @IBOutlet var scrollView: UIScrollView!
     
     @IBOutlet var sellerProfileView: UIView!
@@ -50,7 +52,31 @@ class SellerVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    private func changeMenu(_ flag: Int) {
+        self.flag = flag
+        if flag == 0 {
+            if let flowLayout = sellerInfoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                flowLayout.minimumLineSpacing = 0
+                flowLayout.minimumInteritemSpacing = 0
+            }
+             sellerInfoCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            sellerInfoCollectionView.reloadData()
+        } else if flag == 1 {
+            if let flowLayout = sellerInfoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                flowLayout.minimumLineSpacing = 21
+                flowLayout.minimumInteritemSpacing = 9
+            }
+            sellerInfoCollectionView.contentInset = UIEdgeInsetsMake(9, 9, 9, 9)
+            sellerInfoCollectionView.reloadData()
+        } else {
+            if let flowLayout = sellerInfoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                flowLayout.minimumLineSpacing = 0
+                flowLayout.minimumInteritemSpacing = 0
+            }
+            sellerInfoCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            sellerInfoCollectionView.reloadData()
+        }
+    }
     
     func testAction(_ sender: Any) {
         for i in 0 ..< menu.count {
@@ -102,25 +128,20 @@ extension SellerVC: UIScrollViewDelegate {
             let collectionY = sellerInfoCollectionView.contentOffset.y
             
             if scrollY == 0 {
-                print("1")
                 if collectionY != 0 {
                     sellerInfoCollectionView.isScrollEnabled = true
-                    print("2-1")
                 } else {
-                    print("2-2")
+
                 }
             } else if scrollY < 184 {
                 sellerMenuTopConstraint.constant = 248
                 sellerInfoCollectionView.isScrollEnabled = false
                 self.scrollView.bounces = true
-                print("3")
             } else if scrollY >= 184 {
                 sellerMenuTopConstraint.constant = scrollY + 64
                 sellerInfoCollectionView.isScrollEnabled = true
                 self.scrollView.bounces = false
-                print("4")
             }
-            
         }
         else {
             let y = sellerInfoCollectionView.contentOffset.y
@@ -141,7 +162,13 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         if collectionView == sellerMenuCollectionView {
             return CGSize(width: sellerMenuView.frame.width / 4, height: sellerMenuView.frame.height)
         } else {
-            return CGSize(width: self.view.frame.width, height: self.view.frame.width)
+            if flag == 0 {
+                return CGSize(width: self.view.frame.width, height: self.view.frame.width)
+            } else if flag == 1 {
+                return CGSize(width: (self.view.frame.width - 27) / 2, height: self.view.frame.height * 0.325)
+            } else {
+                return CGSize(width: self.view.frame.width, height: 223)
+            }
         }
     }
     
@@ -149,7 +176,13 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         if collectionView == sellerMenuCollectionView {
             return menu.count
         } else {
-            return 5
+            if flag == 0 {
+                return 1
+            } else if flag == 1 {
+                return 10
+            } else {
+                return 6
+            }
         }
         
     }
@@ -161,8 +194,16 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             cell.menuLabel.text = menu[indexPath.item]
             return cell
         } else {
-            let cell = sellerInfoCollectionView.dequeueReusableCell(withReuseIdentifier: infoCellId, for: indexPath) as! SellerInfoCell
-            return cell
+            if flag == 0 {
+                let cell = sellerInfoCollectionView.dequeueReusableCell(withReuseIdentifier: introCellId, for: indexPath) as! SellerIntroCell
+                return cell
+            } else if flag == 1 {
+                let cell = sellerInfoCollectionView.dequeueReusableCell(withReuseIdentifier: productCellId, for: indexPath) as! SellerProductCell
+                return cell
+            } else {
+                let cell = sellerInfoCollectionView.dequeueReusableCell(withReuseIdentifier: albumCellId, for: indexPath) as! SellerAlbumCell
+                return cell
+            }
         }
     }
     
@@ -170,6 +211,7 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         if collectionView == sellerMenuCollectionView {
             self.selectedIndexPath = indexPath
             horizontalBarLeftAnchorConstraint?.constant = CGFloat(indexPath.item) * (self.view.frame.width / 4)
+            changeMenu(indexPath.item)
         }
     }
     
