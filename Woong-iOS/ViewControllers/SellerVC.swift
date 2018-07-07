@@ -41,7 +41,7 @@ class SellerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
-        setupMenu()
+        setupCollectionView()
         setupHorizontalBar()
         setupNavi()
         // Do any additional setup after loading the view.
@@ -59,8 +59,9 @@ class SellerVC: UIViewController {
                 flowLayout.minimumLineSpacing = 0
                 flowLayout.minimumInteritemSpacing = 0
             }
-             sellerInfoCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            sellerInfoCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
             sellerInfoCollectionView.reloadData()
+            sellerInfoCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         } else if flag == 1 {
             if let flowLayout = sellerInfoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
                 flowLayout.minimumLineSpacing = 21
@@ -68,6 +69,7 @@ class SellerVC: UIViewController {
             }
             sellerInfoCollectionView.contentInset = UIEdgeInsetsMake(9, 9, 9, 9)
             sellerInfoCollectionView.reloadData()
+            sellerInfoCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         } else {
             if let flowLayout = sellerInfoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
                 flowLayout.minimumLineSpacing = 0
@@ -75,6 +77,7 @@ class SellerVC: UIViewController {
             }
             sellerInfoCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
             sellerInfoCollectionView.reloadData()
+            sellerInfoCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         }
     }
     
@@ -99,7 +102,7 @@ class SellerVC: UIViewController {
         
     }
     
-    private func setupMenu() {
+    private func setupCollectionView() {
         sellerMenuView.applyShadow(radius: 5, color: UIColor.darkGray, offset: CGSize(width: 0, height: 0), opacity: 0.7)
         sellerMenuCollectionView.delegate = self
         sellerMenuCollectionView.dataSource = self
@@ -107,6 +110,7 @@ class SellerVC: UIViewController {
         
         sellerInfoCollectionView.delegate = self
         sellerInfoCollectionView.dataSource = self
+        
     }
     
     private func setupHorizontalBar() {

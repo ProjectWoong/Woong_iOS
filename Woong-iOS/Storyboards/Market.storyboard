@@ -81,7 +81,7 @@
                                                                     <rect key="frame" x="35" y="65" width="305" height="77"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="77" id="XH6-2u-2q7"/>
-                                                                        <constraint firstAttribute="width" constant="305" id="brW-mn-Tgm"/>
+                                                                        <constraint firstAttribute="width" priority="750" constant="305" id="brW-mn-Tgm"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,8 +101,10 @@
                                                             <constraint firstAttribute="bottom" secondItem="5LL-hp-cHW" secondAttribute="bottom" constant="62" id="3V9-ej-Rfc"/>
                                                             <constraint firstItem="N6f-4p-W9U" firstAttribute="centerX" secondItem="UVA-Us-Fef" secondAttribute="centerX" id="8hG-ss-ssZ"/>
                                                             <constraint firstItem="LEZ-7r-saB" firstAttribute="top" secondItem="UVA-Us-Fef" secondAttribute="top" constant="27" id="Bbj-yZ-PSJ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="N6f-4p-W9U" secondAttribute="trailing" constant="35" id="TSF-T4-7ND"/>
                                                             <constraint firstItem="N6f-4p-W9U" firstAttribute="top" secondItem="UVA-Us-Fef" secondAttribute="top" constant="65" id="abn-7b-Umr"/>
                                                             <constraint firstItem="5LL-hp-cHW" firstAttribute="centerX" secondItem="UVA-Us-Fef" secondAttribute="centerX" id="tOv-aI-Wmy"/>
+                                                            <constraint firstItem="N6f-4p-W9U" firstAttribute="leading" secondItem="UVA-Us-Fef" secondAttribute="leading" constant="35" id="uOB-b2-YpI"/>
                                                             <constraint firstAttribute="trailing" secondItem="5LL-hp-cHW" secondAttribute="trailing" constant="112" id="vaV-cL-O3X"/>
                                                             <constraint firstItem="5LL-hp-cHW" firstAttribute="leading" secondItem="UVA-Us-Fef" secondAttribute="leading" constant="111" id="yaL-4T-v36"/>
                                                             <constraint firstItem="LEZ-7r-saB" firstAttribute="leading" secondItem="N6f-4p-W9U" secondAttribute="leading" id="yz6-Nx-tgI"/>
@@ -248,6 +250,14 @@
                                                             <constraint firstAttribute="trailing" secondItem="B1b-8M-fFc" secondAttribute="trailing" id="tgf-ff-BXq"/>
                                                         </constraints>
                                                         <size key="customSize" width="375" height="223"/>
+                                                    </collectionViewCell>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BSE-qO-wxA">
+                                                        <rect key="frame" x="162.5" y="845" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </view>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
