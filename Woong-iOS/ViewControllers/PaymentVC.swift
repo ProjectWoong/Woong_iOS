@@ -10,16 +10,23 @@ import UIKit
 
 class PaymentVC: UIViewController {
 
-    @IBOutlet weak var shadowView: UIView!
+    var orderProductArr = ["왕감자","왕감자","왕감자","왕감자"]
+    
+    @IBOutlet var OrderProductTableView: UITableView!
+    @IBOutlet var shadowView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.title = "결제 페이지"
         shadowView.isHidden = true
+        setTableView()
     }
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
-    @IBAction func payAction(_ sender: UIButton) {
+    @IBAction func payMethodAction(_ sender: UIButton) {
         shadowView.isHidden = false
     }
     
@@ -27,14 +34,30 @@ class PaymentVC: UIViewController {
         shadowView.isHidden = true
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setTableView() {
+        OrderProductTableView.delegate = self
+        OrderProductTableView.dataSource = self
+        
     }
-    */
-
+    
 }
+
+
+extension PaymentVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orderProductArr.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = OrderProductTableView.dequeueReusableCell(withIdentifier: "OrderProductCell") as! OrderProductCell
+        
+        return cell
+    }
+    
+    
+}
+
+
+
+
+
