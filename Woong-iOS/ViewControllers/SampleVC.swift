@@ -10,6 +10,8 @@ import UIKit
 
 class SampleVC: UIViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,12 +22,6 @@ class SampleVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    @IBAction func NextAction(_ sender: Any) {
-        guard let destvc = storyboard?.instantiateViewController(withIdentifier: "SellerNavi") else { return }
-        present(destvc, animated: true)
-    }
-    
 
 }
+

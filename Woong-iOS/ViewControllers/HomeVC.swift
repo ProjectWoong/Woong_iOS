@@ -10,7 +10,8 @@ import UIKit
 
 class HomeVC: UIViewController {
 
-
+    
+    
     
     
     override func viewDidLoad() {
@@ -34,11 +35,9 @@ class HomeVC: UIViewController {
         
     }
     
-    @IBAction func NextView(_ sender: Any) {
-        let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "CategoryVC")
-        self.navigationController?.pushViewController(destvc, animated: true)
-    }
-    
-    
+//    @IBAction func NextView(_ sender: Any) {
+//        let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "CategoryVC")
+//        self.navigationController?.pushViewController(destvc, animated: true)
+//    }
 
 }
