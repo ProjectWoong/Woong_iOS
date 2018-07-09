@@ -12,6 +12,15 @@ class ReviewRegisterationVC: UIViewController {
     @IBOutlet var reviewView: UIView!
     @IBOutlet var reviewTextView: UITextView!
     @IBOutlet var reviewImageCollectionView: UICollectionView!
+
+    @IBOutlet var deliverySpeedButtonArr: [UIButton]!
+    
+    @IBOutlet var tastyButtonArr: [UIButton]!
+    
+    let rateArr = ["1", "2", "3", "4", "5"]
+    
+    @IBOutlet var deliveryRateLabel: UILabel!
+    
     let imagePicker : UIImagePickerController = UIImagePickerController()
     var reviewImageArr: [UIImage] = []
     
@@ -44,6 +53,11 @@ class ReviewRegisterationVC: UIViewController {
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func deliveryRateAction(_ sender: UIButton) {
+        deliveryRateLabel.text = "aa"
+        
     }
     
 }
