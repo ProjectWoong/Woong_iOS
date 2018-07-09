@@ -23,7 +23,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        homeScrollView.addObserver(self, forKeyPath: "contentOffset", options: [.new, .old], context: nil)
+        //homeScrollView.addObserver(self, forKeyPath: "contentOffset", options: [.new, .old], context: nil)
         
         setupNaviBar()
         setupView()

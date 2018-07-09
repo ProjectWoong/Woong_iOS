@@ -124,7 +124,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Wp-J4-XKY">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="73"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgN-ii-NWc" customClass="MyButton" customModule="Woong_iOS" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgN-ii-NWc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="73" height="73"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="rgN-ii-NWc" secondAttribute="height" multiplier="1:1" id="uxU-tB-mvP"/>
