@@ -32,6 +32,9 @@
 		B39568D020E8A8F200379A48 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CF20E8A8F200379A48 /* MyPageVC.swift */; };
 		B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */; };
 		B39568DA20E8DE9200379A48 /* UIColor+rgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D920E8DE9200379A48 /* UIColor+rgb.swift */; };
+		B397F37020F351E400CF8FA3 /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B397F36D20F351DC00CF8FA3 /* NanumSquareOTFExtraBold.otf */; };
+		B397F37120F351E400CF8FA3 /* NanumSquareOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B397F36E20F351DF00CF8FA3 /* NanumSquareOTFBold.otf */; };
+		B397F37220F351E400CF8FA3 /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B397F36F20F351E100CF8FA3 /* NanumSquareOTFRegular.otf */; };
 		B39D89E920EF48F400FEA426 /* WeekendFarmerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E820EF48F400FEA426 /* WeekendFarmerVC.swift */; };
 		B39D89EB20EF5BAD00FEA426 /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89EA20EF5BAD00FEA426 /* ProductVC.swift */; };
 		B39D89F920EFADF700FEA426 /* SellerAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89F820EFADF700FEA426 /* SellerAlbumCell.swift */; };
@@ -98,6 +101,9 @@
 		B39568CF20E8A8F200379A48 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39568D920E8DE9200379A48 /* UIColor+rgb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgb.swift"; sourceTree = "<group>"; };
+		B397F36D20F351DC00CF8FA3 /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumSquareOTFExtraBold.otf; path = ../../../../../Desktop/NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
+		B397F36E20F351DF00CF8FA3 /* NanumSquareOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumSquareOTFBold.otf; path = ../../../../../Desktop/NanumSquareOTFBold.otf; sourceTree = "<group>"; };
+		B397F36F20F351E100CF8FA3 /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumSquareOTFRegular.otf; path = ../../../../../Desktop/NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
 		B39D89E820EF48F400FEA426 /* WeekendFarmerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekendFarmerVC.swift; sourceTree = "<group>"; };
 		B39D89EA20EF5BAD00FEA426 /* ProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
 		B39D89F820EFADF700FEA426 /* SellerAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAlbumCell.swift; sourceTree = "<group>"; };
@@ -206,6 +212,7 @@
 		B39568B320E88ABC00379A48 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B397F36C20F351BA00CF8FA3 /* Fonts */,
 				B39568A720E888E900379A48 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -316,6 +323,16 @@
 			path = "Tutorial&Sign";
 			sourceTree = "<group>";
 		};
+		B397F36C20F351BA00CF8FA3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B397F36E20F351DF00CF8FA3 /* NanumSquareOTFBold.otf */,
+				B397F36D20F351DC00CF8FA3 /* NanumSquareOTFExtraBold.otf */,
+				B397F36F20F351E100CF8FA3 /* NanumSquareOTFRegular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		F6010A6712355385F61DDFFF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,12 +404,15 @@
 				B350089920EA3913009E0683 /* Home.storyboard in Resources */,
 				B39568AB20E888E900379A48 /* LaunchScreen.storyboard in Resources */,
 				B3918F4920EB483900E05134 /* Market.storyboard in Resources */,
+				B397F37120F351E400CF8FA3 /* NanumSquareOTFBold.otf in Resources */,
 				B39568C120E8906700379A48 /* Sign.storyboard in Resources */,
 				CBF7E22D20EA2D9300F9145D /* MyProduct.storyboard in Resources */,
 				CBF7E22B20EA294700F9145D /* Notice.storyboard in Resources */,
 				B39568A820E888E900379A48 /* Assets.xcassets in Resources */,
 				B39568BD20E88ECA00379A48 /* Tutorial.storyboard in Resources */,
+				B397F37220F351E400CF8FA3 /* NanumSquareOTFRegular.otf in Resources */,
 				B39568BF20E88EDC00379A48 /* Splash.storyboard in Resources */,
+				B397F37020F351E400CF8FA3 /* NanumSquareOTFExtraBold.otf in Resources */,
 				B39568A620E888E800379A48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
