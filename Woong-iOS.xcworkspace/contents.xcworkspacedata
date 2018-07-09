@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/parkseeun/Desktop/Woong_iOS/Woong-iOS/ViewControllers/SignInVC.swift">
+   </FileRef>
+   <FileRef
       location = "group:Woong-iOS.xcodeproj">
    </FileRef>
    <FileRef
