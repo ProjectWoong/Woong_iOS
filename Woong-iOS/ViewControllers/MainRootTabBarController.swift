@@ -23,8 +23,9 @@ class MainRootTabBarController: UITabBarController {
     
 
     private func setupTabBar() {
+        self.tabBar.isTranslucent = false
         self.tabBar.barTintColor = .white
-        self.tabBar.applyShadow(radius: 4, color: .darkGray, offset: CGSize(width: 0, height: 0), opacity: 0.6)
+        self.tabBar.applyShadow(radius: 5, color: .black, offset: CGSize(width: 0, height: -2), opacity: 0.15)
     }
 
 }
