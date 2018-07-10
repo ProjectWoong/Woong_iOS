@@ -9,10 +9,15 @@
 import UIKit
 
 class RecieveMessageCell: UITableViewCell {
-
+ @IBOutlet weak var messageView: UIView!
+    @IBOutlet weak var messageTextView: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        messageTextView.sizeToFit()
+        messageView.layer.masksToBounds = true
+        messageView.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

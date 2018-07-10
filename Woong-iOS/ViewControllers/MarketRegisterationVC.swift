@@ -14,7 +14,8 @@ class MarketRegisterationVC: UIViewController {
     @IBOutlet var registerationView: UIView!
     @IBOutlet var hint1View: UIView!
     @IBOutlet var hint2View: UIView!
-    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet var photoImageView: UIImageView!
+    @IBOutlet var registerationButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class MarketRegisterationVC: UIViewController {
         registerationView.layer.borderColor = #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)
         hint1View.isHidden = true
         hint2View.isHidden = true
+        registerationButton.layer.cornerRadius = 24/667 * self.view.frame.height
     }
     
     @IBAction func photoAddAction(_ sender: UIButton) {

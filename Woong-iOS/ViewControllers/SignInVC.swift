@@ -21,17 +21,17 @@ class SignInVC: UIViewController {
         super.viewDidLoad()
         
         idView.layer.masksToBounds = true
-        idView.layer.cornerRadius = 24
+        idView.layer.cornerRadius = 24/667 * self.view.frame.height
         idView.layer.borderWidth = 1
         idView.layer.borderColor = #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)
         
         passwordView.layer.masksToBounds = true
-        passwordView.layer.cornerRadius = 24
+        passwordView.layer.cornerRadius = 24/667 * self.view.frame.height
         passwordView.layer.borderWidth = 1
         passwordView.layer.borderColor = #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)
         
         loginButton.layer.masksToBounds = true
-        loginButton.layer.cornerRadius = 24
+        loginButton.layer.cornerRadius = 24/667 * self.view.frame.height
         
         setupTextField()
         

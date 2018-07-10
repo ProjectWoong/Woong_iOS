@@ -9,19 +9,26 @@
 import UIKit
 
 class ReviewRegisterationVC: UIViewController {
+    @IBOutlet weak var reviewScrollView: UIScrollView!
     @IBOutlet var reviewView: UIView!
     @IBOutlet var reviewTextView: UITextView!
     @IBOutlet var reviewImageCollectionView: UICollectionView!
-
-    @IBOutlet var deliverySpeedButtonArr: [UIButton]!
     
+    @IBOutlet var deliveryButtonArr: [UIButton]!
     @IBOutlet var tastyButtonArr: [UIButton]!
+    @IBOutlet var refreshButtonArr: [UIButton]!
+    @IBOutlet var kindButtonArr: [UIButton]!
     
-    let rateArr = ["1", "2", "3", "4", "5"]
-    
-    @IBOutlet var deliveryRateLabel: UILabel!
+    @IBOutlet weak var deliveryRateLabel: UILabel!
+    @IBOutlet weak var tastyRateLabel: UILabel!
+    @IBOutlet weak var refreshRateLabel: UILabel!
+    @IBOutlet weak var kindRateLabel: UILabel!
     
     let imagePicker : UIImagePickerController = UIImagePickerController()
+    let unlikeImage = UIImage(named: "alarm-reviewing-not-like")
+    let likeImage = UIImage(named: "alarm-reviewing-like")
+    
+    let rateTextArr = ["별로에요","보통이에요","만족해요","정말좋아요","완벽해요"]
     var reviewImageArr: [UIImage] = []
     
     override func viewDidLoad() {
@@ -30,8 +37,75 @@ class ReviewRegisterationVC: UIViewController {
         setupCollectionView()
     }
     
+    @IBAction func deliveryLatingAction(_ sender: UIButton) {
+        var index = 5
+        for i in 0...4 {
+            if sender == deliveryButtonArr[i] {
+                deliveryRateLabel.text = rateTextArr[i]
+                index = i
+            }
+            
+            if i > index {
+                deliveryButtonArr[i].setBackgroundImage(unlikeImage, for: .normal)
+            } else {
+                deliveryButtonArr[i].setBackgroundImage(likeImage, for: .normal)
+            }
+        }
+    }
+    
+    @IBAction func tastyLatingAction(_ sender: UIButton) {
+        var index = 5
+        for i in 0...4 {
+            if sender == tastyButtonArr[i] {
+                tastyRateLabel.text = rateTextArr[i]
+                 index = i
+            }
+            
+            if i > index {
+                tastyButtonArr[i].setBackgroundImage(unlikeImage, for: .normal)
+            } else {
+                tastyButtonArr[i].setBackgroundImage(likeImage, for: .normal)
+            }
+        }
+    }
+    
+    @IBAction func kindLatingAction(_ sender: UIButton) {
+        var index = 5
+        for i in 0...4 {
+            if sender == kindButtonArr[i] {
+                kindRateLabel.text = rateTextArr[i]
+                index = i
+            }
+            
+            if i > index {
+                kindButtonArr[i].setBackgroundImage(unlikeImage, for: .normal)
+            } else {
+                kindButtonArr[i].setBackgroundImage(likeImage, for: .normal)
+            }
+        }
+    }
+    
+    @IBAction func refreshLatingAction(_ sender: UIButton) {
+        var index = 5
+        for i in 0...4 {
+            if sender == refreshButtonArr[i] {
+                refreshRateLabel.text = rateTextArr[i]
+                index = i
+            }
+            
+            if i > index {
+                refreshButtonArr[i].setBackgroundImage(unlikeImage, for: .normal)
+            } else {
+                refreshButtonArr[i].setBackgroundImage(likeImage, for: .normal)
+            }
+        }
+    }
+    
+    
+    
     private func setupTextView() {
         reviewTextView.delegate = self
+        reviewTextView.sizeToFit()
         if reviewTextView.text == "" {
             textViewDidEndEditing(reviewTextView)
         }
@@ -54,12 +128,6 @@ class ReviewRegisterationVC: UIViewController {
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func deliveryRateAction(_ sender: UIButton) {
-        deliveryRateLabel.text = "aa"
-        
-    }
-    
 }
 
 extension ReviewRegisterationVC: UITextViewDelegate {
@@ -92,7 +160,10 @@ extension ReviewRegisterationVC: UITextViewDelegate {
     @objc func keyboardWillHide(_ sender: Notification) {
         self.view.frame.origin.y = 0 // Move view to original position
     }
-    
+//    func textViewDidChange(_ textView: UITextView) {
+//        textView.sizeToFit()
+//    }
+//
 }
 
 extension ReviewRegisterationVC: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -149,9 +220,20 @@ extension ReviewRegisterationVC: UIImagePickerControllerDelegate, UINavigationCo
             reviewImageArr.append(originalImage)
         }
         self.dismiss(animated: true) {
+          
             self.reviewImageCollectionView.reloadData()
         }
     }
-    
+//    func textViewDidChange(_ textView: UITextView) {
+//        let size = CGSize(width: textView.frame.width, height: CGFloat(MAXFLOAT))
+//        let value = textView.sizeThatFits(size)
+//        let newHeight = value.height + textView.frame.minY
+//        if newHeight > scrollView.contentSize.height {
+//            contentView.frame = CGRect(x: 0, y: 0, width: textView.frame.width, height: newHeight)
+//
+//            scrollView.contentSize = CGSize(width: textView.frame.width, height: value.height + textView.frame.minY)
+//        }
+//    }
+//
 
 }

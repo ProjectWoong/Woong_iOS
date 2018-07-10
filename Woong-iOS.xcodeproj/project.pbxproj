@@ -78,6 +78,10 @@
 		CBF9265F20F23B9400975576 /* SignUpInfo1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9265E20F23B9400975576 /* SignUpInfo1VC.swift */; };
 		CBF9266120F23BA000975576 /* SignUpInfo2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9266020F23BA000975576 /* SignUpInfo2VC.swift */; };
 		CBF9266320F23EE100975576 /* FarmLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9266220F23EE100975576 /* FarmLocationVC.swift */; };
+		CBF9266720F37CEB00975576 /* NanumSquareOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBF9266520F3793D00975576 /* NanumSquareOTFBold.otf */; };
+		CBF9266820F37CED00975576 /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBF9266420F3793700975576 /* NanumSquareOTFExtraBold.otf */; };
+		CBF9266920F37CF000975576 /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBF9266620F3793D00975576 /* NanumSquareOTFRegular.otf */; };
+		FDFDCBFCB5F94786020B6694 /* Pods_Woong_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA9E516F276581A6D8C8E7D /* Pods_Woong_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +160,9 @@
 		CBF9265E20F23B9400975576 /* SignUpInfo1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo1VC.swift; sourceTree = "<group>"; };
 		CBF9266020F23BA000975576 /* SignUpInfo2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo2VC.swift; sourceTree = "<group>"; };
 		CBF9266220F23EE100975576 /* FarmLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmLocationVC.swift; sourceTree = "<group>"; };
+		CBF9266420F3793700975576 /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
+		CBF9266520F3793D00975576 /* NanumSquareOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFBold.otf; sourceTree = "<group>"; };
+		CBF9266620F3793D00975576 /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,9 +354,9 @@
 		B397F36C20F351BA00CF8FA3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				B397F36E20F351DF00CF8FA3 /* NanumSquareOTFBold.otf */,
-				B397F36D20F351DC00CF8FA3 /* NanumSquareOTFExtraBold.otf */,
-				B397F36F20F351E100CF8FA3 /* NanumSquareOTFRegular.otf */,
+				CBF9266520F3793D00975576 /* NanumSquareOTFBold.otf */,
+				CBF9266420F3793700975576 /* NanumSquareOTFExtraBold.otf */,
+				CBF9266620F3793D00975576 /* NanumSquareOTFRegular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -434,15 +441,15 @@
 				B350089920EA3913009E0683 /* Home.storyboard in Resources */,
 				B39568AB20E888E900379A48 /* LaunchScreen.storyboard in Resources */,
 				B3918F4920EB483900E05134 /* Market.storyboard in Resources */,
-				B397F37120F351E400CF8FA3 /* NanumSquareOTFBold.otf in Resources */,
 				B39568C120E8906700379A48 /* Sign.storyboard in Resources */,
+				CBF9266720F37CEB00975576 /* NanumSquareOTFBold.otf in Resources */,
 				CBF7E22D20EA2D9300F9145D /* MyProduct.storyboard in Resources */,
 				CBF7E22B20EA294700F9145D /* Notice.storyboard in Resources */,
 				B39568A820E888E900379A48 /* Assets.xcassets in Resources */,
+				CBF9266820F37CED00975576 /* NanumSquareOTFExtraBold.otf in Resources */,
+				CBF9266920F37CF000975576 /* NanumSquareOTFRegular.otf in Resources */,
 				B39568BD20E88ECA00379A48 /* Tutorial.storyboard in Resources */,
-				B397F37220F351E400CF8FA3 /* NanumSquareOTFRegular.otf in Resources */,
 				B39568BF20E88EDC00379A48 /* Splash.storyboard in Resources */,
-				B397F37020F351E400CF8FA3 /* NanumSquareOTFExtraBold.otf in Resources */,
 				B39568A620E888E800379A48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
