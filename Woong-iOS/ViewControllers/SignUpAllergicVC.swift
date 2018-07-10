@@ -14,7 +14,7 @@ class SignUpAllergicVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerationButton.layer.masksToBounds = true
-        registerationButton.layer.cornerRadius = 24
+        registerationButton.layer.cornerRadius = 24/667 * self.view.frame.height
     }
 
 }

@@ -15,7 +15,7 @@ class SignUpInfo2VC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nextButton.layer.masksToBounds = true
-        nextButton.layer.cornerRadius = 24
+        nextButton.layer.cornerRadius = 24/667 * self.view.frame.height
     }
     @IBAction func nextAction(_ sender: UIButton) {
         let signupVC = UIStoryboard(name: "Sign", bundle: nil).instantiateViewController(withIdentifier: "SignUpAllergicVC")

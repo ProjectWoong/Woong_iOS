@@ -17,9 +17,9 @@ class ChooseLoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sellerLoginButton.layer.masksToBounds = true
-        sellerLoginButton.layer.cornerRadius = 24
+        sellerLoginButton.layer.cornerRadius = 24/667 * self.view.frame.height
         customerLoginButton.layer.masksToBounds = true
-        customerLoginButton.layer.cornerRadius = 24
+        customerLoginButton.layer.cornerRadius = 24/667 * self.view.frame.height
     
     }
     @IBAction func chooseLoginAction(_ sender: UIButton) {

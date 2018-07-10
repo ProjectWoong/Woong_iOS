@@ -16,8 +16,16 @@ class MessageVC: UIViewController {
     @IBOutlet var messageTableView: UITableView!
     @IBOutlet var messageTextView: UITextView!
     
+    @IBOutlet weak var messageView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        messageView.layer.masksToBounds = true
+        messageView.layer.cornerRadius = 24/667 * self.view.frame.height
+        
+        
+        messageView.layer.borderWidth = 1
+        messageView.layer.borderColor = #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)
+        
         setupTableView()
         setupTextView()
         scrollToBottom()
