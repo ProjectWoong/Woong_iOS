@@ -682,7 +682,7 @@
             </objects>
             <point key="canvasLocation" x="1300" y="965.6671664167917"/>
         </scene>
-        <!--특히-->
+        <!--MarketVC-->
         <scene sceneID="JTu-Em-dF6">
             <objects>
                 <viewController id="rgi-wP-qrp" customClass="MarketVC" customModule="Woong_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -881,7 +881,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="KuT-8d-LRY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="특히" id="Ijq-Ts-mZP">
+                    <navigationItem key="navigationItem" id="Ijq-Ts-mZP">
                         <barButtonItem key="rightBarButtonItem" title="장바구니" id="EBT-hN-K2H"/>
                     </navigationItem>
                     <connections>
