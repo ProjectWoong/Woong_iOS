@@ -29,33 +29,7 @@ class HomeVC: UIViewController {
         setupView()
         // Do any additional setup after loading the view.
     }
-    
-//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-//        guard (object as? UIScrollView) != nil else { return }
-//        let changeValue = change! as [NSKeyValueChangeKey:AnyObject]
-//        if let new = changeValue[.newKey]?.cgPointValue, let old = changeValue[.oldKey]?.cgPointValue {
-//            let diff = new.y - old.y
-//            if diff > 0 {
-//
-//                if self.homeSearchBarHeightContraint.constant <= 0 {
-//                    self.homeSearchBarHeightContraint.constant = 0
-//                } else {
-//                    self.homeSearchBarHeightContraint.constant -= diff
-//                }
-//            } else if diff < 0{
-//                diffMin = diffMin - diff
-//                if diffMin >= 10 {
-//                    UIView.animate(withDuration: 0.6) {
-//                        self.homeSearchBarHeightContraint.constant = 44
-//                    }
-//                    diffMin = 0
-//                }
-//
-//            }
-//        }
-//    }
-    
-    
+
     
     private func setupNaviBar() {
         self.navigationController?.navigationBar.topItem?.title = myAddress
