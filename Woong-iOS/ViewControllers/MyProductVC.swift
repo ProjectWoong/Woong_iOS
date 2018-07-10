@@ -11,9 +11,10 @@ import UIKit
 class MyProductVC: UIViewController {
     let categoryArr = ["찜한 상품", "장바구니"]
     var marketNameArr = ["현듀마켓", "세은마켓", "수정마켓", "혜란마켓"]
-    var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
-    
     var cartProductArr: [String] = ["왕감장","왕감장","왕감장", "고구마"]
+    var isEmptyCheck: Bool = false
+    
+    
     
     @IBOutlet var categoryView: UIView!
     @IBOutlet var categoryCollectionView: UICollectionView!
@@ -22,12 +23,23 @@ class MyProductVC: UIViewController {
     // Cart View Outlet
     @IBOutlet var cartView: UIView!
     @IBOutlet var cartTableView: UITableView!
-
+    
+    var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
+    let horizontalBarView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.rgb(red: 82, green: 156, blue: 119)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         setupTableView()
+    }
+    
+    private func setupView() {
+        categoryView.applyShadow(radius: 6, color: .black, offset: CGSize(width: 0, height: 3), opacity: 0.15)
     }
     
     private func setupCollectionView() {
@@ -48,6 +60,15 @@ class MyProductVC: UIViewController {
         self.cartTableView.separatorStyle = .none
     }
     
+    private func setupHorizontalBar() {
+        categoryView.addSubview(horizontalBarView)
+        horizontalBarLeftAnchorConstraint = horizontalBarView.leftAnchor.constraint(equalTo: categoryView.leftAnchor)
+        horizontalBarLeftAnchorConstraint?.isActive = true
+        horizontalBarView.bottomAnchor.constraint(equalTo: categoryView.bottomAnchor).isActive = true
+        horizontalBarView.widthAnchor.constraint(equalTo: categoryView.widthAnchor, multiplier: 1/2).isActive = true
+        horizontalBarView.heightAnchor.constraint(equalToConstant: 2).isActive = true
+    }
+    
     @IBAction func orderAction(_ sender: UIButton) {
         
         let PaymentVC = UIStoryboard(name: "MyProduct", bundle: nil).instantiateViewController(withIdentifier: "PaymentVC")
@@ -59,7 +80,15 @@ class MyProductVC: UIViewController {
 }
 
 // Category & LikedProduct CollectionView
-extension MyProductVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MyProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == categoryCollectionView{
+            return CGSize(width: self.view.frame.width / 2, height: 44)
+        } else {
+            return CGSize(width: (self.view.frame.width - 25) / 2, height: 240)
+        }
+    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == categoryCollectionView {
@@ -115,6 +144,21 @@ extension MyProductVC: UICollectionViewDelegate, UICollectionViewDataSource {
 
 // Cart TableView
 extension MyProductVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if cartProductArr.count == 0 {
+            return 510
+        } else {
+            if indexPath.section == 0 {
+                return 53
+            } else if indexPath.section == 1 {
+                return 200
+            } else {
+                return 105
+            }
+        }
+        
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if cartProductArr.count == 0{
             return 1
@@ -143,11 +187,21 @@ extension MyProductVC: UITableViewDelegate, UITableViewDataSource {
                 return cell
             } else if indexPath.section == 1{
                 let cell = cartTableView.dequeueReusableCell(withIdentifier: "CartProductCell", for: indexPath) as! CartProductCell
+                cell.delegate = self
                 return cell
             } else {
                 let cell = cartTableView.dequeueReusableCell(withIdentifier: "SumPriceCell", for: indexPath)
                 return cell
             }
         }
+    }
+}
+
+extension MyProductVC: StepperDelegate {
+    func didRightButtonPressed() {
+        print("right")
+    }
+    func didLeftButtonPressed() {
+        print("left")
     }
 }

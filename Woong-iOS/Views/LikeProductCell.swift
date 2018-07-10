@@ -11,4 +11,8 @@ import UIKit
 class LikeProductCell: UICollectionViewCell {
     @IBOutlet weak var marketNameLabel: UILabel!
     
+    override func awakeFromNib() {
+        self.layer.masksToBounds = false
+        self.applyShadow(radius: 10, color: .black, offset: CGSize(width: 0, height: 10), opacity: 0.1)
+    }
 }

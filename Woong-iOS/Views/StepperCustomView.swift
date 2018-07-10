@@ -10,14 +10,39 @@ import UIKit
 
 class StepperCustomView: UIView {
 
-    let leftButton = UIButton()
-    let rightButton = UIButton()
-    let label = UILabel()
-    private var value = 0 {
-        didSet {
-            label.text = "\(value)"
-        }
-    }
+    let leftButton : UIButton = {
+        let btn = UIButton()
+        btn.setTitle("-", for: .normal)
+        btn.backgroundColor = UIColor.rgb(red: 82, green: 156, blue: 119)
+        btn.layer.masksToBounds = true
+        btn.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        btn.layer.borderWidth = 0.1
+        btn.titleLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        return btn
+    }()
+    let rightButton : UIButton = {
+        let btn = UIButton()
+        btn.setTitle("+", for: .normal)
+        btn.backgroundColor = UIColor.rgb(red: 82, green: 156, blue: 119)
+        btn.layer.masksToBounds = true
+        btn.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        btn.layer.borderWidth = 0.1
+        btn.titleLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        return btn
+    }()
+    let label : UILabel = {
+        let lbl = UILabel()
+        lbl.text = "0"
+        lbl.textAlignment = .center
+        lbl.font = UIFont(name: "NanumSquareOTF", size: 15)
+        return lbl
+    }()
+    
+//    private var value = 0 {
+//        didSet {
+//            label.text = "\(value)"
+//        }
+//    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -30,29 +55,12 @@ class StepperCustomView: UIView {
     }
     
     func setup() {
-        print("init")
-        leftButton.setTitle("-", for: .normal)
-        leftButton.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
-        leftButton.layer.masksToBounds = true
-        leftButton.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        leftButton.layer.borderWidth = 0.1
-        leftButton.titleLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         addSubview(leftButton)
-        
-        rightButton.setTitle("+", for: .normal)
-        rightButton.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
-        rightButton.layer.masksToBounds = true
-        rightButton.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        rightButton.layer.borderWidth = 0.1
-        rightButton.titleLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         addSubview(rightButton)
-        
-        label.text = "0"
-        label.textAlignment = .center
         addSubview(label)
         
-        leftButton.addTarget(self, action: #selector(leftButtonTouchDown(button:)), for: .touchUpInside)
-        leftButton.addTarget(self, action: #selector(rightButtonTouchDown(button:)) , for: .touchUpInside)
+//        leftButton.addTarget(self, action: #selector(leftButtonTouchDown(button:)), for: .touchUpInside)
+//        leftButton.addTarget(self, action: #selector(rightButtonTouchDown(button:)) , for: .touchUpInside)
 
     }
     
@@ -70,15 +78,15 @@ class StepperCustomView: UIView {
     }
     
     // MARK: Button Event Actions
-    @objc func leftButtonTouchDown(button: UIButton) {
-        print("left")
-        value -= 1
-    }
-    
-    @objc func rightButtonTouchDown(button: UIButton) {
-        print("right")
-        value += 1
-    }
+//    @objc func leftButtonTouchDown(button: UIButton) {
+//        print("left")
+//        value -= 1
+//    }
+//
+//    @objc func rightButtonTouchDown(button: UIButton) {
+//        print("right")
+//        value += 1
+//    }
 //
 //    func buttonTouchUp(button: UIButton) {
 //        slideLabelToOriginalPosition()
