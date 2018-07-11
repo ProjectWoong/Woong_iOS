@@ -21,8 +21,7 @@ class SignupAgreeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        agreeButton.layer.masksToBounds = true
-        agreeButton.layer.cornerRadius = 24/667 * self.view.frame.height
+        agreeButton.applyRadius(radius: agreeButton.frame.height/2)
         
         agree1View.layer.borderWidth = 1
         agree1View.layer.borderColor = #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)
@@ -34,6 +33,7 @@ class SignupAgreeVC: UIViewController {
         agree4View.layer.borderColor = #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)
         
         textview.flashScrollIndicators()
+        
     }
     
     @IBAction func agreeAction(_ sender: UIButton) {

@@ -20,19 +20,14 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idView.layer.masksToBounds = true
-        idView.layer.cornerRadius = 24/667 * self.view.frame.height
-        idView.layer.borderWidth = 1
-        idView.layer.borderColor = #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)
+        idView.applyRadius(radius: 24/667 * self.view.frame.height)
+        idView.appltBorder(width: 1, color: #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1))
         
-        passwordView.layer.masksToBounds = true
-        passwordView.layer.cornerRadius = 24/667 * self.view.frame.height
-        passwordView.layer.borderWidth = 1
-        passwordView.layer.borderColor = #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)
+        passwordView.applyRadius(radius: 24/667 * self.view.frame.height)
+        passwordView.appltBorder(width: 1, color: #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1))
         
-        loginButton.layer.masksToBounds = true
-        loginButton.layer.cornerRadius = 24/667 * self.view.frame.height
-        
+        loginButton.applyRadius(radius: 24/667 * self.view.frame.height)
+        initGestureRecognizer()
         setupTextField()
         
     }
@@ -52,10 +47,11 @@ class SignInVC: UIViewController {
         
     }
     
-    
-    
-}
+    @IBAction func unwindToSignIn(_ sender: UIStoryboardSegue) {
+        
+    }
 
+}
 
 extension SignInVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -70,5 +66,25 @@ extension SignInVC: UITextFieldDelegate {
     @objc func dismissKeyboard() {
         idTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
+    }
+}
+
+extension SignInVC: UIGestureRecognizerDelegate {
+    func initGestureRecognizer() {
+        let mainTap = UITapGestureRecognizer(target: self, action: #selector(handleTabMainView(_:)))
+        mainTap.delegate = self
+        view.addGestureRecognizer(mainTap)
+    }
+    
+    @objc func handleTabMainView(_ sender: UITapGestureRecognizer){
+        self.idTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if (touch.view?.isDescendant(of: idTextField))! || (touch.view?.isDescendant(of: passwordTextField))! {
+            return false
+        }
+        return true
     }
 }

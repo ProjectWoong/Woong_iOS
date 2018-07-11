@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ABB72C5B94A6CE0D75B50489 /* Pods_Woong_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0B83A3DD108BE33175A7EF /* Pods_Woong_iOS.framework */; };
+		B33DC32420F5C28E00EE1C6E /* AllergyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC32320F5C28E00EE1C6E /* AllergyButton.swift */; };
 		B350089720E9FC79009E0683 /* BigCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089620E9FC79009E0683 /* BigCategoryCell.swift */; };
 		B350089920EA3913009E0683 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350089820EA3913009E0683 /* Home.storyboard */; };
 		B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089A20EA3C9C009E0683 /* CategoryVC.swift */; };
@@ -33,9 +34,6 @@
 		B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */; };
 		B39568DA20E8DE9200379A48 /* UIColor+rgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D920E8DE9200379A48 /* UIColor+rgb.swift */; };
 		B397F36B20F3199B00CF8FA3 /* MainRootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B397F36A20F3199B00CF8FA3 /* MainRootTabBarController.swift */; };
-		B397F37020F351E400CF8FA3 /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B397F36D20F351DC00CF8FA3 /* NanumSquareOTFExtraBold.otf */; };
-		B397F37120F351E400CF8FA3 /* NanumSquareOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B397F36E20F351DF00CF8FA3 /* NanumSquareOTFBold.otf */; };
-		B397F37220F351E400CF8FA3 /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B397F36F20F351E100CF8FA3 /* NanumSquareOTFRegular.otf */; };
 		B39D89E920EF48F400FEA426 /* WeekendFarmerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89E820EF48F400FEA426 /* WeekendFarmerVC.swift */; };
 		B39D89EB20EF5BAD00FEA426 /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89EA20EF5BAD00FEA426 /* ProductVC.swift */; };
 		B39D89F920EFADF700FEA426 /* SellerAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D89F820EFADF700FEA426 /* SellerAlbumCell.swift */; };
@@ -81,13 +79,13 @@
 		CBF9266720F37CEB00975576 /* NanumSquareOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBF9266520F3793D00975576 /* NanumSquareOTFBold.otf */; };
 		CBF9266820F37CED00975576 /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBF9266420F3793700975576 /* NanumSquareOTFExtraBold.otf */; };
 		CBF9266920F37CF000975576 /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBF9266620F3793D00975576 /* NanumSquareOTFRegular.otf */; };
-		FDFDCBFCB5F94786020B6694 /* Pods_Woong_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA9E516F276581A6D8C8E7D /* Pods_Woong_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A0B83A3DD108BE33175A7EF /* Pods_Woong_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Woong_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BCF315B6322FB6D66069D2D /* Pods-Woong-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woong-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Woong-iOS/Pods-Woong-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		95F6AC05D83CEB04945B1BCC /* Pods-Woong-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woong-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Woong-iOS/Pods-Woong-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B33DC32320F5C28E00EE1C6E /* AllergyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyButton.swift; sourceTree = "<group>"; };
 		B350089620E9FC79009E0683 /* BigCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCategoryCell.swift; sourceTree = "<group>"; };
 		B350089820EA3913009E0683 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		B350089A20EA3C9C009E0683 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
@@ -115,9 +113,6 @@
 		B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39568D920E8DE9200379A48 /* UIColor+rgb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgb.swift"; sourceTree = "<group>"; };
 		B397F36A20F3199B00CF8FA3 /* MainRootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRootTabBarController.swift; sourceTree = "<group>"; };
-		B397F36D20F351DC00CF8FA3 /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumSquareOTFExtraBold.otf; path = ../../../../../Desktop/NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
-		B397F36E20F351DF00CF8FA3 /* NanumSquareOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumSquareOTFBold.otf; path = ../../../../../Desktop/NanumSquareOTFBold.otf; sourceTree = "<group>"; };
-		B397F36F20F351E100CF8FA3 /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumSquareOTFRegular.otf; path = ../../../../../Desktop/NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
 		B39D89E820EF48F400FEA426 /* WeekendFarmerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekendFarmerVC.swift; sourceTree = "<group>"; };
 		B39D89EA20EF5BAD00FEA426 /* ProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
 		B39D89F820EFADF700FEA426 /* SellerAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAlbumCell.swift; sourceTree = "<group>"; };
@@ -311,6 +306,7 @@
 				CBF7E24A20EE23F300F9145D /* DeliveringCell.swift */,
 				CBF7E24E20EF3D7300F9145D /* NearMarketCell.swift */,
 				CB26753320EF4A6400485979 /* BookMarkCell.swift */,
+				B33DC32320F5C28E00EE1C6E /* AllergyButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -544,6 +540,7 @@
 				B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */,
 				CBF7E24B20EE23F300F9145D /* DeliveringCell.swift in Sources */,
 				CBF9265320F0F42000975576 /* SignupAgreeVC.swift in Sources */,
+				B33DC32420F5C28E00EE1C6E /* AllergyButton.swift in Sources */,
 				B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */,
 				B3918F5720EBA12900E05134 /* SellerNaviController.swift in Sources */,
 				B3918F4F20EB5E6600E05134 /* SellerMenuCell.swift in Sources */,
