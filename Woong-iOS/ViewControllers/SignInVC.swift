@@ -21,10 +21,10 @@ class SignInVC: UIViewController {
         super.viewDidLoad()
         
         idView.applyRadius(radius: 24/667 * self.view.frame.height)
-        idView.appltBorder(width: 1, color: #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1))
+        idView.applyBorder(width: 1, color: #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1))
         
         passwordView.applyRadius(radius: 24/667 * self.view.frame.height)
-        passwordView.appltBorder(width: 1, color: #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1))
+        passwordView.applyBorder(width: 1, color: #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1))
         
         loginButton.applyRadius(radius: 24/667 * self.view.frame.height)
         initGestureRecognizer()

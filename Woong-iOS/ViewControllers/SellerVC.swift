@@ -28,6 +28,9 @@ class SellerVC: UIViewController {
     @IBOutlet var sellerMenuCollectionView: UICollectionView!
     @IBOutlet var sellerMenuView: UIView!
     
+    @IBOutlet var sellerProfileImage: UIImageView!
+    
+    
     @IBOutlet var sellerInfoCollectionView: UICollectionView!
     
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
@@ -41,6 +44,7 @@ class SellerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
+        setupView()
         setupCollectionView()
         setupHorizontalBar()
         setupNavi()
@@ -64,10 +68,10 @@ class SellerVC: UIViewController {
             sellerInfoCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         } else if flag == 1 {
             if let flowLayout = sellerInfoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-                flowLayout.minimumLineSpacing = 21
+                flowLayout.minimumLineSpacing = 24
                 flowLayout.minimumInteritemSpacing = 9
             }
-            sellerInfoCollectionView.contentInset = UIEdgeInsetsMake(9, 9, 9, 9)
+            sellerInfoCollectionView.contentInset = UIEdgeInsetsMake(8, 8, 8, 8)
             sellerInfoCollectionView.reloadData()
             sellerInfoCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         } else {
@@ -87,6 +91,11 @@ class SellerVC: UIViewController {
             cell.setSelectedColor(UIColor.black)
             sellerMenuCollectionView.selectItem(at: selectedIndexPath, animated: true, scrollPosition: .init(rawValue: 0))
         }
+    }
+    
+    private func setupView() {
+        sellerProfileImage.applyRadius(radius: sellerProfileImage.frame.height/2)
+        //sellerProfileImage.applyBorder(width: 4, color: .rgb(red: 82, green: 156, blue: 119))
     }
     
     private func setupNavi() {
@@ -169,7 +178,7 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             if flag == 0 {
                 return CGSize(width: self.view.frame.width, height: self.view.frame.width)
             } else if flag == 1 {
-                return CGSize(width: (self.view.frame.width - 27) / 2, height: self.view.frame.height * 0.325)
+                return CGSize(width: (self.view.frame.width - 25) / 2, height: 224)
             } else {
                 return CGSize(width: self.view.frame.width, height: 223)
             }
@@ -218,6 +227,10 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             changeMenu(indexPath.item)
         }
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        <#code#>
+//    }
     
     
     
