@@ -36,6 +36,8 @@ class MyProductVC: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         setupTableView()
+        setupHorizontalBar()
+        setupView()
     }
     
     private func setupView() {
@@ -81,7 +83,7 @@ class MyProductVC: UIViewController {
 
 // Category & LikedProduct CollectionView
 extension MyProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == categoryCollectionView{
             return CGSize(width: self.view.frame.width / 2, height: 44)
@@ -89,7 +91,7 @@ extension MyProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             return CGSize(width: (self.view.frame.width - 25) / 2, height: 240)
         }
     }
-    
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == categoryCollectionView {
             return 1

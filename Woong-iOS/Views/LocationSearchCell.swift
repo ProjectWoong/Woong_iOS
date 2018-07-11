@@ -10,6 +10,7 @@ import UIKit
 
 class LocationSearchCell: UITableViewCell {
 
+    @IBOutlet weak var deleteButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
