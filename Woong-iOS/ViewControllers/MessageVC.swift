@@ -10,19 +10,25 @@ import UIKit
 
 class MessageVC: UIViewController {
 
-    var row = 9
-    var section = 0
-    
+//    var row = 2
+//    var section = 0
+    var messageTextArr: [String] = []
     @IBOutlet var messageTableView: UITableView!
     @IBOutlet var messageTextView: UITextView!
+    @IBOutlet var messageView: UIView!
+    @IBOutlet var messageRootView: UIView!
+          
+
+           @IBOutlet weak var textViewBottom: NSLayoutConstraint!
+           
     
-    @IBOutlet weak var messageView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tabBarController?.tabBar.layer.zPosition = -1
+        
         messageView.layer.masksToBounds = true
-        messageView.layer.cornerRadius = 24/667 * self.view.frame.height
-        
-        
+        messageView.layer.cornerRadius = 24
         messageView.layer.borderWidth = 1
         messageView.layer.borderColor = #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)
         
@@ -38,12 +44,15 @@ class MessageVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        self.tabBarController?.tabBar.layer.zPosition = 0
+        
     }
-    
-    func scrollToBottom(){
+     func scrollToBottom(){
         DispatchQueue.main.async {
-            let indexPath = IndexPath(row: self.row, section: self.section)
-            self.messageTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+            if self.messageTextArr.count > 0{
+                let indexPath = IndexPath(row: self.messageTextArr.count-1, section: 0)
+                self.messageTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+            }
         }
     }
     
@@ -65,31 +74,33 @@ class MessageVC: UIViewController {
     }
     
     @IBAction func sendAction(_ sender: UIButton) {
-        row = row + 1
-        messageTableView.reloadData()
-        scrollToBottom()
+        if messageTextView.text != "" {
+            messageTextArr.append(messageTextView.text!)
+            messageTableView.reloadData()
+            messageTextView.text = ""
+            scrollToBottom()
+        }
     }
 }
 
 extension MessageVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return row + 1
+        return messageTextArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 == 0{
+//        if indexPath.row % 2 == 0{
             let cell = messageTableView.dequeueReusableCell(withIdentifier: "SendMessageCell") as! SendMessageCell
-            
+            cell.messageTextView.text = messageTextArr[indexPath.row]
             return cell
-        } else {
-            let cell = messageTableView.dequeueReusableCell(withIdentifier: "RecieveMessageCell") as! RecieveMessageCell
-            
-            return cell
-            
-        }
+//        } else {
+//            let cell = messageTableView.dequeueReusableCell(withIdentifier: "RecieveMessageCell") as! RecieveMessageCell
+//
+//            return cell
+//
+//        }
     }
 }
-
 
 extension MessageVC: UITextViewDelegate {
     
@@ -101,14 +112,14 @@ extension MessageVC: UITextViewDelegate {
         if let keyboardFrame: NSValue = sender.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
-            self.view.frame.origin.y = -keyboardHeight
+          
+           self.textViewBottom.constant = keyboardHeight
+            
         }
-        
-        // = -250  // Move view 150 points upward
     }
     
     @objc func keyboardWillHide(_ sender: Notification) {
-        self.view.frame.origin.y = 0 // Move view to original position
+            self.textViewBottom.constant = 0
     }
     
 }

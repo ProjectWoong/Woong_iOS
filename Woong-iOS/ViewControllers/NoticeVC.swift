@@ -13,6 +13,7 @@ class NoticeVC: UIViewController {
     let categoryArr = ["메세지", "배송/상세후기"]
     var readMessageArr = ["","","","","",""]
     var unreadMessageArr = ["",""]
+    var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
     
     @IBOutlet var categoryView: UIView!
     @IBOutlet var categoryCollectionView: UICollectionView!
@@ -24,8 +25,23 @@ class NoticeVC: UIViewController {
         
         setupTableView()
         setupCollectionView()
+        setupHorizontalBar()
     }
-   
+    private func setupHorizontalBar() {
+        let horizontalBarView = UIView()
+        horizontalBarView.backgroundColor = UIColor.rgb(red: 35, green: 122, blue: 89)
+        horizontalBarView.translatesAutoresizingMaskIntoConstraints = false
+        categoryView.addSubview(horizontalBarView)
+        
+        //horizontalBarLeftAnchorConstraint = bigCategoryBar.leftAnchor.
+        horizontalBarLeftAnchorConstraint = horizontalBarView.leftAnchor.constraint(equalTo: categoryView.leftAnchor)
+        horizontalBarLeftAnchorConstraint?.isActive = true
+        
+        horizontalBarView.bottomAnchor.constraint(equalTo: categoryView.bottomAnchor).isActive = true
+        horizontalBarView.widthAnchor.constraint(equalTo: categoryView.widthAnchor, multiplier: 1/2).isActive = true
+        horizontalBarView.heightAnchor.constraint(equalToConstant: 2).isActive = true
+    }
+    
     private func setupTableView() {
         deliveryTableView.isHidden = true
         
@@ -41,6 +57,7 @@ class NoticeVC: UIViewController {
     }
     
     private func setupCollectionView() {
+        self.categoryView.applyShadow(radius: 5, color: UIColor.darkGray, offset: CGSize(width: 0, height: 0), opacity: 0.5)
         self.categoryCollectionView.delegate = self
         self.categoryCollectionView.dataSource = self
         
@@ -49,7 +66,13 @@ class NoticeVC: UIViewController {
     }
 }
 
-extension NoticeVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension NoticeVC: UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+       return CGSize(width: self.view.frame.width / 2, height: 44)
+        
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoryArr.count
     }
@@ -62,7 +85,9 @@ extension NoticeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        horizontalBarLeftAnchorConstraint?.constant = CGFloat(indexPath.item) * (self.view.frame.width / 2)
         if indexPath.row == 0 {
+            
             messageTableView.isHidden = false
             deliveryTableView.isHidden = true
         } else {
@@ -84,7 +109,7 @@ extension NoticeVC: UITableViewDelegate, UITableViewDataSource {
                 return 2
             }
         } else {                    //  배송
-            return 1
+            return 4
         }
     }
     
@@ -108,7 +133,16 @@ extension NoticeVC: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         } else {
-            return 5
+            
+            if section == 0 {
+                return 1
+            } else if section == 1 {
+                return 2
+            } else if section == 2 {
+                return 1
+            } else {
+                return 2
+            }
         }
         
     }
@@ -123,9 +157,24 @@ extension NoticeVC: UITableViewDelegate, UITableViewDataSource {
                 return cell
             }
         } else {
-            let cell = deliveryTableView.dequeueReusableCell(withIdentifier: "DeliveredCell", for: indexPath) as! DeliveredCell
-            cell.reviewButton.addTarget(self, action: #selector(reviewRegisterationAction(button:)), for: .touchUpInside)
-            return cell
+            
+            if indexPath.section == 0{
+                let cell = deliveryTableView.dequeueReusableCell(withIdentifier: "DeliveringHeader", for: indexPath)
+                 return cell
+            } else if indexPath.section == 1{
+                let cell = deliveryTableView.dequeueReusableCell(withIdentifier: "DeliveringCell", for: indexPath) as! DeliveringCell
+                
+                return cell
+            }
+            else if indexPath.section == 2 {
+                let cell = deliveryTableView.dequeueReusableCell(withIdentifier: "DeliveredHeader", for: indexPath)
+                return cell
+            } else {
+                let cell = deliveryTableView.dequeueReusableCell(withIdentifier: "DeliveredCell", for: indexPath) as! DeliveredCell
+                cell.reviewButton.addTarget(self, action: #selector(reviewRegisterationAction(button:)), for: .touchUpInside)
+                return cell
+            }
+            
         }
     }
     
@@ -133,7 +182,10 @@ extension NoticeVC: UITableViewDelegate, UITableViewDataSource {
         if tableView == messageTableView {
             let MessageVC = UIStoryboard(name: "Notice", bundle: nil).instantiateViewController(withIdentifier: "MessageVC")
             self.tabBarController?.tabBar.isHidden = true
+         self.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(MessageVC, animated: true)
+            
+            
         }
     }
     

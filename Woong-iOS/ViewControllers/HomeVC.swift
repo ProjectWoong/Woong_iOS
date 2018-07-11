@@ -46,19 +46,15 @@ class HomeVC: UIViewController {
         
     }
     
-    
-    
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
     
-//    @IBAction func NextView(_ sender: Any) {
-//        let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "CategoryVC")
-//        self.navigationController?.pushViewController(destvc, animated: true)
-//    }
+    @IBAction func NextView(_ sender: Any) {
+        let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "CategoryVC")
+        self.navigationController?.pushViewController(destvc, animated: true)
+    }
 
 }
 
