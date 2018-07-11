@@ -13,7 +13,8 @@ class DeliveredCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        reviewButton.layer.masksToBounds = true
+        reviewButton.layer.cornerRadius = 12
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

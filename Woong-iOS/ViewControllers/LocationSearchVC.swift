@@ -11,7 +11,7 @@ import UIKit
 class LocationSearchVC: UIViewController {
     
     let cellId = "LocationSearchCell"
-    
+    var arr = ["a", "b" , "c","d"]
     @IBOutlet var searchBarView: UIView!
     @IBOutlet var searchBarTxtFd: UITextField!
     
@@ -24,25 +24,33 @@ class LocationSearchVC: UIViewController {
     private func setupView() {
         searchTableView.delegate = self
         searchTableView.dataSource = self
-        searchBarView.applyRadius(radius: 15)
+        searchBarView.applyRadius(radius: 17.5)
+        searchTableView.tableFooterView = UIView(frame: .zero)
+        searchTableView.separatorStyle = .none
     }
-    
-    
 }
 
 extension LocationSearchVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 58
+        return 65
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return arr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! LocationSearchCell
+        
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(deleteCellFromButton(button:)), for: .touchUpInside)
+        
         return cell
+    }
+    @objc func deleteCellFromButton(button: UIButton) {
+        arr.remove(at: button.tag)
+        searchTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -51,8 +59,6 @@ extension LocationSearchVC: UITableViewDelegate, UITableViewDataSource {
         if let check = cell?.isSelected {
             cell?.setSelected(!check, animated: true)
         }
-        
-        
     }
     
     

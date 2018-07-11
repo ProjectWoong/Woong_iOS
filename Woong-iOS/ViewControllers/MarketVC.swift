@@ -11,9 +11,10 @@ import UIKit
 class MarketVC: UIViewController {
     
     let categoryArr = ["내 주변 마켓", "즐겨찾기"]
+    let likeImage = UIImage(named: "market-favorite-favorite")
+    let unlikeImage = UIImage(named: "market-favorite-delete")
     
     var selectedIndexPath = IndexPath(item: 0, section: 0)
-    
     @IBOutlet var categoryView: UIView!
     @IBOutlet var categoryCollectionView: UICollectionView!
     @IBOutlet var nearMarketTableView: UITableView!
@@ -53,9 +54,15 @@ class MarketVC: UIViewController {
         
         nearMarketTableView.delegate = self
         nearMarketTableView.dataSource = self
+        nearMarketTableView.tableFooterView = UIView(frame: .zero)
+        nearMarketTableView.separatorStyle = .none
         
         bookMarkTableView.delegate = self
         bookMarkTableView.dataSource = self
+        bookMarkTableView.tableFooterView = UIView(frame: .zero)
+        bookMarkTableView.separatorStyle = .none
+        
+        
     }
     
     private func setupHorizontalBar() {
@@ -81,7 +88,7 @@ class MarketVC: UIViewController {
 extension MarketVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width/2, height: 44)
+        return CGSize(width: self.view.frame.width / 2, height: 44)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -94,6 +101,7 @@ extension MarketVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         
         return cell
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
@@ -108,7 +116,7 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
         if tableView == nearMarketTableView {
             return 121
         } else {
-            return 61
+            return 90
         }
     }
     
@@ -120,17 +128,25 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == nearMarketTableView {
             let cell = nearMarketTableView.dequeueReusableCell(withIdentifier: "NearMarketCell") as! NearMarketCell
+          
             return cell
         } else {
             let cell = bookMarkTableView.dequeueReusableCell(withIdentifier: "BookMarkCell") as! BookMarkCell
+            
+            cell.starButton.tag = indexPath.row
+            cell.starButton.addTarget(self, action: #selector(deleteBookMarkFromButton(button:)), for: .touchUpInside)
             return cell
         }
     }
+    
+    @objc func deleteBookMarkFromButton(button: UIButton) {
+        button.setBackgroundImage(unlikeImage, for: .normal) 
+//        bookMarkTableView.reloadData()
+    }
+
 }
 
 

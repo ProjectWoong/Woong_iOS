@@ -11,7 +11,8 @@ import UIKit
 class PaymentVC: UIViewController {
 
     var orderProductArr = ["왕감자","왕감자","왕감자","왕감자"]
-    
+    let paymentFailImage = UIImage(named: "payment-fail-character")
+    let paymentNoSelectImage = UIImage(named: "payment-no-select-character")
     @IBOutlet var OrderProductTableView: UITableView!
     @IBOutlet var shadowView: UIView!
     
@@ -22,7 +23,16 @@ class PaymentVC: UIViewController {
     @IBOutlet weak var requestTextField: UITextField!
     
     @IBOutlet weak var alertView: UIView!
+    
+    @IBOutlet weak var popupImageView: UIImageView!
+    
+    @IBOutlet weak var popupLabel: UILabel!
+    
     @IBOutlet weak var okButton: UIButton!
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +50,7 @@ class PaymentVC: UIViewController {
         requestView.layer.borderColor = #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)
         
         okButton.layer.masksToBounds = true
-        okButton.layer.cornerRadius = 24/667 * self.view.frame.height
+        okButton.layer.cornerRadius = 20/667 * self.view.frame.height
         
         alertView.layer.masksToBounds = true
         alertView.layer.cornerRadius = 5
@@ -56,6 +66,8 @@ class PaymentVC: UIViewController {
     
     @IBAction func payMethodAction(_ sender: UIButton) {
         shadowView.isHidden = false
+        popupImageView.image = paymentFailImage
+        popupLabel.text = "죄송합니다\n서비스를 준비중입니다"
     }
     
     @IBAction func okAction(_ sender: UIButton) {
