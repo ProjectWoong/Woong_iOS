@@ -17,19 +17,26 @@ class SignInVC: UIViewController {
     @IBOutlet var idTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    let ud = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+        setupTextField()
+        initGestureRecognizer()
+    }
+    
+    private func setupView() {
+        loginButton.isEnabled = false
+        idTextField.addTarget(self, action: #selector(isValid), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(isValid), for: .editingChanged)
+        loginButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
         idView.applyRadius(radius: 24/667 * self.view.frame.height)
         idView.applyBorder(width: 1, color: #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1))
-        
         passwordView.applyRadius(radius: 24/667 * self.view.frame.height)
         passwordView.applyBorder(width: 1, color: #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1))
-        
         loginButton.applyRadius(radius: 24/667 * self.view.frame.height)
-        initGestureRecognizer()
-        setupTextField()
-        
     }
     
     private func setupTextField() {
@@ -39,6 +46,30 @@ class SignInVC: UIViewController {
         self.view.addGestureRecognizer(tapDidsmiss)
     }
     
+    @objc func isValid() {
+        if !((idTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)!) {
+            loginButton.isEnabled = true
+        } else {
+            loginButton.isEnabled = false
+        }
+    }
+    
+    @objc func signIn() {
+        let body = [
+            "email" : gsno(idTextField.text),
+            "password" : gsno(passwordTextField.text)
+        ]
+        AccountService.shareInstance.signIn(body: body, completion: { (token) in
+            self.ud.set(token.token, forKey: "token")
+            self.simpleAlert(title: "로그인성공", message: "")
+        }) { (errCode) in
+            if errCode == 403 {
+                self.simpleAlert(title: "로그인 오류", message: "아이디나 비밀번호가 일치하지 않습니다.")
+            } else if errCode == 500 {
+                self.simpleAlert(title: "네트워크 오류", message: "서버가 응답하지 않습니다.")
+            }
+        }
+    }
     
     @IBAction func singInAction(_ sender: UIButton) {
         let signupVC = UIStoryboard(name: "Sign", bundle: nil).instantiateViewController(withIdentifier: "SignupAgreeVC")

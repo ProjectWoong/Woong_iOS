@@ -54,7 +54,7 @@ extension LocationSearchVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        simpleAlert(title: "배달 받을 주소가 맞나요?", message: "", okCompletion: nil, cancelCompletion: nil)
+        simpleAlertWithCompletion(title: "배달 받을 주소가 맞나요?", message: "", okCompletion: nil, cancelCompletion: nil)
         let cell = searchTableView.cellForRow(at: indexPath)
         if let check = cell?.isSelected {
             cell?.setSelected(!check, animated: true)

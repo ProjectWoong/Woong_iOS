@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		ABB72C5B94A6CE0D75B50489 /* Pods_Woong_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0B83A3DD108BE33175A7EF /* Pods_Woong_iOS.framework */; };
 		B33DC32420F5C28E00EE1C6E /* AllergyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC32320F5C28E00EE1C6E /* AllergyButton.swift */; };
+		B33DC32820F6363E00EE1C6E /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC32720F6363E00EE1C6E /* HTTPStatusCode.swift */; };
+		B33DC32E20F659E600EE1C6E /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC32D20F659E600EE1C6E /* NetworkResult.swift */; };
+		B33DC33020F661E200EE1C6E /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC32F20F661E200EE1C6E /* RequestService.swift */; };
+		B33DC33620F6669E00EE1C6E /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC33520F6669E00EE1C6E /* AccountService.swift */; };
+		B33DC33820F66C0D00EE1C6E /* AccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC33720F66C0D00EE1C6E /* AccountData.swift */; };
+		B33DC33A20F66F8700EE1C6E /* ProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC33920F66F8700EE1C6E /* ProductData.swift */; };
+		B33DC34020F6751C00EE1C6E /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC33F20F6751C00EE1C6E /* ResponseData.swift */; };
+		B33DC34220F682F500EE1C6E /* FavoriteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC34120F682F500EE1C6E /* FavoriteData.swift */; };
+		B33DC34620F684E400EE1C6E /* BookmarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC34520F684E400EE1C6E /* BookmarkData.swift */; };
+		B33DC34820F68B1900EE1C6E /* CartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC34720F68B1900EE1C6E /* CartData.swift */; };
+		B33DC34A20F7143700EE1C6E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC34920F7143700EE1C6E /* LocationService.swift */; };
+		B33DC34C20F7150600EE1C6E /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC34B20F7150600EE1C6E /* LocationData.swift */; };
 		B350089720E9FC79009E0683 /* BigCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089620E9FC79009E0683 /* BigCategoryCell.swift */; };
 		B350089920EA3913009E0683 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350089820EA3913009E0683 /* Home.storyboard */; };
 		B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089A20EA3C9C009E0683 /* CategoryVC.swift */; };
@@ -88,6 +100,18 @@
 		4BCF315B6322FB6D66069D2D /* Pods-Woong-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woong-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Woong-iOS/Pods-Woong-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		95F6AC05D83CEB04945B1BCC /* Pods-Woong-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woong-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Woong-iOS/Pods-Woong-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B33DC32320F5C28E00EE1C6E /* AllergyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyButton.swift; sourceTree = "<group>"; };
+		B33DC32720F6363E00EE1C6E /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
+		B33DC32D20F659E600EE1C6E /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		B33DC32F20F661E200EE1C6E /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
+		B33DC33520F6669E00EE1C6E /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		B33DC33720F66C0D00EE1C6E /* AccountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountData.swift; sourceTree = "<group>"; };
+		B33DC33920F66F8700EE1C6E /* ProductData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
+		B33DC33F20F6751C00EE1C6E /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		B33DC34120F682F500EE1C6E /* FavoriteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteData.swift; sourceTree = "<group>"; };
+		B33DC34520F684E400EE1C6E /* BookmarkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkData.swift; sourceTree = "<group>"; };
+		B33DC34720F68B1900EE1C6E /* CartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartData.swift; sourceTree = "<group>"; };
+		B33DC34920F7143700EE1C6E /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		B33DC34B20F7150600EE1C6E /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		B350089620E9FC79009E0683 /* BigCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCategoryCell.swift; sourceTree = "<group>"; };
 		B350089820EA3913009E0683 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		B350089A20EA3C9C009E0683 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
@@ -320,6 +344,13 @@
 		B39568B720E88AC600379A48 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B33DC33F20F6751C00EE1C6E /* ResponseData.swift */,
+				B33DC33720F66C0D00EE1C6E /* AccountData.swift */,
+				B33DC34B20F7150600EE1C6E /* LocationData.swift */,
+				B33DC33920F66F8700EE1C6E /* ProductData.swift */,
+				B33DC34120F682F500EE1C6E /* FavoriteData.swift */,
+				B33DC34520F684E400EE1C6E /* BookmarkData.swift */,
+				B33DC34720F68B1900EE1C6E /* CartData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -339,7 +370,12 @@
 		B39568B920E88B8500379A48 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B33DC32720F6363E00EE1C6E /* HTTPStatusCode.swift */,
+				B33DC32D20F659E600EE1C6E /* NetworkResult.swift */,
 				B39568BA20E88C8500379A48 /* APIServices.swift */,
+				B33DC32F20F661E200EE1C6E /* RequestService.swift */,
+				B33DC33520F6669E00EE1C6E /* AccountService.swift */,
+				B33DC34920F7143700EE1C6E /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -468,10 +504,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Woong-iOS/Pods-Woong-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -503,19 +545,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B33DC34C20F7150600EE1C6E /* LocationData.swift in Sources */,
 				B39568A120E888E800379A48 /* AppDelegate.swift in Sources */,
 				B3C4B61D20ECA872007EE7E2 /* LocationSearchVC.swift in Sources */,
+				B33DC34620F684E400EE1C6E /* BookmarkData.swift in Sources */,
 				CBF7E22F20EA39C200F9145D /* PaymentVC.swift in Sources */,
+				B33DC33620F6669E00EE1C6E /* AccountService.swift in Sources */,
+				B33DC34A20F7143700EE1C6E /* LocationService.swift in Sources */,
 				B39D89FB20EFAFB300FEA426 /* SellerIntroCell.swift in Sources */,
 				B39D89FD20EFB1CE00FEA426 /* SellerProductCell.swift in Sources */,
 				CB6127E020F4E62600012764 /* UnreadMessageCell.swift in Sources */,
 				CBF7E21F20E8A8DB00F9145D /* TutorialPageVC.swift in Sources */,
 				CB6127E220F52F3E00012764 /* MyPageTableVC.swift in Sources */,
 				B3918F4720EB45B600E05134 /* UIView+applyDesign.swift in Sources */,
+				B33DC34820F68B1900EE1C6E /* CartData.swift in Sources */,
 				CBF7E23520EB57CE00F9145D /* StepperCustomView.swift in Sources */,
 				CBF9265F20F23B9400975576 /* SignUpInfo1VC.swift in Sources */,
 				CBF7E24320EC980600F9145D /* RecieveMessageCell.swift in Sources */,
 				CBF9266120F23BA000975576 /* SignUpInfo2VC.swift in Sources */,
+				B33DC34020F6751C00EE1C6E /* ResponseData.swift in Sources */,
 				CBF9265B20F23B0D00975576 /* SignUpAllergicVC.swift in Sources */,
 				CBF7E23D20EC95AF00F9145D /* MessageVC.swift in Sources */,
 				CBF7E24920EE23E100F9145D /* DeliveredCell.swift in Sources */,
@@ -524,12 +572,16 @@
 				CBF7E22920E8CC7500F9145D /* Tutorial3VC.swift in Sources */,
 				B39D89E920EF48F400FEA426 /* WeekendFarmerVC.swift in Sources */,
 				CBF7E22520E8CC5A00F9145D /* Tutorial1VC.swift in Sources */,
+				B33DC32E20F659E600EE1C6E /* NetworkResult.swift in Sources */,
+				B33DC32820F6363E00EE1C6E /* HTTPStatusCode.swift in Sources */,
 				B3C4B61F20ECAB98007EE7E2 /* LocationSearchCell.swift in Sources */,
 				B3C4B62120ECDBE6007EE7E2 /* UIViewController+extesion.swift in Sources */,
 				B397F36B20F3199B00CF8FA3 /* MainRootTabBarController.swift in Sources */,
 				CBF7E22720E8CC6C00F9145D /* Tutorial2VC.swift in Sources */,
 				B350089720E9FC79009E0683 /* BigCategoryCell.swift in Sources */,
+				B33DC33020F661E200EE1C6E /* RequestService.swift in Sources */,
 				CBF9266320F23EE100975576 /* FarmLocationVC.swift in Sources */,
+				B33DC33820F66C0D00EE1C6E /* AccountData.swift in Sources */,
 				B39568C820E8A53C00379A48 /* HomeVC.swift in Sources */,
 				B39D89EB20EF5BAD00FEA426 /* ProductVC.swift in Sources */,
 				B39568CC20E8A58F00379A48 /* MyProductVC.swift in Sources */,
@@ -546,11 +598,13 @@
 				B3BF3DA820EA4DD80082802D /* SmallCategoryCell.swift in Sources */,
 				CBF9264B20F0D59C00975576 /* ChooseLoginVC.swift in Sources */,
 				CBF7E23B20EBA40D00F9145D /* OrderProductCell.swift in Sources */,
+				B33DC33A20F66F8700EE1C6E /* ProductData.swift in Sources */,
 				B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */,
 				CBF7E24B20EE23F300F9145D /* DeliveringCell.swift in Sources */,
 				CBF9265320F0F42000975576 /* SignupAgreeVC.swift in Sources */,
 				B33DC32420F5C28E00EE1C6E /* AllergyButton.swift in Sources */,
 				B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */,
+				B33DC34220F682F500EE1C6E /* FavoriteData.swift in Sources */,
 				B3918F5720EBA12900E05134 /* SellerNaviController.swift in Sources */,
 				B3918F4F20EB5E6600E05134 /* SellerMenuCell.swift in Sources */,
 				CBF7E24D20EE3AF000F9145D /* UITableView+scrollToLastCell.swift in Sources */,

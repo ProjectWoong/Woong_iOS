@@ -7,5 +7,7 @@ target 'Woong-iOS' do
 
   # Pods for Woong-iOS
     pod 'Alamofire'
-
+	pod 'Kingfisher'
+	pod 'Hero'
+	pod 'SwiftyJSON'
 end

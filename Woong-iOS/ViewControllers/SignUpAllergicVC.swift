@@ -20,9 +20,6 @@ class SignUpAllergicVC: UIViewController {
     @IBOutlet var milkBtn: AllergyButton!
     @IBOutlet var onionBtn: AllergyButton!
     
-    
-    
-    
     @IBOutlet var registerationButton: UIButton!
     
     
