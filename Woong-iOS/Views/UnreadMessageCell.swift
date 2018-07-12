@@ -10,6 +10,7 @@ import UIKit
 
 class UnreadMessageCell: UITableViewCell {
 
+      @IBOutlet weak var marketNameLabel: UILabel!
     @IBOutlet weak var messageImageView: UIImageView!
     @IBOutlet weak var messageCountLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!

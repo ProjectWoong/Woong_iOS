@@ -9,6 +9,7 @@
 import UIKit
 
 class ReadMessageCell: UITableViewCell {
+      @IBOutlet weak var marketNameLabel: UILabel!
     @IBOutlet weak var messageImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!

@@ -9,7 +9,8 @@
 import UIKit
 
 class LocationSearchCell: UITableViewCell {
-
+    @IBOutlet var addressLabel: UILabel!
+    
     @IBOutlet weak var deleteButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -190,9 +190,9 @@
                                     <constraint firstItem="vkh-DX-J4O" firstAttribute="leading" secondItem="hWp-ax-NRJ" secondAttribute="trailing" constant="5" id="E2M-P6-NI5"/>
                                     <constraint firstItem="hWp-ax-NRJ" firstAttribute="top" secondItem="uez-KN-CLG" secondAttribute="top" constant="10" id="GWp-ep-zdo"/>
                                     <constraint firstAttribute="trailing" secondItem="vkh-DX-J4O" secondAttribute="trailing" constant="15" id="NFh-6o-xps"/>
+                                    <constraint firstAttribute="height" constant="68" id="NWk-iK-YOF"/>
                                     <constraint firstAttribute="bottom" secondItem="hWp-ax-NRJ" secondAttribute="bottom" constant="10" id="cCa-IE-YpN"/>
                                     <constraint firstItem="hWp-ax-NRJ" firstAttribute="centerY" secondItem="uez-KN-CLG" secondAttribute="centerY" id="cGr-D3-4nk"/>
-                                    <constraint firstAttribute="width" secondItem="uez-KN-CLG" secondAttribute="height" multiplier="375:68" id="fyD-mD-8Uw"/>
                                     <constraint firstItem="vkh-DX-J4O" firstAttribute="width" secondItem="uez-KN-CLG" secondAttribute="width" multiplier="48:375" id="q3o-x1-E01"/>
                                     <constraint firstItem="hWp-ax-NRJ" firstAttribute="leading" secondItem="uez-KN-CLG" secondAttribute="leading" constant="17" id="sen-aQ-zuf"/>
                                     <constraint firstItem="vkh-DX-J4O" firstAttribute="centerY" secondItem="uez-KN-CLG" secondAttribute="centerY" id="tEp-1D-NAv"/>
@@ -678,6 +678,16 @@
                                             <action selector="openImagePicker:" destination="MeR-A6-0aI" eventType="touchUpInside" id="fPa-eA-4Vr"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGG-u3-ArD">
+                                        <rect key="frame" x="301" y="1" width="59" height="48"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="15"/>
+                                        <state key="normal" title="작성 완료">
+                                            <color key="titleColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="textReviewOKAciton:" destination="MeR-A6-0aI" eventType="touchUpInside" id="6yp-0e-Cae"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -688,9 +698,12 @@
                                     <constraint firstItem="l7I-vR-R6a" firstAttribute="top" secondItem="eeh-wS-54v" secondAttribute="bottom" id="Ef6-im-m5K"/>
                                     <constraint firstAttribute="trailing" secondItem="eeh-wS-54v" secondAttribute="trailing" id="HIm-ka-RyC"/>
                                     <constraint firstAttribute="bottom" secondItem="UzP-Pd-5Aw" secondAttribute="bottom" id="JIL-Ak-gLT"/>
+                                    <constraint firstAttribute="bottom" secondItem="IGG-u3-ArD" secondAttribute="bottom" id="MI7-tW-WYJ"/>
+                                    <constraint firstItem="IGG-u3-ArD" firstAttribute="top" secondItem="eeh-wS-54v" secondAttribute="bottom" id="PnB-eh-rAh"/>
                                     <constraint firstAttribute="trailing" secondItem="UzP-Pd-5Aw" secondAttribute="trailing" id="UPL-b6-0Ro"/>
                                     <constraint firstItem="eeh-wS-54v" firstAttribute="leading" secondItem="LAJ-YF-cSf" secondAttribute="leading" id="Vud-2u-mQv"/>
                                     <constraint firstItem="UzP-Pd-5Aw" firstAttribute="top" secondItem="l7I-vR-R6a" secondAttribute="bottom" id="let-ZB-vi6"/>
+                                    <constraint firstAttribute="trailing" secondItem="IGG-u3-ArD" secondAttribute="trailing" constant="15" id="moB-jZ-r3g"/>
                                     <constraint firstItem="eeh-wS-54v" firstAttribute="top" secondItem="LAJ-YF-cSf" secondAttribute="top" id="qS5-y3-8ys"/>
                                     <constraint firstItem="EF2-tM-2rB" firstAttribute="leading" secondItem="LAJ-YF-cSf" secondAttribute="leading" constant="15" id="vxj-5l-En0"/>
                                 </constraints>
@@ -713,14 +726,18 @@
                     </view>
                     <size key="freeformSize" width="375" height="911"/>
                     <connections>
+                        <outlet property="cancelBarItem" destination="yaK-Ap-k7y" id="Btq-mI-d1M"/>
                         <outlet property="deliveryRateLabel" destination="9yT-XF-79E" id="dkN-3X-c64"/>
                         <outlet property="kindRateLabel" destination="CmF-91-e46" id="7jy-3F-bzZ"/>
+                        <outlet property="navigationBar" destination="kdn-Bw-z2y" id="LSX-RX-tzY"/>
                         <outlet property="refreshRateLabel" destination="tfq-36-kg9" id="uqh-O1-t1C"/>
+                        <outlet property="registerationBarItem" destination="w72-y1-SyG" id="NWY-Tb-zu1"/>
                         <outlet property="reviewImageCollectionView" destination="urY-mn-Pji" id="S32-RP-IYf"/>
                         <outlet property="reviewScrollView" destination="MOf-aK-sbV" id="M4E-ww-VTR"/>
                         <outlet property="reviewTextView" destination="B80-Uc-4Bm" id="n1c-wo-CsJ"/>
                         <outlet property="reviewView" destination="GDF-H1-FUR" id="BPB-LX-9fE"/>
                         <outlet property="tastyRateLabel" destination="naA-Kj-pqu" id="ibh-Gt-Obj"/>
+                        <outlet property="textReviewOkButton" destination="IGG-u3-ArD" id="eAs-mb-55T"/>
                         <outletCollection property="tastyButtonArr" destination="IEx-m6-FsF" collectionClass="NSMutableArray" id="BPi-Zg-ChH"/>
                         <outletCollection property="tastyButtonArr" destination="BMs-k1-h8x" collectionClass="NSMutableArray" id="Ej4-bz-aAT"/>
                         <outletCollection property="tastyButtonArr" destination="xzV-er-isz" collectionClass="NSMutableArray" id="x5f-w9-MCA"/>

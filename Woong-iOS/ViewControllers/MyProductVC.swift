@@ -34,10 +34,20 @@ class MyProductVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupCollectionView()
         setupTableView()
         setupHorizontalBar()
         setupView()
+        setupNaviBar()
+    }
+    
+    private func setupNaviBar() {
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!]
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
+        self.navigationController?.navigationBar.barTintColor = .white
     }
     
     private func setupView() {
@@ -75,8 +85,11 @@ class MyProductVC: UIViewController {
         
         let PaymentVC = UIStoryboard(name: "MyProduct", bundle: nil).instantiateViewController(withIdentifier: "PaymentVC")
         
-        self.navigationController?.pushViewController(PaymentVC, animated: true)
+        
         self.tabBarController?.tabBar.isHidden = true
+        self.hidesBottomBarWhenPushed = true
+         self.navigationController?.pushViewController(PaymentVC, animated: true)
+      
     }
     
 }
@@ -140,6 +153,14 @@ extension MyProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
                 cartView.isHidden = false
                 productCollectionView.isHidden = true
             }
+        } else if collectionView == productCollectionView {
+            let destvc = UIStoryboard(name: "ProductDetail", bundle: nil).instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
+           let cell = productCollectionView.cellForItem(at: indexPath) as! LikeProductCell
+            destvc.navigationItem.title = cell.marketNameLabel.text
+            destvc.productNameLabel.text = cell.productNameLabel.text
+            self.present(destvc, animated: true, completion: nil)
+            
+            
         }
     }
 }

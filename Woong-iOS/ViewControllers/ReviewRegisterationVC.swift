@@ -14,6 +14,8 @@ class ReviewRegisterationVC: UIViewController {
     @IBOutlet var reviewTextView: UITextView!
     @IBOutlet var reviewImageCollectionView: UICollectionView!
     
+    @IBOutlet weak var textReviewOkButton: UIButton!
+    
     @IBOutlet var deliveryButtonArr: [UIButton]!
     @IBOutlet var tastyButtonArr: [UIButton]!
     @IBOutlet var refreshButtonArr: [UIButton]!
@@ -23,6 +25,11 @@ class ReviewRegisterationVC: UIViewController {
     @IBOutlet weak var tastyRateLabel: UILabel!
     @IBOutlet weak var refreshRateLabel: UILabel!
     @IBOutlet weak var kindRateLabel: UILabel!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    @IBOutlet weak var cancelBarItem: UIBarButtonItem!
+    
+    @IBOutlet weak var registerationBarItem: UIBarButtonItem!
     
     let imagePicker : UIImagePickerController = UIImagePickerController()
     let unlikeImage = UIImage(named: "alarm-reviewing-not-like")
@@ -33,8 +40,16 @@ class ReviewRegisterationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textReviewOkButton.isHidden = true
         setupTextView()
         setupCollectionView()
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!]
+        cancelBarItem.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFB", size: 15)!,
+            NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.3215686275, green: 0.6117647059, blue: 0.4666666667, alpha: 1)], for: .normal)
+        registerationBarItem.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFB", size: 15)!,
+            NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.3215686275, green: 0.6117647059, blue: 0.4666666667, alpha: 1)], for: .normal)
     }
     
     @IBAction func deliveryLatingAction(_ sender: UIButton) {
@@ -101,8 +116,6 @@ class ReviewRegisterationVC: UIViewController {
         }
     }
     
-    
-    
     private func setupTextView() {
         reviewTextView.delegate = self
         reviewTextView.sizeToFit()
@@ -112,7 +125,6 @@ class ReviewRegisterationVC: UIViewController {
         
         let tapDidsmiss = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.reviewView.addGestureRecognizer(tapDidsmiss)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
@@ -127,6 +139,10 @@ class ReviewRegisterationVC: UIViewController {
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func textReviewOKAciton(_ sender: UIButton) {
+        reviewTextView.resignFirstResponder()
     }
 }
 
@@ -153,17 +169,18 @@ extension ReviewRegisterationVC: UITextViewDelegate {
     }
     
     @objc func keyboardWillShow(_ sender: Notification) {
-        
-        self.view.frame.origin.y = -250  // Move view 150 points upward
+        if let keyboardFrame: NSValue = sender.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            self.view.frame.origin.y = -keyboardHeight
+        }
+        textReviewOkButton.isHidden = false
     }
     
     @objc func keyboardWillHide(_ sender: Notification) {
-        self.view.frame.origin.y = 0 // Move view to original position
+        self.view.frame.origin.y = 0
+        textReviewOkButton.isHidden = true
     }
-//    func textViewDidChange(_ textView: UITextView) {
-//        textView.sizeToFit()
-//    }
-//
 }
 
 extension ReviewRegisterationVC: UICollectionViewDelegate, UICollectionViewDataSource {

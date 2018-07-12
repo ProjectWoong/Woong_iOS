@@ -17,7 +17,7 @@ class MyPageTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!]
         self.mypageTableView.tableFooterView = UIView(frame: .zero)
         self.mypageTableView.separatorStyle = .none
         

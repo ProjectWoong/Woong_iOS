@@ -20,7 +20,7 @@ class SignUpInfo1VC: UIViewController {
     let datePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
-        picker.timeZone = NSTimeZone.local
+        picker.locale = .current
         return picker
     }()
     

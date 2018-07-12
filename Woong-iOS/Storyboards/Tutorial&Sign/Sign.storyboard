@@ -955,17 +955,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="tRq-vg-Yb5">
-                                <rect key="frame" x="46" y="83" width="300" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="tRq-vg-Yb5">
+                                <rect key="frame" x="37.5" y="85" width="300" height="52"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" image="customer-sign-2-logo" translatesAutoresizingMaskIntoConstraints="NO" id="RMb-GX-Xb6">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="customer-sign-2-logo" translatesAutoresizingMaskIntoConstraints="NO" id="RMb-GX-Xb6">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="85e-hp-dwM"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="알러지반응을 일으키는 식품들을 모두 선택해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPj-1t-fam">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알러지반응을 일으키는 식품들을 모두 선택해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPj-1t-fam">
                                         <rect key="frame" x="0.0" y="36" width="300" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="5wF-DN-iwZ"/>
@@ -977,19 +976,19 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="allergic-category-line" translatesAutoresizingMaskIntoConstraints="NO" id="8Em-DS-TWn">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="allergic-category-line" translatesAutoresizingMaskIntoConstraints="NO" id="8Em-DS-TWn">
                                 <rect key="frame" x="0.0" y="189" width="375" height="369"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Em-DS-TWn" secondAttribute="height" multiplier="125:123" id="Kl3-Za-7fu"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="CPy-0e-UNR">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CPy-0e-UNR">
                                 <rect key="frame" x="0.0" y="186" width="375" height="375"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3yo-OC-rAm">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mby-MM-JF2" customClass="AllergyButton" customModule="Woong_iOS" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mby-MM-JF2" customClass="AllergyButton" customModule="Woong_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Mby-MM-JF2" secondAttribute="height" multiplier="1:1" id="iLk-x4-KSG"/>
@@ -1088,6 +1087,8 @@
                             <constraint firstItem="CPy-0e-UNR" firstAttribute="leading" secondItem="A7H-t4-htj" secondAttribute="leading" id="4LP-fk-Iss"/>
                             <constraint firstItem="wet-u7-x95" firstAttribute="centerX" secondItem="A7H-t4-htj" secondAttribute="centerX" id="6C7-cC-XgP"/>
                             <constraint firstItem="wet-u7-x95" firstAttribute="centerY" secondItem="A7H-t4-htj" secondAttribute="centerY" multiplier="1:0.563" id="9W7-wa-YVq"/>
+                            <constraint firstItem="tRq-vg-Yb5" firstAttribute="top" secondItem="A7H-t4-htj" secondAttribute="top" constant="65" id="A9K-Ev-buY"/>
+                            <constraint firstItem="tRq-vg-Yb5" firstAttribute="centerX" secondItem="A7H-t4-htj" secondAttribute="centerX" id="Bkf-rF-V4v"/>
                             <constraint firstItem="8Em-DS-TWn" firstAttribute="leading" secondItem="A7H-t4-htj" secondAttribute="leading" id="Iuu-vg-m8q"/>
                             <constraint firstItem="8Em-DS-TWn" firstAttribute="centerY" secondItem="CPy-0e-UNR" secondAttribute="centerY" id="Xfy-2W-J0H"/>
                             <constraint firstItem="8Em-DS-TWn" firstAttribute="trailing" secondItem="A7H-t4-htj" secondAttribute="trailing" id="hzc-QY-bt1"/>

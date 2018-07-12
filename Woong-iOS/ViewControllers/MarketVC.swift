@@ -9,7 +9,7 @@
 import UIKit
 
 class MarketVC: UIViewController {
-    
+    var collectionselectNum = 0
     let categoryArr = ["내 주변 마켓", "즐겨찾기"]
     let likeImage = UIImage(named: "market-favorite-favorite")
     let unlikeImage = UIImage(named: "market-favorite-delete")
@@ -32,25 +32,39 @@ class MarketVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        setupCollectionView()
+        setupCollectionView(num: collectionselectNum)
         setupTableView()
         setupHorizontalBar()
+        setupNaviBar()
+    }
+    
+    private func setupNaviBar() {
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!]
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
+        self.navigationController?.navigationBar.barTintColor = .white
     }
     
     private func setupView() {
         categoryView.applyShadow(radius: 6, color: .black, offset: CGSize(width: 0, height: 3), opacity: 0.15)
     }
     
-    private func setupCollectionView() {
+    private func setupCollectionView(num: Int) {
         self.categoryCollectionView.delegate = self
         self.categoryCollectionView.dataSource = self
         
-        let selectedIndexPath = NSIndexPath(item: 0, section: 0)
+        let selectedIndexPath = NSIndexPath(item: num, section: 0)
         categoryCollectionView.selectItem(at: selectedIndexPath as IndexPath, animated: false, scrollPosition: .init(rawValue: 0))
     }
     
     private func setupTableView() {
-        bookMarkTableView.isHidden = true
+        if collectionselectNum == 0 {
+            bookMarkTableView.isHidden = true
+        } else if collectionselectNum == 1 {
+            nearMarketTableView.isHidden = true
+        }
         
         nearMarketTableView.delegate = self
         nearMarketTableView.dataSource = self
@@ -68,7 +82,9 @@ class MarketVC: UIViewController {
     private func setupHorizontalBar() {
         categoryView.addSubview(horizontalBarView)
         horizontalBarLeftAnchorConstraint = horizontalBarView.leftAnchor.constraint(equalTo: categoryView.leftAnchor)
+        horizontalBarLeftAnchorConstraint?.constant = CGFloat(collectionselectNum) * (self.view.frame.width / 2)
         horizontalBarLeftAnchorConstraint?.isActive = true
+        
         horizontalBarView.bottomAnchor.constraint(equalTo: categoryView.bottomAnchor).isActive = true
         horizontalBarView.widthAnchor.constraint(equalTo: categoryView.widthAnchor, multiplier: 1/2).isActive = true
         horizontalBarView.heightAnchor.constraint(equalToConstant: 2).isActive = true

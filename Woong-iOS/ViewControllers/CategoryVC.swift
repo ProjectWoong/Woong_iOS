@@ -9,12 +9,25 @@
 import UIKit
 
 class CategoryVC: UIViewController {
-    
+    var myAddress = ""
     let bigCellId = "BigCategoryCell"
     let smallCellId = "SmallCategoryCell"
-    let bigCategory = ["과일", "곡물", "채소", "달걀/유제품"]
+    let bigCategory = ["채소", "과일", "곡물", "달걀/유제품"]
     
-    let sampleArr = ["감자", "고구마", "버섯", "옥수수", "오이", "호박", "당근", "양파", "대파"]
+    var categoryTextArr:[String] = []
+    var categoryImageArr:[String] = []
+    
+    let vegetableArr = ["감자", "고구마", "고추", "나물","버섯", "열매 채소", "잎 채소", "뿌리 채소"]
+    let vegetableImageArr = ["home-vegetable-potato", "home-vegetable-sweetpotato","home-vegetable-chili", "home-vegetable-greens", "home-vegetable-mushroom", "home-vegetable-fruit", "home-vegetable-leaf", "home-vegetable-root"]
+    
+    let fruitArr = ["바나나", "복숭아", "사과", "오렌지", "딸기"]
+    let fruitImgaeArr = ["home-fruit-banana", "home-fruit-peach", "home-fruit-apple","home-fruit-orange", "home-fruit-strawberry"]
+    
+    let cerealArr = ["쌀", "오곡", "잡곡"]
+    let cerealImageArr = ["home-cereal-rice", "home-cereal-ogok", "home-cereal-grain"]
+    
+    let eggArr = ["달걀", "우유"]
+    let eggImageArr = ["home-egg-egg", "home-egg-milk"]
     
     @IBOutlet var bigCategoryCollectionView: UICollectionView!
     @IBOutlet var bigCategoryView: UIView!
@@ -22,20 +35,45 @@ class CategoryVC: UIViewController {
     
     @IBOutlet var smallCategoryCollectionView: UICollectionView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLocation(location: myAddress)
         let shadowImage = UIImage()
         navigationController?.navigationBar.shadowImage = shadowImage
         navigationController?.navigationBar.setBackgroundImage(shadowImage, for: .default)
         setupCollectionView()
         setupHorizontalBar()
-        // Do any additional setup after loading the view.
+        setupNaviBar()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func setupNaviBar() {
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!]
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
+        self.navigationController?.navigationBar.barTintColor = .white
+    }
+    
+    private func setupLocation(location: String){
+        let testFrame : CGRect = CGRect(x: 0, y: 0, width: 375, height: 50)
+        let buttonView: UIView = UIView(frame: testFrame)
+        let locationbutton =  UIButton(type: .system) as UIButton
+        locationbutton.frame = CGRect(x: 0, y: 0, width: 375, height: 50)
+//        let locationimage = UIImage(named: "navigation-bar-location-green")
+        
+        
+        
+        locationbutton.tintColor = #colorLiteral(red: 0.3215686275, green: 0.6117647059, blue: 0.4666666667, alpha: 1)
+        locationbutton.semanticContentAttribute = .forceRightToLeft
+        locationbutton.setTitle("\(self.myAddress) ", for: .normal)
+        locationbutton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+//        locationbutton.setImage(locationimage, for: .normal)
+        locationbutton.titleLabel?.font = UIFont(name: "NanumSquareOTFEB", size: 17)
+        locationbutton.isUserInteractionEnabled = false
+        buttonView.addSubview(locationbutton)
+        
+        self.navigationItem.titleView = buttonView
     }
     
     private func setupCollectionView() {
@@ -43,7 +81,7 @@ class CategoryVC: UIViewController {
         self.bigCategoryCollectionView.dataSource = self
         self.smallCategoryCollectionView.delegate = self
         self.smallCategoryCollectionView.dataSource = self
-        self.bigCategoryView.applyShadow(radius: 5, color: UIColor.darkGray, offset: CGSize(width: 0, height: 0), opacity: 0.5)
+        self.bigCategoryView.applyShadow(radius: 6, color: .black, offset: CGSize(width: 0, height: 3), opacity: 0.15)
         let selectedIndexPath = NSIndexPath(item: 0, section: 0)
         bigCategoryCollectionView.selectItem(at: selectedIndexPath as IndexPath, animated: false, scrollPosition: .init(rawValue: 0))
     }
@@ -95,7 +133,7 @@ extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             return bigCategory.count
         }
         else {
-            return sampleArr.count
+            return categoryTextArr.count
         }
     }
     
@@ -107,9 +145,12 @@ extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             return cell
         } else {
             let cell = smallCategoryCollectionView.dequeueReusableCell(withReuseIdentifier: smallCellId, for: indexPath) as! SmallCategoryCell
-            cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.rgb(red: 225, green: 225, blue: 225) : UIColor.white
-            cell.smallCategoryLabel.text = sampleArr[indexPath.item]
+            
+           cell.smallCategoryLabel.text = categoryTextArr[indexPath.row]
+        
+            cell.categoryImageView.image = UIImage(named: categoryImageArr[indexPath.row])
             cell.smallCategoryLabel.sizeToFit()
+            
             return cell
         }
 
@@ -119,6 +160,27 @@ extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         if collectionView == bigCategoryCollectionView {
             horizontalBarLeftAnchorConstraint?.constant = CGFloat(indexPath.item) * (self.view.frame.width / 4)
             selectCategory(categoryIndex: indexPath.item)
+            if indexPath.row == 0 {
+                categoryTextArr = vegetableArr
+                categoryImageArr = vegetableImageArr
+            } else if indexPath.row == 1 {
+                categoryTextArr = fruitArr
+                categoryImageArr = fruitImgaeArr
+            } else if indexPath.row == 2 {
+                categoryTextArr = cerealArr
+                categoryImageArr = cerealImageArr
+            } else {
+                categoryTextArr = eggArr
+                categoryImageArr = eggImageArr
+                
+            }
+            smallCategoryCollectionView.reloadData()
+        } else {
+            let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProductVC") as! ProductVC
+           
+            destvc.navigationItem.title = categoryTextArr[indexPath.row]
+            self.navigationController?.pushViewController(destvc, animated: true)
+            
         }
     }
 }

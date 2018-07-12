@@ -25,9 +25,6 @@ class NearMarketCell: UITableViewCell {
         hashTagLabel2.sizeToFit()
         hashTagView1.applyRadius(radius: hashTagView1.frame.height/2)
         hashTagView2.applyRadius(radius: hashTagView2.frame.height/2)
-       hashTagLabel1.layer.masksToBounds = true
-        hashTagLabel1.layer.cornerRadius = 11.5
-        hashTagLabel2.layer.cornerRadius = 11.5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
