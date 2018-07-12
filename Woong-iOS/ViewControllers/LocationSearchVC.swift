@@ -11,7 +11,7 @@ import UIKit
 class LocationSearchVC: UIViewController {
     
     let cellId = "LocationSearchCell"
-    var arr = ["a", "b" , "c","d"]
+    var addressArr = ["마포구 상수동 22-1", "은평구 대조동 84-21" , "공릉동 91-32","역촌동 12-32"]
     @IBOutlet var searchBarView: UIView!
     @IBOutlet var searchBarTxtFd: UITextField!
     
@@ -28,6 +28,12 @@ class LocationSearchVC: UIViewController {
         searchTableView.tableFooterView = UIView(frame: .zero)
         searchTableView.separatorStyle = .none
     }
+    
+    @IBAction func cancelAction(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
 }
 
 extension LocationSearchVC: UITableViewDelegate, UITableViewDataSource {
@@ -37,29 +43,37 @@ extension LocationSearchVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arr.count
+        return addressArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! LocationSearchCell
-        
+        cell.addressLabel.text = addressArr[indexPath.row]
         cell.deleteButton.tag = indexPath.row
         cell.deleteButton.addTarget(self, action: #selector(deleteCellFromButton(button:)), for: .touchUpInside)
         
         return cell
     }
+    
     @objc func deleteCellFromButton(button: UIButton) {
-        arr.remove(at: button.tag)
+        addressArr.remove(at: button.tag)
         searchTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        simpleAlert(title: "배달 받을 주소가 맞나요?", message: "", okCompletion: nil, cancelCompletion: nil)
-        let cell = searchTableView.cellForRow(at: indexPath)
-        if let check = cell?.isSelected {
-            cell?.setSelected(!check, animated: true)
-        }
+        
+        let cell = searchTableView.cellForRow(at: indexPath) as! LocationSearchCell
+        cell.setSelected(!cell.isSelected, animated: true)
+        
+        simpleAlert(title: "배달 받을 주소가 맞나요?", message: "", okCompletion: { (_) in
+           let address = cell.addressLabel.text!
+            
+            self.dismiss(animated: true, completion: {
+                NotificationCenter.default.post(name: Notification.Name("SetupAddress"), object: address)
+                
+            })
+            
+        }, cancelCompletion: nil)
+        
     }
-    
-    
 }

@@ -28,10 +28,10 @@ class CartProductCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        stepperView.leftButton.addTarget(self, action: #selector(leftButtonTouchDown(button:)), for: .touchUpInside)
-//        stepperView.rightButton.addTarget(self, action: #selector(rightButtonTouchDown(button:)), for: .touchUpInside)
-        stepperView.leftButton.addTarget(self, action: #selector(handleLeftButton), for: .touchUpInside)
-        stepperView.rightButton.addTarget(self, action: #selector(handleRightButton), for: .touchUpInside)
+        stepperView.leftButton.addTarget(self, action: #selector(leftButtonTouchDown(button:)), for: .touchUpInside)
+        stepperView.rightButton.addTarget(self, action: #selector(rightButtonTouchDown(button:)), for: .touchUpInside)
+//        stepperView.leftButton.addTarget(self, action: #selector(handleLeftButton), for: .touchUpInside)
+//        stepperView.rightButton.addTarget(self, action: #selector(handleRightButton), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -12,5 +12,6 @@ class SmallCategoryCell: UICollectionViewCell {
     
     @IBOutlet var smallCategoryLabel: UILabel!
     
+    @IBOutlet weak var categoryImageView: UIImageView!
     
 }

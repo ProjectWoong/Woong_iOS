@@ -10,8 +10,6 @@ import UIKit
 
 class MessageVC: UIViewController {
 
-//    var row = 2
-//    var section = 0
     var messageTextArr: [String] = []
     @IBOutlet var messageTableView: UITableView!
     @IBOutlet var messageTextView: UITextView!
@@ -25,28 +23,20 @@ class MessageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarController?.tabBar.layer.zPosition = -1
-        
-        messageView.layer.masksToBounds = true
-        messageView.layer.cornerRadius = 24
-        messageView.layer.borderWidth = 1
-        messageView.layer.borderColor = #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)
+        messageView.applyRadius(radius: messageView.frame.height/2)
+        messageView.applyBorder(width: 1, color: #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1))
         
         setupTableView()
         setupTextView()
         scrollToBottom()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
-        self.tabBarController?.tabBar.layer.zPosition = 0
         
     }
+    
      func scrollToBottom(){
         DispatchQueue.main.async {
             if self.messageTextArr.count > 0{

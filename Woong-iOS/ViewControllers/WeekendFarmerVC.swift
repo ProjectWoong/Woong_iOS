@@ -10,8 +10,11 @@ import UIKit
 
 class WeekendFarmerVC: UIViewController {
 
+    @IBOutlet weak var marketButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        marketButton.layer.masksToBounds = true
+        marketButton.layer.cornerRadius = 24
 
         // Do any additional setup after loading the view.
     }

@@ -31,12 +31,10 @@ class PaymentVC: UIViewController {
     @IBOutlet weak var okButton: UIButton!
     
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.title = "결제 페이지"
+        self.navigationController?.navigationItem.title = "결제 페이지"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!]
         shadowView.isHidden = true
         
         phoneNumView.layer.masksToBounds = true
@@ -58,10 +56,12 @@ class PaymentVC: UIViewController {
         setTableView()
         setupTextField()
     }
+   
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        
     }
     
     @IBAction func payMethodAction(_ sender: UIButton) {

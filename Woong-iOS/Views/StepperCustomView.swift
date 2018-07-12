@@ -13,21 +13,21 @@ class StepperCustomView: UIView {
     let leftButton : UIButton = {
         let btn = UIButton()
         btn.setTitle("-", for: .normal)
-        btn.backgroundColor = UIColor.rgb(red: 82, green: 156, blue: 119)
+        //btn.backgroundColor = UIColor.rgb(red: 82, green: 156, blue: 119)
         btn.layer.masksToBounds = true
         btn.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         btn.layer.borderWidth = 0.1
-        btn.titleLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        btn.setTitleColor(#colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1), for: .normal)
         return btn
     }()
     let rightButton : UIButton = {
         let btn = UIButton()
         btn.setTitle("+", for: .normal)
-        btn.backgroundColor = UIColor.rgb(red: 82, green: 156, blue: 119)
+       // btn.backgroundColor = UIColor.rgb(red: 82, green: 156, blue: 119)
         btn.layer.masksToBounds = true
         btn.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         btn.layer.borderWidth = 0.1
-        btn.titleLabel?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        btn.setTitleColor(#colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1), for: .normal)
         return btn
     }()
     let label : UILabel = {
