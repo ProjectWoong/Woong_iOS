@@ -18,4 +18,5 @@ struct Location: Codable {
     
     enum Codingkeys: String, CodingKey {
         case location = "user_address"
+    }
 }

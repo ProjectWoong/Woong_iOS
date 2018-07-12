@@ -12,24 +12,37 @@ import SwiftyJSON
 
 struct LocationService: APIService, RequestService {
     
-    static let shareInstance = AccountService()
-    let accountUrl = url("/account")
+    static let shareInstance = LocationService()
+    let locationURL = url("/account/location")
     typealias NetworkData = LocationData
     
     func getLocation(token: String, completion: @escaping (Location) -> Void, error: @escaping (Int) -> Void) {
-        let url = accountUrl + "/location"
         let header: HTTPHeaders = [
             "usertoken" : token
         ]
-        gettable(url, body: nil, header: header) { res in
+        gettable(locationURL, body: nil, header: header) { res in
             switch res {
-            case .successWithData(let locationData):
-                let location = locationData.data
-                completion(location)
-            case .success(_):
+            case .success(let locationData):
+                let data = locationData.data
+                completion(data)
+            case .successWithNil(_):
                 break
             case .error(let errCode):
                 error(errCode)
+            }
+        }
+    }
+    
+    func setLocation(body: [String:Any], token: String, completion: @escaping () -> Void, error: @escaping (Int) -> Void) {
+        let header: HTTPHeaders = [
+            "usertoken" : token
+        ]
+        Alamofire.request(locationURL, method: .put, parameters: body, encoding: JSONEncoding.default, headers: header).response { (res) in
+            guard let code = res.response?.statusCode else { return }
+            if code == 200 {
+                completion()
+            } else {
+                error(code)
             }
         }
     }
