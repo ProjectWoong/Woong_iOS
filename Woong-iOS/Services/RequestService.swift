@@ -29,14 +29,14 @@ extension RequestService {
                     let decoder = JSONDecoder()
                     do {
                         let data = try decoder.decode(NetworkData.self, from: value)
-                        completion(.successWithData(data))
+                        completion(.success(data))
                     } catch {
                         completion(.error(500))
                     }
                 }
             case .Accepted:
                 print("203")
-                completion(.success(203))
+                completion(.successWithNil(203))
             case .BadRequest:
                 print("400")
                 completion(.error(400))
@@ -74,13 +74,13 @@ extension RequestService {
                     let decoder = JSONDecoder()
                     do {
                         let data = try decoder.decode(NetworkData.self, from: value)
-                        completion(.successWithData(data))
+                        completion(.success(data))
                     } catch {
                         completion(.error(500))
                     }
                 }
             case .Accepted:
-                completion(.success(203))
+                completion(.successWithNil(203))
             case .BadRequest:
                 completion(.error(400))
             case .Unauthorized:

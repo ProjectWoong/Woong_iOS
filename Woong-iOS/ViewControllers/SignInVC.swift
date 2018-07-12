@@ -65,7 +65,7 @@ class SignInVC: UIViewController {
         }) { (errCode) in
             if errCode == 403 {
                 self.simpleAlert(title: "로그인 오류", message: "아이디나 비밀번호가 일치하지 않습니다.")
-            } else if errCode == 500 {
+            } else {
                 self.simpleAlert(title: "네트워크 오류", message: "서버가 응답하지 않습니다.")
             }
         }

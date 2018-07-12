@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct TokenData: Codable {
+struct AccountData: Codable {
     var message: String
-    var data: Token
+    var data: Token?
 }
 
 struct Token: Codable {

@@ -1,13 +1,9 @@
 //
-//  NetworkResult.swift
+//  SpecificProductService.swift
 //  Woong-iOS
 //
 //  Created by Leeseungsoo on 2018. 7. 12..
 //  Copyright © 2018년 Leess. All rights reserved.
 //
 
-enum NetworkResult<T> {
-    case success(T)
-    case successWithNil(Int)
-    case error(Int)
-}
+import Foundation
