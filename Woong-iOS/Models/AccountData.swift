@@ -10,7 +10,7 @@ import Foundation
 
 struct AccountData: Codable {
     var message: String
-    var data: Token?
+    var data: Token
 }
 
 struct Token: Codable {

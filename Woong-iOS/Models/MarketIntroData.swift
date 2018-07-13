@@ -18,7 +18,7 @@ struct MarketIntro: Codable {
     let marketName, tagName: String
     let delivery, quick, bookmarkCount: Int
     let titleImageKey, farmerImageKey, marketInfo: String
-    let youandi: Int
+    let youandi: String
     
     enum CodingKeys: String, CodingKey {
         case marketID = "market_id"

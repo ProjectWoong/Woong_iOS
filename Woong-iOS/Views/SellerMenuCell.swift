@@ -13,7 +13,7 @@ class SellerMenuCell: UICollectionViewCell {
     @IBOutlet var menuLabel: UILabel!
     
     private var selectedColor: UIColor = UIColor.white
-    private var deselectedColor: UIColor = UIColor.rgb(red: 173, green: 173, blue: 173)
+    private var deselectedColor: UIColor = UIColor.white
     
     override var isSelected: Bool {
         didSet {
@@ -23,5 +23,8 @@ class SellerMenuCell: UICollectionViewCell {
     
     func setSelectedColor(_ color: UIColor) {
         self.selectedColor = color
+    }
+    func setDeselectedColor(_ color: UIColor) {
+        self.deselectedColor = color
     }
 }

@@ -14,8 +14,8 @@ struct MarketAlbumListData: Codable {
 }
 
 struct MarketAlbum: Codable {
-    let albumID, albumTitle: Int
-    let fileKey, createTime: String
+    let albumID: Int
+    let albumTitle, fileKey, createTime: String
     
     enum CodingKeys: String, CodingKey {
         case albumID = "album_id"

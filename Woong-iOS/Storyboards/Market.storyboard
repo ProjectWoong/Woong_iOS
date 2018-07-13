@@ -21,33 +21,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--SampleVC-->
-        <scene sceneID="wst-9c-2a8">
-            <objects>
-                <viewController id="aeR-v8-Efr" customClass="SampleVC" customModule="Woong_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2r7-8o-Eb5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcK-fa-fcz">
-                                <rect key="frame" x="157" y="269" width="61" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Next"/>
-                                <connections>
-                                    <action selector="NextAction:" destination="aeR-v8-Efr" eventType="touchUpInside" id="i1Z-Ar-a2I"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="H5M-ib-JBf"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="42D-L4-0eM"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="guO-Og-3tC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1255" y="10"/>
-        </scene>
         <!--SellerVC-->
         <scene sceneID="HYm-W2-fRK">
             <objects>
@@ -308,13 +281,42 @@
                                                         </constraints>
                                                         <size key="customSize" width="375" height="225"/>
                                                     </collectionViewCell>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BSE-qO-wxA">
-                                                        <rect key="frame" x="162.5" y="854" width="50" height="50"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SellerReviewCell" id="BSE-qO-wxA">
+                                                        <rect key="frame" x="0.0" y="854" width="375" height="375"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Idl-5n-Bxt">
+                                                                    <rect key="frame" x="106" y="141" width="162" height="93"/>
+                                                                    <subviews>
+                                                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="market-review-good-character" translatesAutoresizingMaskIntoConstraints="NO" id="BRy-rE-UT4">
+                                                                            <rect key="frame" x="46" y="0.0" width="70" height="53"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="70" id="j5o-bh-sgv"/>
+                                                                                <constraint firstAttribute="height" constant="53" id="qRt-FX-Jbb"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 준비 중입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXB-Fc-Yhx">
+                                                                            <rect key="frame" x="0.0" y="73" width="162" height="20"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="20" id="9i1-Kz-DKL"/>
+                                                                                <constraint firstAttribute="width" constant="162" id="bJm-CT-lw7"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="18"/>
+                                                                            <color key="textColor" red="0.32156862749999998" green="0.61176470589999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
                                                         </view>
+                                                        <constraints>
+                                                            <constraint firstItem="Idl-5n-Bxt" firstAttribute="centerY" secondItem="BSE-qO-wxA" secondAttribute="centerY" id="D2Q-9S-6Zr"/>
+                                                            <constraint firstItem="Idl-5n-Bxt" firstAttribute="centerX" secondItem="BSE-qO-wxA" secondAttribute="centerX" id="FOL-lL-Uy5"/>
+                                                        </constraints>
+                                                        <size key="customSize" width="375" height="375"/>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -467,7 +469,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cyV-XW-eR2">
-                                                        <rect key="frame" x="150" y="176" width="75" height="75"/>
+                                                        <rect key="frame" x="150" y="173" width="75" height="75"/>
                                                         <color key="backgroundColor" red="0.99215686270000003" green="0.74509803919999995" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="GOV-IF-v0D"/>
@@ -500,7 +502,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.32156862749999998" green="0.61176470589999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="cyV-XW-eR2" firstAttribute="top" secondItem="i8n-F7-ezH" secondAttribute="bottom" constant="36" id="0MW-Ox-1BJ"/>
+                                                    <constraint firstItem="cyV-XW-eR2" firstAttribute="top" secondItem="i8n-F7-ezH" secondAttribute="bottom" constant="33" id="0MW-Ox-1BJ"/>
                                                     <constraint firstItem="MyT-LT-Aei" firstAttribute="bottom" secondItem="amc-ba-y0M" secondAttribute="bottom" constant="-8" id="3mb-5A-766"/>
                                                     <constraint firstAttribute="height" constant="248" id="6uc-OE-MtK"/>
                                                     <constraint firstItem="amc-ba-y0M" firstAttribute="top" secondItem="QNT-Aw-8kV" secondAttribute="top" id="Ecw-lI-jtE"/>
@@ -552,11 +554,11 @@
                         <color key="backgroundColor" red="0.32156862749999998" green="0.61176470589999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jAl-3z-Ora" firstAttribute="top" secondItem="qm3-Fw-3ov" secondAttribute="top" id="81u-Tu-dqe"/>
-                            <constraint firstItem="jAl-3z-Ora" firstAttribute="bottom" secondItem="HPx-BJ-7mW" secondAttribute="bottom" id="ODl-BX-hZ3"/>
-                            <constraint firstItem="jAl-3z-Ora" firstAttribute="trailing" secondItem="HPx-BJ-7mW" secondAttribute="trailing" id="qPN-7w-e5X"/>
-                            <constraint firstItem="jAl-3z-Ora" firstAttribute="leading" secondItem="HPx-BJ-7mW" secondAttribute="leading" id="z19-YT-63r"/>
+                            <constraint firstItem="jAl-3z-Ora" firstAttribute="bottom" secondItem="qm3-Fw-3ov" secondAttribute="bottom" id="ODl-BX-hZ3"/>
+                            <constraint firstItem="jAl-3z-Ora" firstAttribute="trailing" secondItem="qm3-Fw-3ov" secondAttribute="trailing" id="qPN-7w-e5X"/>
+                            <constraint firstItem="jAl-3z-Ora" firstAttribute="leading" secondItem="qm3-Fw-3ov" secondAttribute="leading" id="z19-YT-63r"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="HPx-BJ-7mW"/>
+                        <viewLayoutGuide key="safeArea" id="oIs-V9-4HD"/>
                     </view>
                     <navigationItem key="navigationItem" id="Gjz-8V-Pbc"/>
                     <size key="freeformSize" width="375" height="900"/>
@@ -577,10 +579,12 @@
         <!--Navigation Controller-->
         <scene sceneID="H1p-py-1y7">
             <objects>
-                <navigationController storyboardIdentifier="SellerNavi" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ll1-ZF-Yk0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SellerNavi" automaticallyAdjustsScrollViewInsets="NO" id="ll1-ZF-Yk0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hw8-fh-i81">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.32156862749999998" green="0.61176470589999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -598,6 +602,7 @@
         <image name="market-intro-image-leaf" width="29" height="29"/>
         <image name="market-intro-message" width="48" height="48"/>
         <image name="market-intro-name-leaf" width="16" height="16"/>
+        <image name="market-review-good-character" width="70" height="53"/>
         <image name="product-not-like" width="48" height="48"/>
     </resources>
 </document>

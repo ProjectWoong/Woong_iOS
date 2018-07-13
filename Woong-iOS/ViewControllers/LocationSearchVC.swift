@@ -65,13 +65,12 @@ extension LocationSearchVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = searchTableView.cellForRow(at: indexPath) as! LocationSearchCell
         cell.setSelected(!cell.isSelected, animated: true)
-        
-        
+
         simpleAlertWithCompletion(title: "배달 받을 주소가 맞습니까?", message: "", okCompletion: { (_) in
             let address = cell.addressLabel.text!
  
             // 수정~~~~~~~~~
-            
+
             //        if let token = ud.string(forKey: "token"){
             LocationService.shareInstance.setLocation(body: [
                 "latitude": 35.9078,
@@ -81,7 +80,7 @@ extension LocationSearchVC: UITableViewDelegate, UITableViewDataSource {
                     print("성공")
             }) { (errCode) in
                 print("nonono")
-        }
+            }
             self.dismiss(animated: true, completion: nil)
         }, cancelCompletion: nil)
         
