@@ -13,6 +13,7 @@ class MainRootTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
+        self.hero.tabBarAnimationType = .fade
         // Do any additional setup after loading the view.
     }
 

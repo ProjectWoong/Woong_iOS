@@ -19,6 +19,7 @@ extension RequestService {
         Alamofire.request(URL, method: .get, parameters: body, encoding: JSONEncoding.default, headers: header).responseData { (res) in
             
             guard let statusCode = res.response?.statusCode else {
+                print("status")
                 return
             }
             guard let status: HTTPStatusCode = HTTPStatusCode(rawValue: statusCode) else { return }

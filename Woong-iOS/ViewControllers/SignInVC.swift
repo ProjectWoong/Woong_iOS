@@ -10,6 +10,8 @@ import UIKit
 
 class SignInVC: UIViewController {
 
+    @IBOutlet var logoImage: UIImageView!
+    
     @IBOutlet var idView: UIView!
     @IBOutlet var passwordView: UIView!
     @IBOutlet var loginButton: UIButton!
@@ -28,6 +30,8 @@ class SignInVC: UIViewController {
     }
     
     private func setupView() {
+        self.hero.modalAnimationType = .fade
+        logoImage.hero.id = "logo"
         loginButton.isEnabled = false
         idTextField.addTarget(self, action: #selector(isValid), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(isValid), for: .editingChanged)
@@ -65,20 +69,16 @@ class SignInVC: UIViewController {
             // self.simpleAlert(title: "로그인성공", message: "")
             
             let destvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainRootTabBarController") as! MainRootTabBarController
+            destvc.hero.modalAnimationType = .zoom
             self.present(destvc, animated: false, completion: nil)
 
         }) { (errCode) in
-            if errCode == 403 {
+            if errCode == 401 {
                 self.simpleAlert(title: "로그인 오류", message: "아이디나 비밀번호가 일치하지 않습니다.")
             } else {
                 self.simpleAlert(title: "네트워크 오류", message: "서버가 응답하지 않습니다.")
             }
         }
-    }
-    
-    func toMain() {
-        performSegue(withIdentifier: "unwindToMain", sender: self)
-        
     }
     
     @IBAction func singInAction(_ sender: UIButton) {

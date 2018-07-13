@@ -50,7 +50,7 @@ class HomeVC: UIViewController {
 //        if let token = ud.string(forKey: "token"){
         
             LocationService.shareInstance.getLocation(token: token, completion: { (address) in
-                self.setupAddress(address: address.location)
+                self.setupAddress(address: address.realAddress)
            
             }) { (errCode) in
                 print("errnum\(errCode)")
@@ -105,20 +105,6 @@ class HomeVC: UIViewController {
         self.navigationItem.titleView = buttonView
         let locationGes = UITapGestureRecognizer(target: self, action: #selector(goSearchView))
         locationbutton.addGestureRecognizer(locationGes)
-        
-        // 수정~~~~~~~~~
-        
-//        if let token = ud.string(forKey: "token"){
-            LocationService.shareInstance.setLocation(body: [
-                "latitude": 35.9078,
-                "longitude": 127.7669,
-                "address": "서울시 마포구"
-                ], token: self.token, completion: {
-                    print("성공")
-            }) { (errCode) in
-                print("nonono")
-//            }
-        }
     }
     
     @objc func goSearchView() {

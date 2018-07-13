@@ -20,11 +20,14 @@
 		B33DC34620F684E400EE1C6E /* BookmarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC34520F684E400EE1C6E /* BookmarkData.swift */; };
 		B33DC34820F68B1900EE1C6E /* CartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC34720F68B1900EE1C6E /* CartData.swift */; };
 		B33DC34A20F7143700EE1C6E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC34920F7143700EE1C6E /* LocationService.swift */; };
-		B33DC34C20F7150600EE1C6E /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC34B20F7150600EE1C6E /* LocationData.swift */; };
 		B33DC34E20F733FD00EE1C6E /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC34D20F733FD00EE1C6E /* ProductService.swift */; };
 		B33DC35020F7392600EE1C6E /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC34F20F7392600EE1C6E /* CartService.swift */; };
 		B33DC35920F7697C00EE1C6E /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC35820F7697C00EE1C6E /* FavoriteService.swift */; };
 		B33DC35B20F7722100EE1C6E /* BookmarkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DC35A20F7722100EE1C6E /* BookmarkService.swift */; };
+		B34513A520F88F3800019300 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34513A420F88F3800019300 /* LocationData.swift */; };
+		B34513A920F8E2B200019300 /* ChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34513A820F8E2B200019300 /* ChatData.swift */; };
+		B34513AB20F8E31F00019300 /* ChatRoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34513AA20F8E31F00019300 /* ChatRoomData.swift */; };
+		B34513AD20F8E36900019300 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34513AC20F8E36900019300 /* ChatService.swift */; };
 		B350089720E9FC79009E0683 /* BigCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089620E9FC79009E0683 /* BigCategoryCell.swift */; };
 		B350089920EA3913009E0683 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350089820EA3913009E0683 /* Home.storyboard */; };
 		B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089A20EA3C9C009E0683 /* CategoryVC.swift */; };
@@ -127,11 +130,14 @@
 		B33DC34520F684E400EE1C6E /* BookmarkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkData.swift; sourceTree = "<group>"; };
 		B33DC34720F68B1900EE1C6E /* CartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartData.swift; sourceTree = "<group>"; };
 		B33DC34920F7143700EE1C6E /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		B33DC34B20F7150600EE1C6E /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		B33DC34D20F733FD00EE1C6E /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		B33DC34F20F7392600EE1C6E /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		B33DC35820F7697C00EE1C6E /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
 		B33DC35A20F7722100EE1C6E /* BookmarkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkService.swift; sourceTree = "<group>"; };
+		B34513A420F88F3800019300 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		B34513A820F8E2B200019300 /* ChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
+		B34513AA20F8E31F00019300 /* ChatRoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomData.swift; sourceTree = "<group>"; };
+		B34513AC20F8E36900019300 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		B350089620E9FC79009E0683 /* BigCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCategoryCell.swift; sourceTree = "<group>"; };
 		B350089820EA3913009E0683 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		B350089A20EA3C9C009E0683 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
@@ -380,7 +386,6 @@
 			children = (
 				B33DC33F20F6751C00EE1C6E /* ResponseData.swift */,
 				B33DC33720F66C0D00EE1C6E /* AccountData.swift */,
-				B33DC34B20F7150600EE1C6E /* LocationData.swift */,
 				B33DC33920F66F8700EE1C6E /* ProductData.swift */,
 				B350A89120F78CBE00A6852C /* SpecificProductData.swift */,
 				B33DC34120F682F500EE1C6E /* FavoriteData.swift */,
@@ -392,6 +397,9 @@
 				B350A88D20F7890B00A6852C /* MarketAlbumData.swift */,
 				B350A88F20F789E800A6852C /* MarketReviewData.swift */,
 				B3A2560C20F8717400E851BE /* AddressData.swift */,
+				B34513A420F88F3800019300 /* LocationData.swift */,
+				B34513A820F8E2B200019300 /* ChatData.swift */,
+				B34513AA20F8E31F00019300 /* ChatRoomData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -424,6 +432,7 @@
 				B350A88520F7791D00A6852C /* MarketService.swift */,
 				B350A89320F790F500A6852C /* SpecificProductService.swift */,
 				B3A2560E20F8729900E851BE /* KakaoAddressService.swift */,
+				B34513AC20F8E36900019300 /* ChatService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -597,7 +606,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B33DC34C20F7150600EE1C6E /* LocationData.swift in Sources */,
 				B39568A120E888E800379A48 /* AppDelegate.swift in Sources */,
 				B3C4B61D20ECA872007EE7E2 /* LocationSearchVC.swift in Sources */,
 				B33DC34620F684E400EE1C6E /* BookmarkData.swift in Sources */,
@@ -642,6 +650,7 @@
 				B33DC33020F661E200EE1C6E /* RequestService.swift in Sources */,
 				CBF9266320F23EE100975576 /* FarmLocationVC.swift in Sources */,
 				B33DC33820F66C0D00EE1C6E /* AccountData.swift in Sources */,
+				B34513AB20F8E31F00019300 /* ChatRoomData.swift in Sources */,
 				B39568C820E8A53C00379A48 /* HomeVC.swift in Sources */,
 				B39568CC20E8A58F00379A48 /* MyProductVC.swift in Sources */,
 				CBF7E24F20EF3D7300F9145D /* NearMarketCell.swift in Sources */,
@@ -655,6 +664,7 @@
 				B39568C420E8914900379A48 /* SplashVC.swift in Sources */,
 				CBF7E24520ECF90500F9145D /* ReviewRegisterationVC.swift in Sources */,
 				CB26753420EF4A6400485979 /* BookMarkCell.swift in Sources */,
+				B34513A520F88F3800019300 /* LocationData.swift in Sources */,
 				B3BF3DA820EA4DD80082802D /* SmallCategoryCell.swift in Sources */,
 				CBF9264B20F0D59C00975576 /* ChooseLoginVC.swift in Sources */,
 				B350A88620F7791D00A6852C /* MarketService.swift in Sources */,
@@ -669,12 +679,14 @@
 				B33DC34220F682F500EE1C6E /* FavoriteData.swift in Sources */,
 				B33DC35B20F7722100EE1C6E /* BookmarkService.swift in Sources */,
 				B350A88820F77A7700A6852C /* NearMarketData.swift in Sources */,
+				B34513AD20F8E36900019300 /* ChatService.swift in Sources */,
 				B350A89020F789E800A6852C /* MarketReviewData.swift in Sources */,
 				B3918F5720EBA12900E05134 /* SellerNaviController.swift in Sources */,
 				CB42C0C520F6AC05009B436D /* ProductVC.swift in Sources */,
 				B3918F4F20EB5E6600E05134 /* SellerMenuCell.swift in Sources */,
 				CBF7E24D20EE3AF000F9145D /* UITableView+scrollToLastCell.swift in Sources */,
 				CBF7E23320EA727700F9145D /* LikeProductCell.swift in Sources */,
+				B34513A920F8E2B200019300 /* ChatData.swift in Sources */,
 				B3D40B1320F38CDB007E73C7 /* SellerVC.swift in Sources */,
 				B39568CA20E8A56300379A48 /* MarketVC.swift in Sources */,
 				B39D89F920EFADF700FEA426 /* SellerAlbumCell.swift in Sources */,

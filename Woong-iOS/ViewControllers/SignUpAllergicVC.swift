@@ -10,6 +10,8 @@ import UIKit
 
 class SignUpAllergicVC: UIViewController {
     
+    @IBOutlet var logoStcak: UIStackView!
+    
     @IBOutlet var buckWheatBtn: AllergyButton!
     @IBOutlet var wheatBtn: AllergyButton!
     @IBOutlet var peachBtn: AllergyButton!
@@ -37,6 +39,11 @@ class SignUpAllergicVC: UIViewController {
         allergicBtnArr.append(contentsOf: [buckWheatBtn, wheatBtn, peachBtn, soyBtn, nutsBtn, tomatoBtn, eggBtn, milkBtn, onionBtn])
     }
     
+    private func setupView() {
+        logoStcak.hero.id = "stack"
+        registerationButton.hero.id = "next"
+    }
+    
     private func setupAddTarget() {
         buckWheatBtn.addTarget(self, action: #selector(changeSelectedState(_:)), for: .touchUpInside)
         wheatBtn.addTarget(self, action: #selector(changeSelectedState(_:)), for: .touchUpInside)
@@ -54,37 +61,43 @@ class SignUpAllergicVC: UIViewController {
     }
     
     @IBAction func completionAction(_ sender: UIButton) {
-     
-        for i in 0...allergicBtnArr.count-1 {
-            if allergicBtnArr[i].selectCheck == true {
-                allergic.append(i+1)
-            }
-        }
+
+        toSignIn(UIAlertAction())
+//        for i in 0...allergicBtnArr.count-1 {
+//            if allergicBtnArr[i].selectCheck == true {
+//                allergic.append(i+1)
+//            }
+//        }
+//
+//
+//
+//
+//
+//        let body: [String: Any] = [
+//            "email": email,
+//            "password": password,
+//            "user_name": user_name,
+//            "birth": birth,
+//            "phone_number": phone_number,
+//            "login_type": 0,
+//            "use_type": 0,
+//            "allergy": allergic
+//        ]
+//        SignUpService.shareInstance.signUp(body: body, completion: { (res) in
+//            let alert = UIAlertController(title: "회원가입이 완료되었습니다.", message: "", preferredStyle: .alert)
+//
+//            let doneButton = UIAlertAction(title: "확인", style: .default, handler: self.toSignIn(_:))
+//            alert.addAction(doneButton)
+//            self.present(alert, animated: true, completion: nil)
+//
+//        }) { (errCode) in
+//            if errCode == 409 {
+//                self.simpleAlert(title: "중복 이메일 입니다", message: "")
+//            } else {
+//                self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
+//            }
+//        }
         
-        let body: [String: Any] = [
-            "email": email,
-            "password": password,
-            "user_name": user_name,
-            "birth": birth,
-            "phone_number": phone_number,
-            "login_type": 0,
-            "use_type": 0,
-            "allergy": allergic
-        ]
-        SignUpService.shareInstance.signUp(body: body, completion: { (res) in
-            let alert = UIAlertController(title: "회원가입이 완료되었습니다.", message: "", preferredStyle: .alert)
-            
-            let doneButton = UIAlertAction(title: "확인", style: .default, handler: self.toSignIn(_:))
-            alert.addAction(doneButton)
-            self.present(alert, animated: true, completion: nil)
-            
-        }) { (errCode) in
-            if errCode == 409 {
-                self.simpleAlert(title: "중복 이메일 입니다", message: "")
-            } else {
-                self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
-            }
-        }
     }
     
     func toSignIn(_ sender: UIAlertAction) -> Void {

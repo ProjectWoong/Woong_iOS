@@ -1,8 +1,8 @@
 //
-//  LocationData.swift
+//  SampleData.swift
 //  Woong-iOS
 //
-//  Created by Leeseungsoo on 2018. 7. 12..
+//  Created by Leeseungsoo on 2018. 7. 13..
 //  Copyright © 2018년 Leess. All rights reserved.
 //
 
@@ -14,9 +14,9 @@ struct LocationData: Codable {
 }
 
 struct Location: Codable {
-    let location: String
+    let realAddress: String
     
-    enum Codingkeys: String, CodingKey {
-        case location = "real_address"
+    enum CodingKeys: String, CodingKey {
+        case realAddress = "real_address"
     }
 }

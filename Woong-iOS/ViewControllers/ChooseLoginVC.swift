@@ -13,9 +13,12 @@ class ChooseLoginVC: UIViewController {
     @IBOutlet var sellerLoginButton: UIButton!
     @IBOutlet var customerLoginButton: UIButton!
 
+    @IBOutlet var logoImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hero.modalAnimationType = .zoom
+        logoImage.hero.id = "logo"
         sellerLoginButton.layer.masksToBounds = true
         sellerLoginButton.layer.cornerRadius = 24/667 * self.view.frame.height
         customerLoginButton.layer.masksToBounds = true

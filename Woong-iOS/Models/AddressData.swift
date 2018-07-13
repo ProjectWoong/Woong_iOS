@@ -13,10 +13,13 @@ struct AddressData: Codable {
 }
 
 struct Address: Codable {
-    let addressName, y, x: String
+    let placeName, addressName, roadAddressName, x: String
+    let y: String
     
     enum CodingKeys: String, CodingKey {
+        case placeName = "place_name"
         case addressName = "address_name"
-        case y, x
+        case roadAddressName = "road_address_name"
+        case x, y
     }
 }
