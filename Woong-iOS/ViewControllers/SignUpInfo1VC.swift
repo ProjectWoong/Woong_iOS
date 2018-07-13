@@ -9,7 +9,13 @@
 import UIKit
 
 class SignUpInfo1VC: UIViewController {
-
+    
+    
+    @IBOutlet var logoImg: UIImageView!
+    @IBOutlet var logoLabel: UILabel!
+    @IBOutlet var logoStack: UIStackView!
+    @IBOutlet var infoStack: UIStackView!
+    
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var yearTxtFd: UITextField!
     @IBOutlet var monthTxtFd: UITextField!
@@ -25,7 +31,9 @@ class SignUpInfo1VC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        logoStack.hero.id = "stack"
+        nextButton.hero.id = "next"
+        infoStack.hero.modifiers = [.translate(x: 100), .fade]
         nextButton.applyRadius(radius: nextButton.frame.height/2)
         initGestureRecognizer()
         setupPicker()

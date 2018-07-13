@@ -10,6 +10,9 @@ import UIKit
 
 class SignUpInfo2VC: UIViewController {
     
+    @IBOutlet var logoStack: UIStackView!
+    @IBOutlet var infoStack: UIStackView!
+    
     @IBOutlet var emailTxtFd: UITextField!
     @IBOutlet var passwordTxtFd: UITextField!
     @IBOutlet var phoneTxtFd: UITextField!
@@ -19,6 +22,10 @@ class SignUpInfo2VC: UIViewController {
     var birth = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logoStack.hero.id = "stack"
+        nextButton.hero.id = "next"
+        infoStack.hero.modifiers = [.translate(x:100), .fade]
         initGestureRecognizer()
         nextButton.applyRadius(radius: nextButton.frame.height/2)
     }

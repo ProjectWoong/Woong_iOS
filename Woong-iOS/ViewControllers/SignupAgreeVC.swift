@@ -12,6 +12,12 @@ class SignupAgreeVC: UIViewController {
 
     @IBOutlet var agreeButton: UIButton!
     
+    @IBOutlet var logoImg: UIImageView!
+    @IBOutlet var logoLabel: UILabel!
+    @IBOutlet var logoStack: UIStackView!
+    
+    
+    
     @IBOutlet var agree1View: UIView!
     @IBOutlet var agree2View: UIView!
     @IBOutlet var agree3View: UIView!
@@ -21,6 +27,10 @@ class SignupAgreeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        logoStack.hero.id = "stack"
+        agreeButton.hero.id = "next"
+        
+        self.hero.modalAnimationType = .pageIn(direction: .left)
         agreeButton.applyRadius(radius: agreeButton.frame.height/2)
         
         agree1View.layer.borderWidth = 1
