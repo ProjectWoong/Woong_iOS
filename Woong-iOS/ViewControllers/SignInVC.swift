@@ -59,8 +59,8 @@ class SignInVC: UIViewController {
             "email" : gsno(idTextField.text),
             "password" : gsno(passwordTextField.text)
         ]
-        AccountService.shareInstance.signIn(body: body, completion: { (token) in
-            self.ud.set(token.token, forKey: "token")
+        SignInOutService.shareInstance.signIn(body: body, completion: { (data) in
+            self.ud.set(data.token, forKey: "token")
             self.simpleAlert(title: "로그인성공", message: "")
         }) { (errCode) in
             if errCode == 403 {

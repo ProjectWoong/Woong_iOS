@@ -65,7 +65,7 @@ extension LocationSearchVC: UITableViewDelegate, UITableViewDataSource {
         let cell = searchTableView.cellForRow(at: indexPath) as! LocationSearchCell
         cell.setSelected(!cell.isSelected, animated: true)
         
-        simpleAlert(title: "배달 받을 주소가 맞나요?", message: "", okCompletion: { (_) in
+        simpleAlertWithCompletion(title: "배달 받을 주소가 맞나요?", message: "", okCompletion: { (_) in
            let address = cell.addressLabel.text!
             
             self.dismiss(animated: true, completion: {

@@ -10,4 +10,5 @@ target 'Woong-iOS' do
 	pod 'Kingfisher'
 	pod 'Hero'
 	pod 'SwiftyJSON'
+	pod 'SwiftyGif'
 end

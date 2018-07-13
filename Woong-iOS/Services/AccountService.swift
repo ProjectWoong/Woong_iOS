@@ -20,13 +20,10 @@ struct SignInOutService: APIService, RequestService {
         let url = accountUrl + "/signin/app"
         
         postable(url, body: body, header: nil) { res in
-            print("post")
             switch res {
             case .success(let accountData):
-                print("successWithData")
-                if let data = accountData.data {
-                    completion(data)
-                }
+                let data = accountData.data
+                completion(data)
             case .successWithNil(_):
                 break
             case .error(let errCode):
