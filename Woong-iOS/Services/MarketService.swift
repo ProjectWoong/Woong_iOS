@@ -16,7 +16,7 @@ struct NearMarketService: APIService, RequestService {
     typealias NetworkData = NearMarketData
     
     func getNearMarket(token: String, completion: @escaping ([NearMarket]) -> Void, error: @escaping (Int) -> Void) {
-        let url = marketURL + "/distance/\(index)"
+        let url = marketURL + "/distance"
         let header: HTTPHeaders = [
             "usertoken" : token
         ]

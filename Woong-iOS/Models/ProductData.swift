@@ -9,44 +9,56 @@
 import Foundation
 
 struct ProductData: Codable {
-    var message: String
-    var data: ProductList
+    let message: String
+    let data: ProductList
 }
 
 struct ProductList: Codable {
-    var productList: [Product]
+    let itemInfo: [Product]
     
     enum CodingKeys: String, CodingKey {
-        case productList = "item_info"
+        case itemInfo = "item_info"
     }
 }
 
 struct Product: Codable {
-    var productId: Int
-    var marketId: Int
-    var mainId: Int
-    var subId: Int
-    var marketName: String
-    var productImage: String
-    var productName: String
-    var productUnit: String
-    var productPrice: Int
-    var quick: Bool
-    var delivery: Bool
-    var favorite: Bool
+    let itemID, marketID, mainID, subID: Int
+    let itemName, marketName, itemUnit: String
+    let itemPrice, quick, delivery: Int
+    let userID: JSONNull?
+    let fileKey: String
+    let favoriteFlag: Int
     
-    enum Codingkeys: String, CodingKey {
-        case productId = "item_id"
-        case marketId = "market_id"
-        case mainId = "main_id"
-        case subId = "sub_id"
+    enum CodingKeys: String, CodingKey {
+        case itemID = "item_id"
+        case marketID = "market_id"
+        case mainID = "main_id"
+        case subID = "sub_id"
+        case itemName = "item_name"
         case marketName = "market_name"
-        case productImage = "item_image"
-        case productName = "item_name"
-        case productUnit = "item_unit"
-        case productPrice = "item_price"
-        case quick = "quick"
-        case delivery = "delivery"
-        case favorite = "favorite_flag"
+        case itemUnit = "item_unit"
+        case itemPrice = "item_price"
+        case quick, delivery
+        case userID = "user_id"
+        case fileKey = "file_key"
+        case favoriteFlag = "favorite_flag"
+    }
+}
+
+// MARK: Encode/decode helpers
+
+class JSONNull: Codable {
+    public init() {}
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if !container.decodeNil() {
+            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+        }
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encodeNil()
     }
 }

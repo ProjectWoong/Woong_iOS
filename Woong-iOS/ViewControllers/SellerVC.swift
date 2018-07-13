@@ -23,7 +23,7 @@ class SellerVC: UIViewController {
     var marketIntro: MarketIntro?
     var marketProductList: [MarketProduct] = []
     var marketAlbumList: [MarketAlbum] = []
-    var marketId: Int? = 1
+    var marketId: Int?
     
     var flag = 0
     var selectedIndexPath = IndexPath(item: 0, section: 0)
@@ -36,6 +36,7 @@ class SellerVC: UIViewController {
     @IBOutlet var sellerMenuView: UIView!
     @IBOutlet var sellerProfileImage: UIImageView!
     @IBOutlet var sellerInfoCollectionView: UICollectionView!
+   
     
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
     let horizontalBarView: UIView = {
@@ -53,12 +54,6 @@ class SellerVC: UIViewController {
         setupCollectionView()
         setupHorizontalBar()
         setupNavi()
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     private func initMarketData() {
@@ -69,13 +64,11 @@ class SellerVC: UIViewController {
                 self.simpleAlert(title: "네트워크 오류", message: "서버가 응답하지 않습니다.")
             }
         }
-    
         MarketProductService.shareInstance.getMarketProduct(index: gino(marketId), option: "name", completion: { (data) in
             self.marketProductList = data
         }) { (errCode) in
             
         }
-        
         MarketAlbumService.shareInstance.getMarketAlbum(index: gino(marketId), completion: { (data) in
             self.marketAlbumList = data
         }) { (errCode) in
@@ -170,7 +163,6 @@ class SellerVC: UIViewController {
         UIGraphicsEndImageContext()
         return image
     }
-
 }
 
 extension SellerVC: UIScrollViewDelegate {
@@ -210,8 +202,6 @@ extension SellerVC: UIScrollViewDelegate {
             }
         }
     }
-
-    
 }
 
 extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -238,12 +228,13 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             if flag == 0 {
                 return 1
             } else if flag == 1 {
-                return 10
-            } else {
+                return marketProductList.count
+            } else if flag == 2{
                 return 6
+            } else {
+                return 1
             }
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -255,9 +246,25 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         } else {
             if flag == 0 {
                 let cell = sellerInfoCollectionView.dequeueReusableCell(withReuseIdentifier: introCellId, for: indexPath) as! SellerIntroCell
+                if let market = marketIntro {
+                    let tagArr = market.tagName.components(separatedBy: ",")
+                    cell.hashTag1Label.text = "#" + tagArr[0]
+                    cell.hashTag2Label.text = "#" +  tagArr[1]
+                    cell.helloMessageLabel.text = market.marketInfo
+                    
+                }
                 return cell
             } else if flag == 1 {
                 let cell = sellerInfoCollectionView.dequeueReusableCell(withReuseIdentifier: productCellId, for: indexPath) as! SellerProductCell
+               
+                let product = marketProductList[indexPath.item]
+                
+                cell.marketNameLabel.text = "[" + product.marketName + "]"
+                cell.productNameLabel.text = product.productName
+                cell.priceLabel.text = product.packaging
+               
+                cell.likeImageButton.addTarget(self, action: #selector(deleteBookMarkFromButton(button:)), for: .touchUpInside)
+                
                 return cell
             } else if flag == 2 {
                 let cell = sellerInfoCollectionView.dequeueReusableCell(withReuseIdentifier: albumCellId, for: indexPath) as! SellerAlbumCell
@@ -276,5 +283,15 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             changeMenu(indexPath.item)
         }
     }
-
+    
+    @objc func deleteBookMarkFromButton(button: UIButton) {
+        let likeImage = UIImage(named: "product-like")
+        let unlikeImage = UIImage(named: "product-not-like")
+        
+        if button.currentBackgroundImage == likeImage {
+            button.setBackgroundImage(unlikeImage, for: .normal)
+        } else if button.currentBackgroundImage == unlikeImage{
+            button.setBackgroundImage(likeImage, for: .normal)
+        }
+    }
 }

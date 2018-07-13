@@ -9,7 +9,6 @@
 import UIKit
 
 class ProductDetailVC: UIViewController {
-
     @IBOutlet weak var productNameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -669,7 +669,13 @@
                                             <constraint firstItem="B9N-1B-vLR" firstAttribute="top" secondItem="Br6-4l-ssM" secondAttribute="bottom" constant="5" id="zMQ-98-uxi"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="cartImageView" destination="iHk-50-dpQ" id="eOX-e1-DA8"/>
+                                            <outlet property="hashTag1Label" destination="txT-mv-VKo" id="6tj-LX-fU4"/>
+                                            <outlet property="hashTag2Label" destination="8u2-p4-xPD" id="wpO-kw-w7n"/>
+                                            <outlet property="heartImageView" destination="z92-1m-RLg" id="VP2-aI-szK"/>
                                             <outlet property="marketNameLabel" destination="Br6-4l-ssM" id="ncy-tl-ut7"/>
+                                            <outlet property="priceLabel" destination="3kM-Zc-l9f" id="wAc-IH-62o"/>
+                                            <outlet property="productNameLabel" destination="B9N-1B-vLR" id="Ccf-mb-Ka9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

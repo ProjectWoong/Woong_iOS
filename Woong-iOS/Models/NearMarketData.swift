@@ -16,7 +16,7 @@ struct NearMarketData: Codable {
 struct NearMarket: Codable {
     let marketID: Int
     let marketName, marketAddress, titleImageKey, tagName: String
-    let youandi: Double
+    let youandi: String
     
     enum CodingKeys: String, CodingKey {
         case marketID = "market_id"

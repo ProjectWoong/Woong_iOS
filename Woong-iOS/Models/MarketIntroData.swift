@@ -15,8 +15,9 @@ struct MarketIntroData: Codable {
 
 struct MarketIntro: Codable {
     let marketID: Int
+    
     let marketName, tagName: String
-    let delivery, quick, bookmarkCount: Int
+    let delivery, quick: Int
     let titleImageKey, farmerImageKey, marketInfo: String
     let youandi: String
     
@@ -25,7 +26,6 @@ struct MarketIntro: Codable {
         case marketName = "market_name"
         case tagName = "tag_name"
         case delivery, quick
-        case bookmarkCount = "bookmark_count"
         case titleImageKey = "title_image_key"
         case farmerImageKey = "farmer_image_key"
         case marketInfo = "market_info"

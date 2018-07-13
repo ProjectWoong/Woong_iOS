@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,10 +46,10 @@
                                                 <collectionViewLayout key="collectionViewLayout" id="rat-sF-54X" customClass="UICollectionViewFlowLayout"/>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SellerIntroCell" id="UVA-Us-Fef" customClass="SellerIntroCell" customModule="Woong_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="425"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="425"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인사말" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEZ-7r-saB">
@@ -64,8 +66,7 @@
                                                                     <rect key="frame" x="63" y="49" width="248" height="144"/>
                                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="144" id="4I2-2H-oBI"/>
-                                                                        <constraint firstAttribute="width" constant="248" id="qov-Xo-Lby"/>
+                                                                        <constraint firstAttribute="width" secondItem="5LL-hp-cHW" secondAttribute="height" multiplier="31:18" id="Tk7-CI-HD4"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="7Jc-rF-rX8">
@@ -78,7 +79,6 @@
                                                                                     <rect key="frame" x="10" y="4" width="80" height="14.5"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="14.5" id="69U-Wd-foT"/>
-                                                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="und-8w-VBu"/>
                                                                                     </constraints>
                                                                                     <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="13"/>
                                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,7 +100,6 @@
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#유기농" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dv-nZ-hx6">
                                                                                     <rect key="frame" x="10" y="4" width="60" height="14.5"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="DZX-5p-oP1"/>
                                                                                         <constraint firstAttribute="height" constant="14.5" id="yEZ-Qe-PFd"/>
                                                                                     </constraints>
                                                                                     <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="13"/>
@@ -120,9 +119,8 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안녕하세요 저는 현듀에요^-^안녕하세요 저는 현듀에요^-^안녕하세요 저는 현듀에요^-^안녕하세요 저는 현듀에요^-^안녕하세요 저는 현듀에요^-^안녕하세요 저는 현듀에요^-^안녕하세요 저는 현듀에요^-^" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6f-4p-W9U">
-                                                                    <rect key="frame" x="30" y="266" width="315" height="77"/>
+                                                                    <rect key="frame" x="30" y="266" width="315" height="83"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="77" id="XH6-2u-2q7"/>
                                                                         <constraint firstAttribute="width" priority="750" constant="315" id="brW-mn-Tgm"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="15"/>
@@ -140,6 +138,7 @@
                                                         </view>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailingMargin" secondItem="5LL-hp-cHW" secondAttribute="trailing" constant="56" id="1FN-VR-Lsa"/>
                                                             <constraint firstItem="LEZ-7r-saB" firstAttribute="leading" secondItem="UVA-Us-Fef" secondAttribute="leading" constant="15" id="6BL-dX-9Gh"/>
                                                             <constraint firstItem="N6f-4p-W9U" firstAttribute="centerX" secondItem="UVA-Us-Fef" secondAttribute="centerX" id="8hG-ss-ssZ"/>
                                                             <constraint firstItem="LEZ-7r-saB" firstAttribute="top" secondItem="UVA-Us-Fef" secondAttribute="top" constant="15" id="Bbj-yZ-PSJ"/>
@@ -148,16 +147,24 @@
                                                             <constraint firstItem="N6f-4p-W9U" firstAttribute="top" secondItem="7Jc-rF-rX8" secondAttribute="bottom" constant="33" id="SE0-bG-Y19"/>
                                                             <constraint firstAttribute="trailing" secondItem="N6f-4p-W9U" secondAttribute="trailing" constant="30" id="Tnm-WL-kyL"/>
                                                             <constraint firstItem="7Jc-rF-rX8" firstAttribute="centerX" secondItem="UVA-Us-Fef" secondAttribute="centerX" id="WTE-oJ-Ddq"/>
-                                                            <constraint firstAttribute="bottom" secondItem="N6f-4p-W9U" secondAttribute="bottom" constant="32" id="Xof-lp-CsY"/>
                                                             <constraint firstItem="IRl-6Q-yLu" firstAttribute="leading" secondItem="5LL-hp-cHW" secondAttribute="trailing" constant="-7" id="ctZ-SQ-heU"/>
                                                             <constraint firstItem="N6f-4p-W9U" firstAttribute="leading" secondItem="UVA-Us-Fef" secondAttribute="leading" constant="30" id="dE3-Vj-lBp"/>
                                                             <constraint firstItem="5LL-hp-cHW" firstAttribute="top" secondItem="IRl-6Q-yLu" secondAttribute="bottom" constant="-3" id="j03-LI-hXI"/>
                                                             <constraint firstItem="5LL-hp-cHW" firstAttribute="centerX" secondItem="UVA-Us-Fef" secondAttribute="centerX" id="tOv-aI-Wmy"/>
+                                                            <constraint firstItem="5LL-hp-cHW" firstAttribute="leading" secondItem="UVA-Us-Fef" secondAttribute="leadingMargin" constant="55" id="ulV-ua-rOP"/>
                                                         </constraints>
-                                                        <size key="customSize" width="375" height="375"/>
+                                                        <size key="customSize" width="375" height="425"/>
+                                                        <connections>
+                                                            <outlet property="hash1View" destination="nVo-AP-Ngb" id="wyw-wd-JV2"/>
+                                                            <outlet property="hash2View" destination="vxO-5t-cRX" id="LSh-RV-liS"/>
+                                                            <outlet property="hashTag1Label" destination="7SI-gz-05h" id="af4-zE-FKH"/>
+                                                            <outlet property="hashTag2Label" destination="2dv-nZ-hx6" id="k67-j3-x7R"/>
+                                                            <outlet property="helloMessageLabel" destination="N6f-4p-W9U" id="Fhu-hT-zTb"/>
+                                                            <outlet property="sellerimageView" destination="5LL-hp-cHW" id="eBY-Cd-3vd"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SellerProductCell" id="go8-3O-eZc" customClass="SellerProductCell" customModule="Woong_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="100" y="385" width="175" height="224"/>
+                                                        <rect key="frame" x="100" y="435" width="175" height="224"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                             <rect key="frame" x="0.0" y="0.0" width="175" height="224"/>
@@ -171,10 +178,10 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="PD2-IA-mio">
-                                                                    <rect key="frame" x="37" y="140" width="101" height="64"/>
+                                                                    <rect key="frame" x="37.5" y="140" width="100.5" height="64"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[현듀마켓]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="193-rt-loR">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="101" height="16"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="100.5" height="16"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="16" id="7ty-Fb-sdo"/>
                                                                             </constraints>
@@ -183,7 +190,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="돼지감자" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVT-cO-0KB">
-                                                                            <rect key="frame" x="0.0" y="22" width="101" height="18"/>
+                                                                            <rect key="frame" x="0.0" y="22" width="100.5" height="18"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="18" id="tQw-en-mJd"/>
                                                                             </constraints>
@@ -192,10 +199,9 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1kg당 6600원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COt-WQ-UOM">
-                                                                            <rect key="frame" x="0.0" y="46" width="101" height="18"/>
+                                                                            <rect key="frame" x="0.0" y="46" width="100.5" height="18"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="18" id="2T2-JV-w71"/>
-                                                                                <constraint firstAttribute="width" constant="101" id="PuS-7q-NVC"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="16"/>
                                                                             <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -209,7 +215,7 @@
                                                                         <constraint firstAttribute="width" constant="48" id="37o-cK-YKH"/>
                                                                         <constraint firstAttribute="height" constant="48" id="ZAL-ma-VOS"/>
                                                                     </constraints>
-                                                                    <state key="normal" image="product-not-like"/>
+                                                                    <state key="normal" backgroundImage="product-not-like"/>
                                                                 </button>
                                                             </subviews>
                                                         </view>
@@ -225,9 +231,16 @@
                                                             <constraint firstItem="PD2-IA-mio" firstAttribute="top" secondItem="x54-4n-sKk" secondAttribute="bottom" constant="20" id="x6A-Ut-cyE"/>
                                                         </constraints>
                                                         <size key="customSize" width="175" height="224"/>
+                                                        <connections>
+                                                            <outlet property="likeImageButton" destination="eVp-U8-zln" id="mXK-r9-NA3"/>
+                                                            <outlet property="marketNameLabel" destination="193-rt-loR" id="kaY-av-ZNE"/>
+                                                            <outlet property="priceLabel" destination="COt-WQ-UOM" id="0pA-5o-fkJ"/>
+                                                            <outlet property="productImageView" destination="x54-4n-sKk" id="xlZ-Fs-K3E"/>
+                                                            <outlet property="productNameLabel" destination="AVT-cO-0KB" id="M1h-7v-piG"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SellerAlbumCell" id="Fqd-JU-smT" customClass="SellerAlbumCell" customModule="Woong_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="619" width="375" height="225"/>
+                                                        <rect key="frame" x="0.0" y="669" width="375" height="225"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
@@ -282,7 +295,7 @@
                                                         <size key="customSize" width="375" height="225"/>
                                                     </collectionViewCell>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SellerReviewCell" id="BSE-qO-wxA">
-                                                        <rect key="frame" x="0.0" y="854" width="375" height="375"/>
+                                                        <rect key="frame" x="0.0" y="904" width="375" height="375"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>

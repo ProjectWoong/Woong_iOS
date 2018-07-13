@@ -13,6 +13,7 @@ class MarketVC: UIViewController {
     @IBOutlet var categoryCollectionView: UICollectionView!
     @IBOutlet var nearMarketTableView: UITableView!
     @IBOutlet var bookMarkTableView: UITableView!
+    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1MCwiZW1haWwiOiJwa3NlMTIxM0BhLmEiLCJpYXQiOjE1MzE0NTk3NjgsImV4cCI6ODc5MzE0NTk3NjgsImlzcyI6InNlcnZpY2UiLCJzdWIiOiJ1c2VyX3Rva2VuIn0.Uktksh977X0jTKtL-aeK1q7g1b0vVBnHfuZ-pUfg8MI"
     
     let likeImage = UIImage(named: "market-favorite-favorite")
     let unlikeImage = UIImage(named: "market-favorite-delete")
@@ -51,21 +52,35 @@ class MarketVC: UIViewController {
     }
     
     private func setupData() {
-        if let token = ud.string(forKey: "token"){
+        //T삭제해야됨!!
+        
+        
+//        if let token = ud.string(forKey: "token"){
             // 주변 마켓 데이터
-            NearMarketService.shareInstance.getNearMarket(token: token, completion: { (nearMarket) in
+            NearMarketService.shareInstance.getNearMarket(token: self.token, completion: { (nearMarket) in
                 self.nearMarketArr = nearMarket
+                print("내주변마켓 성공")
+                self.nearMarketTableView.reloadData()
+                
+                
             }) { (errCode) in
-                 self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
+                      print("주변마켓 Xx")
+                 self.simpleAlert(title: "내주변마켓 x", message: "")
             }
             
             // 즐겨찾기 데이터
-            BookmarkListService.shareInstance.getCartList(token: token, completion: { (bookMark) in
+        
+        BookmarkListService.shareInstance.getCartList(token: token, completion: { (bookMark) in
                 self.bookMarkArr = bookMark
+                print("즐겨찾기 성공")
+            
+            self.bookMarkTableView.reloadData()
             }) { (errCode) in
-                self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
+                 print("즐겨찾기 Xx")
+                self.simpleAlert(title: "즐겨찾깉x", message: "")
             }
-        }
+//        }
+        
     }
     
     private func setupNaviBar() {
@@ -193,41 +208,47 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == nearMarketTableView {
+            
+            let marketId = nearMarketArr[indexPath.row].marketID
+            let destvc = UIStoryboard(name: "Market", bundle: nil).instantiateViewController(withIdentifier: "SellerVC") as! SellerVC
+            MarketIntroService.shareInstance.getMarketIntro(index: marketId, token: token, completion: { (res) in
+               
+                destvc.marketIntro = res
+               destvc.marketId = res.marketID
+                self.navigationController?.pushViewController(destvc, animated: true)
+                print("marketintro 성공")
+            }) { (errCode) in
+                print("marketintro 실패")
+            }
+        }
+    }
     
     @objc func deleteBookMarkFromButton(button: UIButton) {
        
         if button.currentBackgroundImage == likeImage {
             button.setBackgroundImage(unlikeImage, for: .normal)
-            if let token = ud.string(forKey: "token") {
-               
-               BookmarkOperateService.shareInstance.deleteBookmarkList(productId: bookMarkArr[button.tag].marketId, token: token, completion: {
+//            if let token = ud.string(forKey: "token") {
+             BookmarkOperateService.shareInstance.deleteBookmarkList(productId: bookMarkArr[button.tag].marketId, token: self.token, completion: {
                     self.simpleAlert(title: "즐겨찾기 등록이 해제되었습니다", message: "")
                 }) { (errCode) in
                     self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
                 }
-            }
+//            }
             
         } else if button.currentBackgroundImage == unlikeImage{
              button.setBackgroundImage(likeImage, for: .normal)
-            if let token = ud.string(forKey: "token") {
-                
-                BookmarkOperateService.shareInstance.setBookmarkList(productId: bookMarkArr[button.tag].marketId, token: token, completion: { (res) in
+//            if let token = ud.string(forKey: "token") {
+            
+                BookmarkOperateService.shareInstance.setBookmarkList(productId: bookMarkArr[button.tag].marketId, token: self.token, completion: { (res) in
                     
                 }) { (errCode) in
                     self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
                 }
-            }
+//            }
         }
         
     }
 
 }
-
-
-
-
-
-
-
-
-

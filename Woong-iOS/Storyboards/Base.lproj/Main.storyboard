@@ -878,8 +878,11 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="cartImageView" destination="7nx-4o-KXU" id="C87-pt-Coh"/>
+                                            <outlet property="hashTag1Label" destination="s8s-8L-Pau" id="AhE-L4-bry"/>
+                                            <outlet property="hashTag2Label" destination="sGy-Eq-pnk" id="JaW-jc-oT9"/>
                                             <outlet property="heartImageView" destination="OnM-Tm-nBs" id="Thq-G0-4uB"/>
                                             <outlet property="marketNameLabel" destination="w3V-ca-VfY" id="KyB-zL-4gE"/>
+                                            <outlet property="priceLabel" destination="MWQ-7u-R3L" id="V0E-US-hzp"/>
                                             <outlet property="productNameLabel" destination="hW5-CG-deZ" id="QxU-eP-YWQ"/>
                                         </connections>
                                     </collectionViewCell>

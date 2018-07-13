@@ -61,10 +61,6 @@ class SignUpAllergicVC: UIViewController {
             }
         }
         
-        
-        
-       
-        
         let body: [String: Any] = [
             "email": email,
             "password": password,
@@ -89,7 +85,6 @@ class SignUpAllergicVC: UIViewController {
                 self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
             }
         }
-        
     }
     
     func toSignIn(_ sender: UIAlertAction) -> Void {

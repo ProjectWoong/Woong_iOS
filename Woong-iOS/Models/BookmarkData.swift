@@ -14,15 +14,15 @@ struct BookmarkData: Codable {
 }
 
 struct Bookmark: Codable {
-    var bookmarkId: Int
     var marketId: Int
-    var marketImage: String
     var marketName: String
+    var marketAddress: String
+    var titleImageKey: String
     
     enum Codingkeys: String, CodingKey {
-        case bookmarkId = "bookmark_id"
         case marketId = "market_id"
-        case marketImage = "market_image"
         case marketName = "market_name"
+        case marketAddress = "market_address"
+        case titleImageKey = "title_image_key"
     }
 }

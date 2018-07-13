@@ -13,10 +13,10 @@ class CategoryVC: UIViewController {
     let bigCellId = "BigCategoryCell"
     let smallCellId = "SmallCategoryCell"
     let bigCategory = ["채소", "과일", "곡물", "달걀/유제품"]
+    var bigCategoryIndex = 0
     
     var categoryTextArr:[String] = []
     var categoryImageArr:[String] = []
-    
     let vegetableArr = ["감자", "고구마", "고추", "나물","버섯", "열매 채소", "잎 채소", "뿌리 채소"]
     let vegetableImageArr = ["home-vegetable-potato", "home-vegetable-sweetpotato","home-vegetable-chili", "home-vegetable-greens", "home-vegetable-mushroom", "home-vegetable-fruit", "home-vegetable-leaf", "home-vegetable-root"]
     
@@ -158,6 +158,9 @@ extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         if collectionView == bigCategoryCollectionView {
             horizontalBarLeftAnchorConstraint?.constant = CGFloat(indexPath.item) * (self.view.frame.width / 4)
             selectCategory(categoryIndex: indexPath.item)
+            
+            bigCategoryIndex = indexPath.item
+            
             if indexPath.row == 0 {
                 categoryTextArr = vegetableArr
                 categoryImageArr = vegetableImageArr
@@ -175,9 +178,12 @@ extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             smallCategoryCollectionView.reloadData()
         } else {
             let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProductVC") as! ProductVC
-           
-            destvc.navigationItem.title = categoryTextArr[indexPath.row]
-            self.navigationController?.pushViewController(destvc, animated: true)
+           destvc.navigationItem.title = categoryTextArr[indexPath.item]
+            
+            destvc.mainId = bigCategoryIndex + 1
+            
+            destvc.subId = indexPath.item + 1
+        self.navigationController?.pushViewController(destvc, animated: true)
             
         }
     }
