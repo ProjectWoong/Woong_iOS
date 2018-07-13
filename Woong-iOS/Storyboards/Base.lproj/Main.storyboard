@@ -1031,7 +1031,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="starButton" destination="gDF-xR-uF7" id="Gbh-vu-InJ"/>
+                                            <outlet property="starButton" destination="gDF-xR-uF7" id="cTn-vm-Ant"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1149,6 +1149,9 @@
                                             <outlet property="hashTagLabel2" destination="DzE-tn-kZf" id="YTm-lI-bmj"/>
                                             <outlet property="hashTagView1" destination="mRV-VG-4vA" id="KYS-NS-OAa"/>
                                             <outlet property="hashTagView2" destination="iNa-qQ-XUH" id="56r-f6-8kO"/>
+                                            <outlet property="marketAddressLabel" destination="NWI-te-Css" id="phA-Jt-90o"/>
+                                            <outlet property="marketImageView" destination="Eyi-8W-7RM" id="Kol-xm-MAh"/>
+                                            <outlet property="marketNameLabel" destination="pjS-LM-aOU" id="jj1-ZG-wIK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2345,7 +2348,7 @@
         <!--Main Root Tab Bar Controller-->
         <scene sceneID="Acu-n1-gwz">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="0wd-6c-Xpq" customClass="MainRootTabBarController" customModule="Woong_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainRootTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="0wd-6c-Xpq" customClass="MainRootTabBarController" customModule="Woong_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dli-RH-QNi">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

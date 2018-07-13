@@ -9,14 +9,14 @@
 import Foundation
 
 struct LocationData: Codable {
-    var message: String
-    var data: Location
+    let message: String
+    let data: Location
 }
 
 struct Location: Codable {
-    var location: String
+    let location: String
     
     enum Codingkeys: String, CodingKey {
-        case location = "user_address"
+        case location = "real_address"
     }
 }

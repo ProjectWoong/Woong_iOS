@@ -9,18 +9,21 @@
 import UIKit
 
 class MarketVC: UIViewController {
-    var collectionselectNum = 0
-    let categoryArr = ["내 주변 마켓", "즐겨찾기"]
-    let likeImage = UIImage(named: "market-favorite-favorite")
-    let unlikeImage = UIImage(named: "market-favorite-delete")
-    
-    var selectedIndexPath = IndexPath(item: 0, section: 0)
     @IBOutlet var categoryView: UIView!
     @IBOutlet var categoryCollectionView: UICollectionView!
     @IBOutlet var nearMarketTableView: UITableView!
     @IBOutlet var bookMarkTableView: UITableView!
     
+    let likeImage = UIImage(named: "market-favorite-favorite")
+    let unlikeImage = UIImage(named: "market-favorite-delete")
     
+    let ud = UserDefaults.standard
+    var nearMarketArr: [NearMarket] = []
+    var bookMarkArr: [Bookmark] = []
+    var collectionselectNum = 0
+    let categoryArr = ["내 주변 마켓", "즐겨찾기"]
+  
+    var selectedIndexPath = IndexPath(item: 0, section: 0)
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
     let horizontalBarView: UIView = {
         let view = UIView()
@@ -31,11 +34,38 @@ class MarketVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupData()
         setupView()
         setupCollectionView(num: collectionselectNum)
+        
         setupTableView()
         setupHorizontalBar()
         setupNaviBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupData()
+        nearMarketTableView.reloadData()
+        bookMarkTableView.reloadData()
+    }
+    
+    private func setupData() {
+        if let token = ud.string(forKey: "token"){
+            // 주변 마켓 데이터
+            NearMarketService.shareInstance.getNearMarket(token: token, completion: { (nearMarket) in
+                self.nearMarketArr = nearMarket
+            }) { (errCode) in
+                 self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
+            }
+            
+            // 즐겨찾기 데이터
+            BookmarkListService.shareInstance.getCartList(token: token, completion: { (bookMark) in
+                self.bookMarkArr = bookMark
+            }) { (errCode) in
+                self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
+            }
+        }
     }
     
     private func setupNaviBar() {
@@ -75,7 +105,6 @@ class MarketVC: UIViewController {
         bookMarkTableView.dataSource = self
         bookMarkTableView.tableFooterView = UIView(frame: .zero)
         bookMarkTableView.separatorStyle = .none
-        
         
     }
     
@@ -126,6 +155,7 @@ extension MarketVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
 }
 
+
 extension MarketVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -138,32 +168,61 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == nearMarketTableView {
-            return 5
+            
+            return nearMarketArr.count
         } else {
-            return 5
+            return bookMarkArr.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == nearMarketTableView {
             let cell = nearMarketTableView.dequeueReusableCell(withIdentifier: "NearMarketCell") as! NearMarketCell
-          
+            cell.marketNameLabel.text = nearMarketArr[indexPath.row].marketName
+            cell.marketAddressLabel.text = nearMarketArr[indexPath.row].marketAddress
+            cell.hashTagLabel1.text = nearMarketArr[indexPath.row].tagName
+            
             return cell
         } else {
             let cell = bookMarkTableView.dequeueReusableCell(withIdentifier: "BookMarkCell") as! BookMarkCell
             
-            cell.starButton.tag = indexPath.row
+            cell.tag = indexPath.row
             cell.starButton.addTarget(self, action: #selector(deleteBookMarkFromButton(button:)), for: .touchUpInside)
+            
             return cell
         }
     }
     
+    
     @objc func deleteBookMarkFromButton(button: UIButton) {
-        button.setBackgroundImage(unlikeImage, for: .normal) 
-//        bookMarkTableView.reloadData()
+       
+        if button.currentBackgroundImage == likeImage {
+            button.setBackgroundImage(unlikeImage, for: .normal)
+            if let token = ud.string(forKey: "token") {
+               
+               BookmarkOperateService.shareInstance.deleteBookmarkList(productId: bookMarkArr[button.tag].marketId, token: token, completion: {
+                    self.simpleAlert(title: "즐겨찾기 등록이 해제되었습니다", message: "")
+                }) { (errCode) in
+                    self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
+                }
+            }
+            
+        } else if button.currentBackgroundImage == unlikeImage{
+             button.setBackgroundImage(likeImage, for: .normal)
+            if let token = ud.string(forKey: "token") {
+                
+                BookmarkOperateService.shareInstance.setBookmarkList(productId: bookMarkArr[button.tag].marketId, token: token, completion: { (res) in
+                    
+                }) { (errCode) in
+                    self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
+                }
+            }
+        }
+        
     }
 
 }
+
 
 
 

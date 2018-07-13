@@ -13,9 +13,10 @@ class SignUpInfo2VC: UIViewController {
     @IBOutlet var emailTxtFd: UITextField!
     @IBOutlet var passwordTxtFd: UITextField!
     @IBOutlet var phoneTxtFd: UITextField!
-    
     @IBOutlet var nextButton: UIButton!
     
+    var user_name = ""
+    var birth = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         initGestureRecognizer()
@@ -23,12 +24,22 @@ class SignUpInfo2VC: UIViewController {
     }
     
     @IBAction func nextAction(_ sender: UIButton) {
-        let signupVC = UIStoryboard(name: "Sign", bundle: nil).instantiateViewController(withIdentifier: "SignUpAllergicVC")
         
-        self.present(signupVC, animated: true, completion: nil)
+        if emailTxtFd.text == "" || passwordTxtFd.text == "" || phoneTxtFd.text == "" {
+               simpleAlert(title: "모든 항목을 입력해주세요!", message: "")
+        } else {
+            let signupVC = UIStoryboard(name: "Sign", bundle: nil).instantiateViewController(withIdentifier: "SignUpAllergicVC") as! SignUpAllergicVC
+            
+            signupVC.user_name = user_name
+            signupVC.birth = birth
+            signupVC.email = emailTxtFd.text!
+            signupVC.password = passwordTxtFd.text!
+            signupVC.phone_number = phoneTxtFd.text!
+            
+            self.present(signupVC, animated: true, completion: nil)
+        }
+        
     }
-    
-    
 }
 
 extension SignUpInfo2VC: UIGestureRecognizerDelegate {

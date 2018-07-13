@@ -15,8 +15,7 @@ class SignUpInfo1VC: UIViewController {
     @IBOutlet var monthTxtFd: UITextField!
     @IBOutlet var dayTxtFd: UITextField!
     @IBOutlet var nameTxtFd: UITextField!
-    
-    
+
     let datePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
@@ -33,9 +32,16 @@ class SignUpInfo1VC: UIViewController {
     }
     
     @IBAction func nextAction(_ sender: UIButton) {
-        let signupVC = UIStoryboard(name: "Sign", bundle: nil).instantiateViewController(withIdentifier: "SignUpInfo2VC")
         
-        self.present(signupVC, animated: true, completion: nil)
+        if yearTxtFd.text == "" || nameTxtFd.text == "" {
+            simpleAlert(title: "모든 항목을 입력해주세요!", message: "")
+        } else {
+            let signupVC = UIStoryboard(name: "Sign", bundle: nil).instantiateViewController(withIdentifier: "SignUpInfo2VC") as! SignUpInfo2VC
+            
+            signupVC.birth = yearTxtFd.text! + "/" + monthTxtFd.text! + "/" + dayTxtFd.text!
+            signupVC.user_name = nameTxtFd.text!
+            self.present(signupVC, animated: true, completion: nil)
+        }
     }
     
     private func setupPicker() {

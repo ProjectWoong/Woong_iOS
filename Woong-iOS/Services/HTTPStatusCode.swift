@@ -18,6 +18,7 @@ enum HTTPStatusCode: Int {
     case NotFound = 404 // 페이지 없음
     case Conflict = 409 // 데이터 중복
     case ValidationError = 422 //처리 불가능
+    case DecodingError = 423 //데이터 디코딩 에러
     
     // 500 Server Error
     case InternalServerError = 500 // 서버 에러

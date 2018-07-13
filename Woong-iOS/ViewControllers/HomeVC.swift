@@ -18,34 +18,51 @@ class HomeVC: UIViewController {
     @IBOutlet var homeScrollView: UIScrollView!
     
     var myAddress: String = ""
+//    var latitude = 0.0
+//    var longitude = 0.0
     var diffMin: CGFloat = 0
+    
+    let ud = UserDefaults.standard
+    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1MCwiZW1haWwiOiJwa3NlMTIxM0BhLmEiLCJpYXQiOjE1MzE0NTk3NjgsImV4cCI6ODc5MzE0NTk3NjgsImlzcyI6InNlcnZpY2UiLCJzdWIiOiJ1c2VyX3Rva2VuIn0.Uktksh977X0jTKtL-aeK1q7g1b0vVBnHfuZ-pUfg8MI"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myAddress = "용산구 청파동 92-1"
-        setupAddress(address: myAddress)
+        print("viewdidload")
+       
+        //self.ud.set(token, forKey: "token")
+        
         setupNaviBar()
         setupTextView()
         setupView()
+        checkAddress()
         let tapGes = UITapGestureRecognizer(target: self, action: #selector(weekendFarmerAction))
          self.weekendFarmerImageView.addGestureRecognizer(tapGes)
         
         let center = NotificationCenter.default
-        center.addObserver(self, selector: #selector(addCartItem), name: NSNotification.Name("SetupAddress") , object: nil)
+        center.addObserver(self, selector: #selector(goSearchView), name: NSNotification.Name("SetupAddress") , object: nil)
+    }
+  
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkAddress()
+    }
+    private func checkAddress() {
+//        if let token = ud.string(forKey: "token"){
+        
+            LocationService.shareInstance.getLocation(token: token, completion: { (address) in
+                self.setupAddress(address: address.location)
+           
+            }) { (errCode) in
+                print("errnum\(errCode)")
+                if errCode == 500 {
+                    let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "LocationSearchVC")
+                    self.present(destvc, animated: true, completion: nil)
+                }
+            }
+//        }
         
     }
-    
-     @objc func addCartItem(noti:Notification) {
-        let address = noti.object as! String
-        self.setupAddress(address: address)
-    }
-    
-    @objc func weekendFarmerAction() {
-        let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "WeekendFarmerVC")
-       destvc.title = "이 주의 농부"
-        self.navigationController?.pushViewController(destvc, animated: true)
-    }
-    
+
     private func setupNaviBar() {
         self.navigationController?.navigationBar.topItem?.title = myAddress
         let backItem = UIBarButtonItem()
@@ -53,18 +70,31 @@ class HomeVC: UIViewController {
         navigationItem.backBarButtonItem = backItem
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.barTintColor = .white
-      
+    }
+    @objc func weekendFarmerAction() {
+        let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "WeekendFarmerVC")
+        destvc.title = "이 주의 농부"
+        self.navigationController?.pushViewController(destvc, animated: true)
+    }
+    
+    @objc func settingAdress(noti:Notification) {
+        print("settingadress")
+        
+        if let address = noti.object as? String {
+            
+            self.setupAddress(address: address)
+        }
     }
     
     func setupAddress(address: String){
         self.myAddress = address
-        print(myAddress)
+
+        print("setupAddress")
         let testFrame : CGRect = CGRect(x: 0, y: 0, width: 375, height: 50)
         let buttonView: UIView = UIView(frame: testFrame)
         let locationbutton =  UIButton(type: .system) as UIButton
         locationbutton.frame = CGRect(x: 0, y: 0, width: 375, height: 50)
         let locationimage = UIImage(named: "navigation-bar-location-green")
-        
         locationbutton.tintColor = #colorLiteral(red: 0.3215686275, green: 0.6117647059, blue: 0.4666666667, alpha: 1)
         locationbutton.semanticContentAttribute = .forceRightToLeft
         locationbutton.setTitle("\(self.myAddress) ", for: .normal)
@@ -73,11 +103,25 @@ class HomeVC: UIViewController {
         locationbutton.titleLabel?.font = UIFont(name: "NanumSquareOTFEB", size: 17)
         buttonView.addSubview(locationbutton)
         self.navigationItem.titleView = buttonView
-        let locationGes = UITapGestureRecognizer(target: self, action: #selector(settingLocation))
+        let locationGes = UITapGestureRecognizer(target: self, action: #selector(goSearchView))
         locationbutton.addGestureRecognizer(locationGes)
+        
+        // 수정~~~~~~~~~
+        
+//        if let token = ud.string(forKey: "token"){
+            LocationService.shareInstance.setLocation(body: [
+                "latitude": 35.9078,
+                "longitude": 127.7669,
+                "address": "서울시 마포구"
+                ], token: self.token, completion: {
+                    print("성공")
+            }) { (errCode) in
+                print("nonono")
+//            }
+        }
     }
     
-    @objc func settingLocation() {
+    @objc func goSearchView() {
         let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "LocationSearchVC")
         self.present(destvc, animated: true, completion: nil)
     }

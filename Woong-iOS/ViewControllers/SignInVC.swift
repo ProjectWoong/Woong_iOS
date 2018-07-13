@@ -59,9 +59,12 @@ class SignInVC: UIViewController {
             "email" : gsno(idTextField.text),
             "password" : gsno(passwordTextField.text)
         ]
-        AccountService.shareInstance.signIn(body: body, completion: { (token) in
+        SignInOutService.shareInstance.signIn(body: body, completion: { (token) in
             self.ud.set(token.token, forKey: "token")
-            self.simpleAlert(title: "로그인성공", message: "")
+            // self.simpleAlert(title: "로그인성공", message: "")
+            
+            let destvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainRootTabBarController") as! MainRootTabBarController
+            self.present(destvc, animated: false, completion: nil)
         }) { (errCode) in
             if errCode == 403 {
                 self.simpleAlert(title: "로그인 오류", message: "아이디나 비밀번호가 일치하지 않습니다.")
@@ -69,6 +72,11 @@ class SignInVC: UIViewController {
                 self.simpleAlert(title: "네트워크 오류", message: "서버가 응답하지 않습니다.")
             }
         }
+    }
+    
+    func toMain() {
+        performSegue(withIdentifier: "unwindToMain", sender: self)
+        
     }
     
     @IBAction func singInAction(_ sender: UIButton) {

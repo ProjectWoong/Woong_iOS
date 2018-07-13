@@ -452,15 +452,18 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="93" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="과일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yt-z3-oNU">
-                                                            <rect key="frame" x="0.0" y="2" width="93" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="과일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yt-z3-oNU">
+                                                            <rect key="frame" x="33" y="13.5" width="27.5" height="17"/>
                                                             <fontDescription key="fontDescription" name="NanumSquareOTFEB" family="NanumSquareOTF" pointSize="15"/>
                                                             <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </view>
+                                                <constraints>
+                                                    <constraint firstItem="3Yt-z3-oNU" firstAttribute="centerX" secondItem="N8C-tM-vHT" secondAttribute="centerX" id="R9p-nI-WgN"/>
+                                                    <constraint firstItem="3Yt-z3-oNU" firstAttribute="centerY" secondItem="N8C-tM-vHT" secondAttribute="centerY" id="RMg-qZ-qWk"/>
+                                                </constraints>
                                                 <connections>
                                                     <outlet property="bigCategoryLabel" destination="3Yt-z3-oNU" id="jNX-Ga-eVr"/>
                                                 </connections>

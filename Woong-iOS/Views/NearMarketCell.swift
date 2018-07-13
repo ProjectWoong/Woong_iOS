@@ -11,8 +11,13 @@ import UIKit
 class NearMarketCell: UITableViewCell {
     
     
+    @IBOutlet weak var marketImageView: UIImageView!
     @IBOutlet var hashTagLabel1: UILabel!
     @IBOutlet var hashTagLabel2: UILabel!
+    @IBOutlet weak var marketNameLabel: UILabel!
+    @IBOutlet weak var marketAddressLabel: UILabel!
+    
+    
     
     @IBOutlet var hashTagView1: UIView!
     @IBOutlet var hashTagView2: UIView!

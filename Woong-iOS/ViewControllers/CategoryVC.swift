@@ -60,9 +60,7 @@ class CategoryVC: UIViewController {
         let buttonView: UIView = UIView(frame: testFrame)
         let locationbutton =  UIButton(type: .system) as UIButton
         locationbutton.frame = CGRect(x: 0, y: 0, width: 375, height: 50)
-//        let locationimage = UIImage(named: "navigation-bar-location-green")
-        
-        
+
         
         locationbutton.tintColor = #colorLiteral(red: 0.3215686275, green: 0.6117647059, blue: 0.4666666667, alpha: 1)
         locationbutton.semanticContentAttribute = .forceRightToLeft
@@ -111,7 +109,7 @@ class CategoryVC: UIViewController {
 extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == bigCategoryCollectionView {
-             return CGSize(width: bigCategoryView.frame.width / 4, height: bigCategoryView.frame.height)
+             return CGSize(width: self.view.frame.width / 4, height: bigCategoryView.frame.height)
         }
         else {
             let rectSize = self.view.frame.width / 3

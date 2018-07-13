@@ -298,9 +298,11 @@
                         <outlet property="loginButton" destination="5KE-SS-sZ2" id="lRi-Zg-emU"/>
                         <outlet property="passwordTextField" destination="z0T-32-wRv" id="lzC-gB-eqj"/>
                         <outlet property="passwordView" destination="ZAl-VT-t3a" id="9c4-PH-bBj"/>
+                        <segue destination="DJw-41-yhI" kind="unwind" identifier="unwindToMain" unwindAction="unwindMain:" id="M6a-ux-VUx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VI9-Cd-yJD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DJw-41-yhI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="40.799999999999997" y="22.938530734632685"/>
         </scene>
@@ -1078,6 +1080,7 @@
                                 </state>
                                 <connections>
                                     <action selector="agreeAction:" destination="jnx-Wn-hYo" eventType="touchUpInside" id="BRK-XG-oqJ"/>
+                                    <action selector="completionAction:" destination="Xez-sK-r9u" eventType="touchUpInside" id="jy4-mI-kqc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1107,9 +1110,11 @@
                         <outlet property="soyBtn" destination="aCj-9A-E9d" id="cn1-Uo-9Z9"/>
                         <outlet property="tomatoBtn" destination="Lwh-u7-Ft7" id="zLH-hl-NX2"/>
                         <outlet property="wheatBtn" destination="IGE-yH-lwO" id="j6G-uD-fbv"/>
+                        <segue destination="eVV-3z-yyZ" kind="unwind" identifier="unwindToSignIn" unwindAction="unwindToSignIn:" id="h9H-Nu-HrC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PhH-Wh-WdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eVV-3z-yyZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2712.8000000000002" y="22.938530734632685"/>
         </scene>

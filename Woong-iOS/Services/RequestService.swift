@@ -26,12 +26,14 @@ extension RequestService {
             case .OK:
                 print("200")
                 if let value = res.result.value {
+                    
                     let decoder = JSONDecoder()
                     do {
                         let data = try decoder.decode(NetworkData.self, from: value)
                         completion(.success(data))
                     } catch {
-                        completion(.error(500))
+                        print("decoding err")
+                        completion(.error(423))
                     }
                 }
             case .Accepted:
@@ -55,6 +57,8 @@ extension RequestService {
             case .ValidationError:
                 print("422")
                 completion(.error(422))
+            case .DecodingError:
+                completion(.error(423))
             case .InternalServerError:
                 print("500")
                 completion(.error(500))
@@ -76,7 +80,7 @@ extension RequestService {
                         let data = try decoder.decode(NetworkData.self, from: value)
                         completion(.success(data))
                     } catch {
-                        completion(.error(500))
+                        completion(.error(423))
                     }
                 }
             case .Accepted:
@@ -98,6 +102,8 @@ extension RequestService {
             case .ValidationError:
                 print("422")
                 completion(.error(422))
+            case .DecodingError:
+                completion(.error(423))
             case .InternalServerError:
                 print("500")
                 completion(.error(500))

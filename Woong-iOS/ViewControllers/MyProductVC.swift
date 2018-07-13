@@ -14,8 +14,6 @@ class MyProductVC: UIViewController {
     var cartProductArr: [String] = ["왕감장","왕감장","왕감장", "고구마"]
     var isEmptyCheck: Bool = false
     
-    
-    
     @IBOutlet var categoryView: UIView!
     @IBOutlet var categoryCollectionView: UICollectionView!
     @IBOutlet var productCollectionView: UICollectionView!
