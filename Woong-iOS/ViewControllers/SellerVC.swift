@@ -228,8 +228,9 @@ extension SellerVC: UIScrollViewDelegate {
             
                 self.scrollView.bounces = true
             } else if scrollY >= 184 {
-                let image = getImageWithColor(color: .rgb(red: 82, green: 156, blue: 119), size: CGSize(width: view.frame.width, height: (self.navigationController?.navigationBar.frame.height)!))
-                self.navigationController?.navigationBar.setBackgroundImage(image, for: .default)
+                //let image = getImageWithColor(color: .rgb(red: 82, green: 156, blue: 119), size: CGSize(width: view.frame.width, height: 64))
+                ///self.navigationController?.navigationBar.setBackgroundImage(image, for: .default)
+                self.navigationController?.navigationBar.backgroundColor = UIColor.rgb(red: 82, green: 156, blue: 119)
                 sellerMenuTopConstraint.constant = scrollY + 64
                 sellerInfoCollectionView.isScrollEnabled = true
                 self.scrollView.bounces = false

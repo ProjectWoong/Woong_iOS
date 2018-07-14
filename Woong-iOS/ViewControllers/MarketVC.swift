@@ -236,14 +236,16 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
             
             let marketId = bookMarkArr[indexPath.row].marketId
             let destvc = UIStoryboard(name: "Market", bundle: nil).instantiateViewController(withIdentifier: "SellerVC") as! SellerVC
-            MarketIntroService.shareInstance.getMarketIntro(index: marketId, token: token, completion: { (res) in
-                
-                destvc.marketIntro = res
-                destvc.marketId = res.marketID
-                self.navigationController?.pushViewController(destvc, animated: true)
-                print("marketintro 성공")
-            }) { (errCode) in
-                print("marketintro 실패")
+            if let token = ud.string(forKey: "token") {
+                MarketIntroService.shareInstance.getMarketIntro(index: marketId, token: token, completion: { (res) in
+                    
+                    destvc.marketIntro = res
+                    destvc.marketId = res.marketID
+                    self.navigationController?.pushViewController(destvc, animated: true)
+                    print("marketintro 성공")
+                }) { (errCode) in
+                    print("marketintro 실패")
+                }
             }
         }
     }
