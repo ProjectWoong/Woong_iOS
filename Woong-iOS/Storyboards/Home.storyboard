@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3TN-cz-dbo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z4Q-fW-Ucl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -33,10 +33,13 @@
                                 <rect key="frame" x="20" y="69" width="335" height="35"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="register-location-list-1-search" translatesAutoresizingMaskIntoConstraints="NO" id="s6z-xe-9i3">
-                                        <rect key="frame" x="17" y="7.5" width="20" height="20"/>
+                                        <rect key="frame" x="17" y="7" width="20" height="20"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="위치를 검색해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Pd-zM-3sm">
-                                        <rect key="frame" x="45" y="9.5" width="131" height="17"/>
+                                        <rect key="frame" x="45" y="1" width="131" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="sCC-uj-Vgq"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -46,15 +49,19 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="8Xs-zu-YHe"/>
                                     <constraint firstItem="s6z-xe-9i3" firstAttribute="leading" secondItem="3i8-f5-kig" secondAttribute="leading" constant="17" id="Idn-SR-XI7"/>
+                                    <constraint firstItem="9Pd-zM-3sm" firstAttribute="top" secondItem="3i8-f5-kig" secondAttribute="top" constant="1" id="MwO-cM-Mtx"/>
                                     <constraint firstItem="9Pd-zM-3sm" firstAttribute="leading" secondItem="s6z-xe-9i3" secondAttribute="trailing" constant="8" id="OgC-3R-b7i"/>
-                                    <constraint firstItem="9Pd-zM-3sm" firstAttribute="centerY" secondItem="s6z-xe-9i3" secondAttribute="centerY" id="hJf-pb-ieK"/>
                                     <constraint firstItem="s6z-xe-9i3" firstAttribute="centerY" secondItem="3i8-f5-kig" secondAttribute="centerY" id="iO2-p3-pux"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Pd-zM-3sm" secondAttribute="bottom" constant="1" id="k4u-mj-mtc"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXf-MI-74D">
-                                <rect key="frame" x="20" y="146" width="58.5" height="17"/>
+                                <rect key="frame" x="20" y="146" width="280" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="oje-LZ-f59"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="15"/>
-                                <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IRv-gO-Dg3">
@@ -149,6 +156,7 @@
                     <connections>
                         <outlet property="searchBarTxtFd" destination="9Pd-zM-3sm" id="6Rn-wk-zzO"/>
                         <outlet property="searchBarView" destination="3i8-f5-kig" id="d8C-em-8cH"/>
+                        <outlet property="searchResultTitle" destination="SXf-MI-74D" id="OKA-AM-TEd"/>
                         <outlet property="searchTableView" destination="IRv-gO-Dg3" id="xx7-ZL-1Lx"/>
                     </connections>
                 </viewController>
@@ -161,38 +169,38 @@
             <objects>
                 <viewController storyboardIdentifier="WeekendFarmerVC" id="XOb-R5-OeJ" customClass="WeekendFarmerVC" customModule="Woong_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vNA-0f-4J2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1792"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jot-uE-Kx3">
-                                <rect key="frame" x="0.0" y="20" width="375" height="1680"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="1772"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1P-tp-6nO">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1699.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1776.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgD-jF-Atm">
-                                                <rect key="frame" x="0.0" y="209" width="375" height="1"/>
+                                                <rect key="frame" x="0.0" y="219" width="375" height="1"/>
                                                 <color key="backgroundColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="ecJ-CI-nrv"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrX-EW-Thg">
-                                                <rect key="frame" x="0.0" y="422.5" width="375" height="1"/>
+                                                <rect key="frame" x="0.0" y="432.5" width="375" height="1"/>
                                                 <color key="backgroundColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="xQO-9J-v4U"/>
                                                 </constraints>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payment-fail-character" translatesAutoresizingMaskIntoConstraints="NO" id="0UR-6b-bOO">
-                                                <rect key="frame" x="142.5" y="33" width="90" height="90"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weekely-farmer-profile" translatesAutoresizingMaskIntoConstraints="NO" id="0UR-6b-bOO">
+                                                <rect key="frame" x="137.5" y="33" width="100" height="100"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="90" id="G4I-wz-xqX"/>
-                                                    <constraint firstAttribute="height" constant="90" id="ikk-SQ-9pb"/>
+                                                    <constraint firstAttribute="width" constant="100" id="G4I-wz-xqX"/>
+                                                    <constraint firstAttribute="height" constant="100" id="ikk-SQ-9pb"/>
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="qUc-lu-M4P">
-                                                <rect key="frame" x="145" y="146" width="86" height="41"/>
+                                                <rect key="frame" x="145" y="156" width="86" height="41"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뚜덩 마켓" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOW-1n-J1R">
                                                         <rect key="frame" x="17.5" y="0.0" width="51" height="17"/>
@@ -210,7 +218,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="6kI-ce-AXs" userLabel="IStack View">
-                                                <rect key="frame" x="78" y="230" width="219" height="36"/>
+                                                <rect key="frame" x="78" y="240" width="219" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad5-og-N7C">
                                                         <rect key="frame" x="0.0" y="0.0" width="15" height="36"/>
@@ -247,7 +255,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iw-NV-qZ9">
-                                                <rect key="frame" x="64.5" y="286" width="245.5" height="116.5"/>
+                                                <rect key="frame" x="64.5" y="296" width="245.5" height="116.5"/>
                                                 <string key="text">감자는 말이여 알감자가 진리재~! 
 현듀네 알감자 먹고 예뻐지세유~!
 현듀 프로필 보슈 얼마나 이쁜지^^
@@ -260,84 +268,84 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="황토를 먹고 자란 수정이 알감자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAF-2P-1eb">
-                                                <rect key="frame" x="91.5" y="443.5" width="192.5" height="17"/>
+                                                <rect key="frame" x="91.5" y="453.5" width="192.5" height="17"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareOTFEB" family="NanumSquareOTF" pointSize="15"/>
                                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="약 25%이상의 면적에 황토를 보유하고 있는 수정이네 텃밭에서 황토를  먹고 자란 알감자입니다.   황토는 식물 성장에 필요한 원,  적외선을 다량으로 내뿜어 철분 및 무기질이 풍부한 알감자입니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZz-7r-FVT">
-                                                <rect key="frame" x="56" y="480.5" width="264.5" height="116.5"/>
+                                                <rect key="frame" x="56" y="490.5" width="264.5" height="116.5"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="15"/>
                                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dB-fd-mxl">
-                                                <rect key="frame" x="0.0" y="617" width="375" height="1"/>
+                                                <rect key="frame" x="0.0" y="627" width="375" height="1"/>
                                                 <color key="backgroundColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="rLm-SK-Epe"/>
                                                 </constraints>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payment-fail-character" translatesAutoresizingMaskIntoConstraints="NO" id="xHy-6y-Dp1">
-                                                <rect key="frame" x="91.5" y="638" width="193" height="141"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weekely-farmer-farmer" translatesAutoresizingMaskIntoConstraints="NO" id="xHy-6y-Dp1">
+                                                <rect key="frame" x="32.5" y="648" width="311" height="170"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="193" id="yeK-g4-ppk"/>
-                                                    <constraint firstAttribute="height" constant="141" id="ypU-3p-FkM"/>
+                                                    <constraint firstAttribute="width" constant="311" id="yeK-g4-ppk"/>
+                                                    <constraint firstAttribute="height" constant="170" id="ypU-3p-FkM"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안녕하세요. 최수정입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pr-FQ-g0o">
-                                                <rect key="frame" x="106" y="799" width="164.5" height="17"/>
+                                                <rect key="frame" x="106" y="838" width="164.5" height="17"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareOTFEB" family="NanumSquareOTF" pointSize="15"/>
                                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="감자공선출하회 총무를 맡고 있는  최수정입니다. 토양의 영양소와 따스한 햇살을 받고 자란 알감자를 정성스럽게 수확하여 지역의 신선한 농산물을 공급할 수 있도록 항상 노력하고 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbM-5y-kDv">
-                                                <rect key="frame" x="63.5" y="836" width="251" height="99.5"/>
+                                                <rect key="frame" x="63.5" y="875" width="251" height="99.5"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="15"/>
                                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payment-fail-character" translatesAutoresizingMaskIntoConstraints="NO" id="ks7-nZ-VhD">
-                                                <rect key="frame" x="92" y="955.5" width="193" height="141"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weekely-farmer-potato" translatesAutoresizingMaskIntoConstraints="NO" id="ks7-nZ-VhD">
+                                                <rect key="frame" x="33" y="994.5" width="311" height="160"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="193" id="FXJ-Zs-l5B"/>
-                                                    <constraint firstAttribute="height" constant="141" id="jVA-CA-f0l"/>
+                                                    <constraint firstAttribute="width" constant="311" id="FXJ-Zs-l5B"/>
+                                                    <constraint firstAttribute="height" constant="160" id="jVA-CA-f0l"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="건강과 함께 든든한 아침을 챙길 때  감자는 철분 함유랑이 높아 빈혈 증상 예방  및 개선에 효능이 있습니다.  또한 아르기닌 성분이 위벽을 보호하는  역할도 합니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="995-A2-gVF">
-                                                <rect key="frame" x="60" y="1116.5" width="258.5" height="83"/>
+                                                <rect key="frame" x="60" y="1174.5" width="258.5" height="83"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="15"/>
                                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payment-fail-character" translatesAutoresizingMaskIntoConstraints="NO" id="T5k-0j-Iqg">
-                                                <rect key="frame" x="92" y="1219.5" width="193" height="141"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weekely-farmer-family" translatesAutoresizingMaskIntoConstraints="NO" id="T5k-0j-Iqg">
+                                                <rect key="frame" x="33" y="1277.5" width="311" height="160"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="193" id="BaI-6l-wus"/>
-                                                    <constraint firstAttribute="height" constant="141" id="xOQ-ry-0vH"/>
+                                                    <constraint firstAttribute="width" constant="311" id="BaI-6l-wus"/>
+                                                    <constraint firstAttribute="height" constant="160" id="xOQ-ry-0vH"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFf-zP-iqo">
-                                                <rect key="frame" x="0.0" y="1380.5" width="375" height="1"/>
+                                                <rect key="frame" x="0.0" y="1457.5" width="375" height="1"/>
                                                 <color key="backgroundColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="fx3-47-mZf"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="맛있게 즐기는 방법" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEb-8r-hlM">
-                                                <rect key="frame" x="129.5" y="1401.5" width="117" height="17"/>
+                                                <rect key="frame" x="129.5" y="1478.5" width="117" height="17"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareOTFEB" family="NanumSquareOTF" pointSize="15"/>
                                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="껍질을 벗기지 말고 깨끗이 씻은 후 소금 1t를 넣고 뚜껑을 덮으세요.   센 불에서 팔팔 끓어 올리면 중간 불로 줄여 물이 거의 없어질 때까지 삶은 후 뚜껑을 열어 남은 수분을  날려주시면 더욱 맛있게 드실 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8d-it-Kza">
-                                                <rect key="frame" x="61.5" y="1438.5" width="254.5" height="133"/>
+                                                <rect key="frame" x="61.5" y="1515.5" width="254.5" height="133"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="15"/>
                                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Siy-vG-SS6">
-                                                <rect key="frame" x="94" y="1611.5" width="188" height="48"/>
+                                                <rect key="frame" x="94" y="1688.5" width="188" height="48"/>
                                                 <color key="backgroundColor" red="0.32156862749999998" green="0.61176470589999998" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="Jgy-cc-hL1"/>
@@ -416,7 +424,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YZY-zU-OcU"/>
                     </view>
-                    <size key="freeformSize" width="375" height="1700"/>
+                    <size key="freeformSize" width="375" height="1792"/>
                     <connections>
                         <outlet property="marketButton" destination="Siy-vG-SS6" id="GAO-N6-kID"/>
                     </connections>
@@ -574,7 +582,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="175" height="240"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nRa-hs-CtC">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nRa-hs-CtC">
                                                     <rect key="frame" x="0.0" y="0.0" width="175" height="127"/>
                                                     <color key="backgroundColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -677,6 +685,7 @@
                                             <outlet property="marketNameLabel" destination="Br6-4l-ssM" id="ncy-tl-ut7"/>
                                             <outlet property="priceLabel" destination="3kM-Zc-l9f" id="wAc-IH-62o"/>
                                             <outlet property="productNameLabel" destination="B9N-1B-vLR" id="Ccf-mb-Ka9"/>
+                                            <outlet property="titleImageView" destination="nRa-hs-CtC" id="UlT-xd-qNb"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -730,11 +739,14 @@
     </scenes>
     <resources>
         <image name="mine-pick-basket" width="48" height="48"/>
-        <image name="payment-fail-character" width="177" height="228"/>
         <image name="product-like" width="48" height="48"/>
         <image name="register-location-list-1-close" width="21" height="21"/>
         <image name="register-location-list-1-elimination" width="48" height="48"/>
         <image name="register-location-list-1-location-icon" width="13" height="15"/>
         <image name="register-location-list-1-search" width="20" height="20"/>
+        <image name="weekely-farmer-family" width="311" height="150"/>
+        <image name="weekely-farmer-farmer" width="311" height="170"/>
+        <image name="weekely-farmer-potato" width="311" height="160"/>
+        <image name="weekely-farmer-profile" width="100" height="100"/>
     </resources>
 </document>

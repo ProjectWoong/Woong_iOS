@@ -10,6 +10,7 @@ import UIKit
 
 class LikeProductCell: UICollectionViewCell {
     
+    @IBOutlet var titleImageView: UIImageView!
     @IBOutlet weak var marketNameLabel: UILabel!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var cartImageView: UIButton!

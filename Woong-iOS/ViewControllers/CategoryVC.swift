@@ -12,7 +12,7 @@ class CategoryVC: UIViewController {
     var myAddress = ""
     let bigCellId = "BigCategoryCell"
     let smallCellId = "SmallCategoryCell"
-    let bigCategory = ["채소", "과일", "곡물", "달걀/유제품"]
+    let bigCategory = ["과일", "곡물", "채소", "달걀/유제품"]
     var bigCategoryIndex = 0
     
     var categoryTextArr:[String] = []
@@ -40,10 +40,17 @@ class CategoryVC: UIViewController {
         setupLocation(location: myAddress)
         let shadowImage = UIImage()
         navigationController?.navigationBar.shadowImage = shadowImage
-        navigationController?.navigationBar.setBackgroundImage(shadowImage, for: .default)
         setupCollectionView()
         setupHorizontalBar()
         setupNaviBar()
+        setupCategory(categoryIndex: bigCategoryIndex)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.barTintColor = .rgb(red: 82, green: 156, blue: 119)
+        
     }
     
     private func setupNaviBar() {
@@ -56,16 +63,17 @@ class CategoryVC: UIViewController {
     }
     
     private func setupLocation(location: String){
-        let testFrame : CGRect = CGRect(x: 0, y: 0, width: 375, height: 50)
+        let testFrame : CGRect = CGRect(x: 0, y: 0, width: 180, height: 50)
         let buttonView: UIView = UIView(frame: testFrame)
         let locationbutton =  UIButton(type: .system) as UIButton
-        locationbutton.frame = CGRect(x: 0, y: 0, width: 375, height: 50)
+        locationbutton.frame = CGRect(x: 0, y: 0, width: 180, height: 50)
 
         
-        locationbutton.tintColor = #colorLiteral(red: 0.3215686275, green: 0.6117647059, blue: 0.4666666667, alpha: 1)
+        locationbutton.tintColor = .white
         locationbutton.semanticContentAttribute = .forceRightToLeft
         locationbutton.setTitle("\(self.myAddress) ", for: .normal)
-        locationbutton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+        locationbutton.setTitleColor(UIColor.white
+            , for: .normal)
 //        locationbutton.setImage(locationimage, for: .normal)
         locationbutton.titleLabel?.font = UIFont(name: "NanumSquareOTFEB", size: 17)
         locationbutton.isUserInteractionEnabled = false
@@ -80,13 +88,12 @@ class CategoryVC: UIViewController {
         self.smallCategoryCollectionView.delegate = self
         self.smallCategoryCollectionView.dataSource = self
         self.bigCategoryView.applyShadow(radius: 6, color: .black, offset: CGSize(width: 0, height: 3), opacity: 0.15)
-        let selectedIndexPath = NSIndexPath(item: 0, section: 0)
-        bigCategoryCollectionView.selectItem(at: selectedIndexPath as IndexPath, animated: false, scrollPosition: .init(rawValue: 0))
+        
     }
     
     private func setupHorizontalBar() {
         let horizontalBarView = UIView()
-        horizontalBarView.backgroundColor = UIColor.rgb(red: 35, green: 122, blue: 89)
+        horizontalBarView.backgroundColor = UIColor.rgb(red: 82, green: 156, blue: 119)
         horizontalBarView.translatesAutoresizingMaskIntoConstraints = false
         bigCategoryView.addSubview(horizontalBarView)
         
@@ -99,8 +106,10 @@ class CategoryVC: UIViewController {
         horizontalBarView.heightAnchor.constraint(equalToConstant: 2).isActive = true
     }
     
-    func selectCategory(categoryIndex: Int) {
-        
+    func setupCategory(categoryIndex: Int) {
+        horizontalBarLeftAnchorConstraint?.constant = CGFloat(categoryIndex) * (self.view.frame.width / 4)
+        let selectedIndexPath = NSIndexPath(item: categoryIndex, section: 0)
+        bigCategoryCollectionView.selectItem(at: selectedIndexPath as IndexPath, animated: false, scrollPosition: .init(rawValue: 0))
     }
  
 
@@ -144,32 +153,29 @@ extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         } else {
             let cell = smallCategoryCollectionView.dequeueReusableCell(withReuseIdentifier: smallCellId, for: indexPath) as! SmallCategoryCell
             
-           cell.smallCategoryLabel.text = categoryTextArr[indexPath.row]
-        
+            cell.smallCategoryLabel.text = categoryTextArr[indexPath.row]
+            
             cell.categoryImageView.image = UIImage(named: categoryImageArr[indexPath.row])
             cell.smallCategoryLabel.sizeToFit()
             
             return cell
         }
-
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == bigCategoryCollectionView {
-            horizontalBarLeftAnchorConstraint?.constant = CGFloat(indexPath.item) * (self.view.frame.width / 4)
-            selectCategory(categoryIndex: indexPath.item)
-            
+            setupCategory(categoryIndex: indexPath.item)
             bigCategoryIndex = indexPath.item
-            
             if indexPath.row == 0 {
-                categoryTextArr = vegetableArr
-                categoryImageArr = vegetableImageArr
-            } else if indexPath.row == 1 {
                 categoryTextArr = fruitArr
                 categoryImageArr = fruitImgaeArr
-            } else if indexPath.row == 2 {
+            } else if indexPath.row == 1 {
                 categoryTextArr = cerealArr
                 categoryImageArr = cerealImageArr
+            } else if indexPath.row == 2 {
+                categoryTextArr = vegetableArr
+                categoryImageArr = vegetableImageArr
             } else {
                 categoryTextArr = eggArr
                 categoryImageArr = eggImageArr
@@ -178,12 +184,25 @@ extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             smallCategoryCollectionView.reloadData()
         } else {
             let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProductVC") as! ProductVC
-           destvc.navigationItem.title = categoryTextArr[indexPath.item]
-            
+            var subIndex = 0
+            destvc.navigationItem.title = categoryTextArr[indexPath.item]
+            destvc.navigationController?.navigationBar.tintColor = .white
             destvc.mainId = bigCategoryIndex + 1
-            
-            destvc.subId = indexPath.item + 1
-        self.navigationController?.pushViewController(destvc, animated: true)
+            switch bigCategoryIndex {
+            case 0:
+                subIndex = indexPath.item + 1
+            case 1:
+                subIndex = indexPath.item + 6
+            case 2:
+                subIndex = indexPath.item + 9
+            case 3:
+                subIndex = indexPath.item + 17
+            default:
+                break
+            }
+            print(subIndex)
+            destvc.subId = subIndex
+            self.navigationController?.pushViewController(destvc, animated: true)
             
         }
     }

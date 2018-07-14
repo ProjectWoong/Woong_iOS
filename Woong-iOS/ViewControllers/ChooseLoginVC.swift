@@ -26,7 +26,7 @@ class ChooseLoginVC: UIViewController {
     
     }
     @IBAction func chooseLoginAction(_ sender: UIButton) {
-        let loginVC = UIStoryboard(name: "Sign", bundle: nil).instantiateViewController(withIdentifier: "SignInVC")
+        guard let loginVC = storyboard?.instantiateViewController(withIdentifier: "SignInVC") as? SignInVC else { return }
         
         self.present(loginVC, animated: true, completion: nil)
         

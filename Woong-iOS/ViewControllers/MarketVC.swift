@@ -48,6 +48,7 @@ class MarketVC: UIViewController {
         setupData()
         nearMarketTableView.reloadData()
         bookMarkTableView.reloadData()
+        changeMenu(selectedIndexPath.item)
     }
     
     private func setupData() {
@@ -133,7 +134,8 @@ class MarketVC: UIViewController {
         horizontalBarView.heightAnchor.constraint(equalToConstant: 2).isActive = true
     }
     
-    private func changeMenu(_ flag: Int) {
+    func changeMenu(_ flag: Int) {
+        horizontalBarLeftAnchorConstraint?.constant = CGFloat(flag) * (self.view.frame.width / 2)
         if flag == 0 {
             nearMarketTableView.isHidden = false
             bookMarkTableView.isHidden = true
@@ -164,8 +166,7 @@ extension MarketVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
-        horizontalBarLeftAnchorConstraint?.constant = CGFloat(indexPath.item) * (self.view.frame.width / 2)
-        changeMenu(indexPath.row)
+        changeMenu(indexPath.item)
     }
 }
 

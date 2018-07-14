@@ -60,7 +60,9 @@ class SignUpInfo1VC: UIViewController {
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelPicker));
         doneButton.tintColor = .rgb(red: 82, green: 156, blue: 119)
-        cancelButton.tintColor = .rgb(red: 82, green: 156, blue: 119)
+        cancelButton.tintColor = .rgb(red: 212, green: 84, blue: 133)
+        doneButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 15)!], for: .normal)
+        cancelButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 15)!], for: .normal)
         toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         yearTxtFd.inputAccessoryView = toolbar
         yearTxtFd.inputView = datePicker
