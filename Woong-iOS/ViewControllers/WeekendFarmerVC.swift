@@ -11,11 +11,12 @@ import UIKit
 class WeekendFarmerVC: UIViewController {
 
     @IBOutlet weak var marketButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         marketButton.layer.masksToBounds = true
         marketButton.layer.cornerRadius = 24
-
+        setupNavi()
         // Do any additional setup after loading the view.
     }
 
@@ -24,15 +25,11 @@ class WeekendFarmerVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setupNavi() {
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.barTintColor = .rgb(red: 82, green: 156, blue: 119)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!, NSAttributedStringKey.foregroundColor: UIColor.white]
     }
-    */
+    
 
 }

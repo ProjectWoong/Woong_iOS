@@ -29,6 +29,7 @@
 		B34513AB20F8E31F00019300 /* ChatRoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34513AA20F8E31F00019300 /* ChatRoomData.swift */; };
 		B34513AD20F8E36900019300 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34513AC20F8E36900019300 /* ChatService.swift */; };
 		B34513AF20F8FCE900019300 /* UIImageVIew+imageFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34513AE20F8FCE900019300 /* UIImageVIew+imageFromUrl.swift */; };
+		B34513B120F947B600019300 /* MyProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34513B020F947B600019300 /* MyProductVC.swift */; };
 		B350089720E9FC79009E0683 /* BigCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089620E9FC79009E0683 /* BigCategoryCell.swift */; };
 		B350089920EA3913009E0683 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350089820EA3913009E0683 /* Home.storyboard */; };
 		B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350089A20EA3C9C009E0683 /* CategoryVC.swift */; };
@@ -55,7 +56,6 @@
 		B39568C420E8914900379A48 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568C320E8914900379A48 /* SplashVC.swift */; };
 		B39568C820E8A53C00379A48 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568C720E8A53C00379A48 /* HomeVC.swift */; };
 		B39568CA20E8A56300379A48 /* MarketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568C920E8A56300379A48 /* MarketVC.swift */; };
-		B39568CC20E8A58F00379A48 /* MyProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CB20E8A58F00379A48 /* MyProductVC.swift */; };
 		B39568CE20E8A8DE00379A48 /* NoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568CD20E8A8DE00379A48 /* NoticeVC.swift */; };
 		B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */; };
 		B39568DA20E8DE9200379A48 /* UIColor+rgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39568D920E8DE9200379A48 /* UIColor+rgb.swift */; };
@@ -140,6 +140,7 @@
 		B34513AA20F8E31F00019300 /* ChatRoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomData.swift; sourceTree = "<group>"; };
 		B34513AC20F8E36900019300 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		B34513AE20F8FCE900019300 /* UIImageVIew+imageFromUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageVIew+imageFromUrl.swift"; sourceTree = "<group>"; };
+		B34513B020F947B600019300 /* MyProductVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProductVC.swift; sourceTree = "<group>"; };
 		B350089620E9FC79009E0683 /* BigCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCategoryCell.swift; sourceTree = "<group>"; };
 		B350089820EA3913009E0683 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		B350089A20EA3C9C009E0683 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
@@ -168,7 +169,6 @@
 		B39568C320E8914900379A48 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		B39568C720E8A53C00379A48 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		B39568C920E8A56300379A48 /* MarketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketVC.swift; sourceTree = "<group>"; };
-		B39568CB20E8A58F00379A48 /* MyProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductVC.swift; sourceTree = "<group>"; };
 		B39568CD20E8A8DE00379A48 /* NoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeVC.swift; sourceTree = "<group>"; };
 		B39568D120E8AEB300379A48 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39568D920E8DE9200379A48 /* UIColor+rgb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgb.swift"; sourceTree = "<group>"; };
@@ -306,12 +306,12 @@
 				B39568BE20E88EDC00379A48 /* Splash.storyboard */,
 				B39568C220E8907500379A48 /* Tutorial&Sign */,
 				B39568A420E888E800379A48 /* Main.storyboard */,
-				B39568A920E888E900379A48 /* LaunchScreen.storyboard */,
 				B350089820EA3913009E0683 /* Home.storyboard */,
 				B3918F4820EB483900E05134 /* Market.storyboard */,
 				CBF7E22A20EA294700F9145D /* Notice.storyboard */,
 				CBF7E22C20EA2D9300F9145D /* MyProduct.storyboard */,
 				CB42C0C620F6B66B009B436D /* ProductDetail.storyboard */,
+				B39568A920E888E900379A48 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -319,6 +319,7 @@
 		B39568B520E88AC100379A48 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B34513B020F947B600019300 /* MyProductVC.swift */,
 				B3D40B1220F38CDA007E73C7 /* SellerVC.swift */,
 				B39568C320E8914900379A48 /* SplashVC.swift */,
 				CBF7E22420E8CC5A00F9145D /* Tutorial1VC.swift */,
@@ -326,7 +327,6 @@
 				CBF7E22820E8CC7500F9145D /* Tutorial3VC.swift */,
 				B39568C720E8A53C00379A48 /* HomeVC.swift */,
 				B39568C920E8A56300379A48 /* MarketVC.swift */,
-				B39568CB20E8A58F00379A48 /* MyProductVC.swift */,
 				B39568CD20E8A8DE00379A48 /* NoticeVC.swift */,
 				B350089A20EA3C9C009E0683 /* CategoryVC.swift */,
 				CBF7E22E20EA39C200F9145D /* PaymentVC.swift */,
@@ -655,7 +655,6 @@
 				B33DC33820F66C0D00EE1C6E /* AccountData.swift in Sources */,
 				B34513AB20F8E31F00019300 /* ChatRoomData.swift in Sources */,
 				B39568C820E8A53C00379A48 /* HomeVC.swift in Sources */,
-				B39568CC20E8A58F00379A48 /* MyProductVC.swift in Sources */,
 				CBF7E24F20EF3D7300F9145D /* NearMarketCell.swift in Sources */,
 				CBF7E24120EC97F300F9145D /* SendMessageCell.swift in Sources */,
 				B39568DA20E8DE9200379A48 /* UIColor+rgb.swift in Sources */,
@@ -678,6 +677,7 @@
 				CBF7E24B20EE23F300F9145D /* DeliveringCell.swift in Sources */,
 				CBF9265320F0F42000975576 /* SignupAgreeVC.swift in Sources */,
 				B33DC32420F5C28E00EE1C6E /* AllergyButton.swift in Sources */,
+				B34513B120F947B600019300 /* MyProductVC.swift in Sources */,
 				B39568D220E8AEB300379A48 /* HomeCollectionViewCell.swift in Sources */,
 				B33DC34220F682F500EE1C6E /* FavoriteData.swift in Sources */,
 				B33DC35B20F7722100EE1C6E /* BookmarkService.swift in Sources */,
@@ -844,12 +844,12 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FRGAVA5LR9;
+				DEVELOPMENT_TEAM = CXVMJWVF32;
 				INFOPLIST_FILE = "$(SRCROOT)/Woong-iOS/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jaehyen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Leess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -863,12 +863,12 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FRGAVA5LR9;
+				DEVELOPMENT_TEAM = CXVMJWVF32;
 				INFOPLIST_FILE = "$(SRCROOT)/Woong-iOS/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jaehyen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Leess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

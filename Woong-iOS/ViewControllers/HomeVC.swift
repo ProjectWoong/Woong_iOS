@@ -18,8 +18,7 @@ class HomeVC: UIViewController {
     @IBOutlet var homeScrollView: UIScrollView!
     
     var myAddress: String = ""
-//    var latitude = 0.0
-//    var longitude = 0.0
+    
     var diffMin: CGFloat = 0
     
     let ud = UserDefaults.standard
@@ -36,22 +35,24 @@ class HomeVC: UIViewController {
         setupView()
         checkAddress()
         let tapGes = UITapGestureRecognizer(target: self, action: #selector(weekendFarmerAction))
-         self.weekendFarmerImageView.addGestureRecognizer(tapGes)
+        self.weekendFarmerImageView.addGestureRecognizer(tapGes)
         
-        let center = NotificationCenter.default
-        center.addObserver(self, selector: #selector(goSearchView), name: NSNotification.Name("SetupAddress") , object: nil)
     }
-  
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = .rgb(red: 82, green: 156, blue: 119)
+        self.navigationController?.navigationItem.titleView?.tintColor = .black
+        self.navigationController?.navigationBar.barTintColor = .white
         checkAddress()
     }
+    
     private func checkAddress() {
 //        if let token = ud.string(forKey: "token"){
         
             LocationService.shareInstance.getLocation(token: token, completion: { (address) in
-                self.setupAddress(address: address.realAddress)
-           
+                self.myAddress = address.realAddress
+                self.setupAddress()
             }) { (errCode) in
                 print("errnum\(errCode)")
                 if errCode == 500 {
@@ -71,25 +72,14 @@ class HomeVC: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.barTintColor = .white
     }
+    
     @objc func weekendFarmerAction() {
         let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "WeekendFarmerVC")
         destvc.title = "이 주의 농부"
         self.navigationController?.pushViewController(destvc, animated: true)
     }
     
-    @objc func settingAdress(noti:Notification) {
-        print("settingadress")
-        
-        if let address = noti.object as? String {
-            
-            self.setupAddress(address: address)
-        }
-    }
-    
-    func setupAddress(address: String){
-        self.myAddress = address
-
-        print("setupAddress")
+    func setupAddress(){
         let testFrame : CGRect = CGRect(x: 0, y: 0, width: 375, height: 50)
         let buttonView: UIView = UIView(frame: testFrame)
         let locationbutton =  UIButton(type: .system) as UIButton
@@ -118,10 +108,33 @@ class HomeVC: UIViewController {
        
     }
     
+    private func setupSearchToolbar() {
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        toolbar.barTintColor = UIColor.white
+        let doneButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(doneSearch));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancel));
+        doneButton.tintColor = .rgb(red: 82, green: 156, blue: 119)
+        cancelButton.tintColor = .rgb(red: 212, green: 84, blue: 133)
+        doneButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 15)!], for: .normal)
+        cancelButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 15)!], for: .normal)
+        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        searchTextField.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneSearch() {
+        guard let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProductVC") as? ProductVC else { return }
+        
+    }
+    @objc func cancel() {
+        
+    }
+    
     @IBAction func vegetableView(_ sender: Any) {
         let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "CategoryVC") as! CategoryVC
         destvc.myAddress = myAddress
-        
+        destvc.bigCategoryIndex = 2
         destvc.categoryTextArr = destvc.vegetableArr
         destvc.categoryImageArr = destvc.vegetableImageArr
         
@@ -132,7 +145,7 @@ class HomeVC: UIViewController {
     @IBAction func fruitView(_ sender: Any) {
         let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "CategoryVC") as! CategoryVC
         destvc.myAddress = myAddress
-        
+        destvc.bigCategoryIndex = 0
         destvc.categoryTextArr = destvc.fruitArr
         destvc.categoryImageArr = destvc.fruitImgaeArr
         
@@ -143,7 +156,7 @@ class HomeVC: UIViewController {
     @IBAction func cerealView(_ sender: Any) {
         let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "CategoryVC") as! CategoryVC
         destvc.myAddress = myAddress
-        
+        destvc.bigCategoryIndex = 1
         destvc.categoryTextArr = destvc.cerealArr
         destvc.categoryImageArr = destvc.cerealImageArr
         
@@ -153,7 +166,7 @@ class HomeVC: UIViewController {
     @IBAction func eggView(_ sender: Any) {
         let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "CategoryVC") as! CategoryVC
         destvc.myAddress = myAddress
-        
+        destvc.bigCategoryIndex = 3
         destvc.categoryTextArr = destvc.eggArr
         destvc.categoryImageArr = destvc.eggImageArr
         
@@ -167,19 +180,20 @@ class HomeVC: UIViewController {
         self.navigationController?.pushViewController(destvc, animated: true)
     }
     @IBAction func likeProductAction(_ sender: UIButton) {
-        let destvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MyProductVC") as! MyProductVC
-        self.navigationController?.pushViewController(destvc, animated: true)
+        self.tabBarController?.selectedIndex = 2
+//        let destvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MyProductVC") as! MyProductVC
+//        self.navigationController?.pushViewController(destvc, animated: true)
     }
     
     @IBAction func bookMarkAction(_ sender: UIButton) {
-        let destvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MarketVC") as! MarketVC
-        destvc.collectionselectNum = 1
-        self.navigationController?.pushViewController(destvc, animated: true)
+        self.tabBarController?.selectedIndex = 1
+//        let destvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MarketVC") as! MarketVC
+//        destvc.collectionselectNum = 1
+//        self.navigationController?.pushViewController(destvc, animated: true)
     }
     
     @IBAction func messageAction(_ sender: UIButton) {
-        let destvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoticeVC") as! NoticeVC
-        self.navigationController?.pushViewController(destvc, animated: true)
+        self.tabBarController?.selectedIndex = 3
     }
 }
 

@@ -19,11 +19,9 @@ struct KakaoAddressService: APIService, RequestService {
     typealias NetworkData = AddressData
     
     func searchAddressWithKeyword(query: String, completion: @escaping ([Address]) -> Void, error: @escaping (Int) -> Void) {
-        //let url = kakaoURL + "?query=\(query)"
-        let body = [
-            "query": query
-        ]
-        Alamofire.request(kakaoURL, method: .get, parameters: body, encoding: JSONEncoding.default, headers: header).responseData { (res) in
+        let url = kakaoURL + "?query=\(query)"
+        guard let searchURL = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        Alamofire.request(searchURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseData { (res) in
             switch res.result {
             case .success:
                 if let value = res.result.value {

@@ -69,7 +69,7 @@ class SignInVC: UIViewController {
             // self.simpleAlert(title: "로그인성공", message: "")
             
             let destvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainRootTabBarController") as! MainRootTabBarController
-            destvc.hero.modalAnimationType = .zoom
+            //destvc.hero.tabBarAnimationType = .zoom
             self.present(destvc, animated: false, completion: nil)
 
         }) { (errCode) in

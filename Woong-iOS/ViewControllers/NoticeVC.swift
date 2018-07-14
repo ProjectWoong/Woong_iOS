@@ -52,7 +52,7 @@ class NoticeVC: UIViewController {
     
     private func setupHorizontalBar() {
         let horizontalBarView = UIView()
-        horizontalBarView.backgroundColor = UIColor.rgb(red: 35, green: 122, blue: 89)
+        horizontalBarView.backgroundColor = UIColor.rgb(red: 82, green: 156, blue: 119)
         horizontalBarView.translatesAutoresizingMaskIntoConstraints = false
         categoryView.addSubview(horizontalBarView)
         
