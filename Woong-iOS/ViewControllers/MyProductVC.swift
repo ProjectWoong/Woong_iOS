@@ -10,6 +10,7 @@ import UIKit
 
 class MyProductVC: UIViewController {
     let categoryArr = ["찜한 상품", "장바구니"]
+    let ud = UserDefaults.standard
 
     var isEmptyCheck: Bool = false
     
@@ -38,9 +39,6 @@ class MyProductVC: UIViewController {
         return view
     }()
     
-    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1MCwiZW1haWwiOiJwa3NlMTIxM0BhLmEiLCJpYXQiOjE1MzE0NTk3NjgsImV4cCI6ODc5MzE0NTk3NjgsImlzcyI6InNlcnZpY2UiLCJzdWIiOiJ1c2VyX3Rva2VuIn0.Uktksh977X0jTKtL-aeK1q7g1b0vVBnHfuZ-pUfg8MI"
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         dataInit()
@@ -57,28 +55,31 @@ class MyProductVC: UIViewController {
         cartTableView.reloadData()
     }
     private func dataInit() {
-        FavoriteListService.shareInstance.getCartList(token: token, completion: { (res) in
-            self.favoritList = res.favoriteInfo
-            print("찜 성공")
-            
-        }) { (errCode) in
-            print("찜 실패")
+        if let token = ud.string(forKey: "token") {
+            FavoriteListService.shareInstance.getCartList(token: token, completion: { (res) in
+                self.favoritList = res.favoriteInfo
+                print("찜 성공")
+                
+            }) { (errCode) in
+                print("찜 실패")
+            }
+            CartListService.shareInstance.getCartList(token: token, completion: { (res) in
+                self.cartList = res
+            }) { (err) in
+                print("카트실패")
+            }
+            productCollectionView.reloadData()
+            cartTableView.reloadData()
         }
-        CartListService.shareInstance.getCartList(token: self.token, completion: { (res) in
-            self.cartList = res
-        }) { (err) in
-            print("카트실패")
-        }
-        productCollectionView.reloadData()
-        cartTableView.reloadData()
     }
     
     private func setupNaviBar() {
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!, NSAttributedStringKey.foregroundColor: UIColor.white]
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
-        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.barTintColor = .rgb(red: 82, green: 156, blue: 119)
     }
     
     private func setupView() {
@@ -158,7 +159,7 @@ extension MyProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             cell.marketNameLabel.text = product.marketName
             cell.productNameLabel.text = product.productName
             cell.priceLabel.text = product.productUnit + "당 " + "\(product.productPrice)원"
-            
+            cell.titleImageView.imageFromUrl(gsno(product.productImage), defaultImgPath: "mypage-information")
             if product.delivery == 1 {
                 cell.hashTag1Label.text = "#유료배송"
             }
@@ -198,8 +199,8 @@ extension MyProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     @objc func deletefavoriteFromButton(button: UIButton) {
         
-            //            if let token = ud.string(forKey: "token") {
-            FavoriteOperateService.shareInstance.deleteFavoriteList(productId: button.tag, token: self.token, completion: {
+        if let token = ud.string(forKey: "token") {
+            FavoriteOperateService.shareInstance.deleteFavoriteList(productId: button.tag, token: token, completion: {
                 print("성공태그\(button.tag)")
                 self.simpleAlertWithCompletion(title: "찜한 상품을 해제하시겠습니까?", message: "", okCompletion: { (_) in
                     self.dataInit()
@@ -209,7 +210,7 @@ extension MyProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             }) { (errCode) in
                 self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
             }
-            //            }
+        }
         dataInit()
     }
     
@@ -263,7 +264,7 @@ extension MyProductVC: UITableViewDelegate, UITableViewDataSource {
                 cell.deliveryLabel.text = "\(product.delivery)원"
                 cell.chekButton.tag = product.itemID
                 cell.chekButton.addTarget(self, action: #selector(changeCart(button:)), for: .touchUpInside)
-               
+                cell.productImageView.imageFromUrl(gsno(product.fileKey), defaultImgPath: "")
                 cell.deleteButton.tag = product.itemID
                 cell.deleteButton.addTarget(self, action: #selector(changeCart(button:)), for: .touchUpInside)
                 

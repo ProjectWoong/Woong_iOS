@@ -16,24 +16,21 @@ class HomeVC: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var weekendFarmerImageView: UIImageView!
     @IBOutlet var homeScrollView: UIScrollView!
+    @IBOutlet var searchBackView: UIView!
     
     var myAddress: String = ""
-    
+    var check = true
     var diffMin: CGFloat = 0
-    
     let ud = UserDefaults.standard
-    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1MCwiZW1haWwiOiJwa3NlMTIxM0BhLmEiLCJpYXQiOjE1MzE0NTk3NjgsImV4cCI6ODc5MzE0NTk3NjgsImlzcyI6InNlcnZpY2UiLCJzdWIiOiJ1c2VyX3Rva2VuIn0.Uktksh977X0jTKtL-aeK1q7g1b0vVBnHfuZ-pUfg8MI"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewdidload")
-       
-        //self.ud.set(token, forKey: "token")
-        
+
         setupNaviBar()
         setupTextView()
         setupView()
         checkAddress()
+        setupSearchToolbar()
         let tapGes = UITapGestureRecognizer(target: self, action: #selector(weekendFarmerAction))
         self.weekendFarmerImageView.addGestureRecognizer(tapGes)
         
@@ -45,10 +42,15 @@ class HomeVC: UIViewController {
         self.navigationController?.navigationItem.titleView?.tintColor = .black
         self.navigationController?.navigationBar.barTintColor = .white
         checkAddress()
+        registerForKeyboardNotifications()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unregisterForKeyboardNotifications()
     }
     
     private func checkAddress() {
-//        if let token = ud.string(forKey: "token"){
+        if let token = ud.string(forKey: "token"){
         
             LocationService.shareInstance.getLocation(token: token, completion: { (address) in
                 self.myAddress = address.realAddress
@@ -60,7 +62,7 @@ class HomeVC: UIViewController {
                     self.present(destvc, animated: true, completion: nil)
                 }
             }
-//        }
+        }
         
     }
 
@@ -103,6 +105,8 @@ class HomeVC: UIViewController {
     }
     
     private func setupView() {
+        searchBackView.isHidden = true
+        searchBackView.alpha = 0
         homeSearchBar.applyRadius(radius: homeSearchBar.frame.height / 2)
         homeSearchBarView.applyShadow(radius: 6, color: .black, offset: CGSize(width: 0, height: 3), opacity: 0.15)
        
@@ -124,11 +128,50 @@ class HomeVC: UIViewController {
     }
     
     @objc func doneSearch() {
-        guard let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProductVC") as? ProductVC else { return }
-        
+        if searchTextField.text == "" {
+            simpleAlert(title: "검색어를 입력해주세요.", message: "")
+            searchTextField.endEditing(true)
+        } else {
+            guard let destvc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProductVC") as? ProductVC else { return }
+            destvc.searchKeyword = searchTextField.text
+            destvc.navigationItem.title = searchTextField.text
+            self.navigationController?.pushViewController(destvc, animated: true)
+        }
     }
     @objc func cancel() {
+        searchTextField.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if check {
+            let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double
+            let curve = notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! UInt
+            UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions(rawValue: curve), animations: {
+                self.searchBackView.isHidden = false
+                self.searchBackView.alpha = 0.5
+            })
+            check = false
+        }
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double
+        let curve = notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! UInt
+        UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions(rawValue: curve), animations: {
+            self.searchBackView.isHidden = true
+            self.searchBackView.alpha = 0
+            self.searchTextField.text = ""
+        })
         
+        check = true
+    }
+    
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    func unregisterForKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name:.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name:.UIKeyboardWillHide, object: nil)
     }
     
     @IBAction func vegetableView(_ sender: Any) {

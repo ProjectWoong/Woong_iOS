@@ -19,6 +19,13 @@ extension UIViewController {
         self.present(alert, animated: true)
     }
     
+    func simpleAlertWithCompletionOnlyOk(title: String, message: String, okCompletion: ((UIAlertAction) -> Void)?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: okCompletion)
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
+    }
+    
     func simpleAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default)

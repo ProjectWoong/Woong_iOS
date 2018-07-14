@@ -17,10 +17,11 @@ class MyPageTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
- self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!, NSAttributedStringKey.foregroundColor: UIColor.white]
         self.mypageTableView.tableFooterView = UIView(frame: .zero)
         self.mypageTableView.separatorStyle = .none
-        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        myProfileImageView.applyRadius(radius: myProfileImageView.frame.height/2)
     }
 
     override func didReceiveMemoryWarning() {

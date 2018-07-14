@@ -33,6 +33,11 @@ class ProductVC: UIViewController {
         rangeView.applyShadow(radius: 10, color: .black, offset: CGSize(width: 0, height: 10), opacity: 0.1)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!, NSAttributedStringKey.foregroundColor: UIColor.white]
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.barTintColor = .rgb(red: 82, green: 156, blue: 119)
+    }
     
     private func setupData() {
         guard let token = self.ud.string(forKey: "token") else { return }
@@ -40,6 +45,11 @@ class ProductVC: UIViewController {
             ProductService.shareInstance.getSearchList(keyword: keyword, token: token, completion: { (res) in
                 self.productList = res.itemInfo
                 self.productCollectionView.reloadData()
+                if self.productList.count == 0 {
+                    self.simpleAlertWithCompletionOnlyOk(title: "검색", message: "해당 상품이 존재하지 않습니다.", okCompletion: { (action) in
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                }
             }) { (errCode) in
                 self.simpleAlert(title: "네트워크 에러", message: "서버가 응답하지 않습니다.")
             }
@@ -127,28 +137,28 @@ extension ProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     @objc func deleteBookMarkFromButton(button: UIButton) {
-        
+        let likeImage = UIImage(named: "market-favorite-favorite")
+        let unlikeImage = UIImage(named: "market-favorite-delete")
         if button.currentBackgroundImage == likeImage {
             button.setBackgroundImage(unlikeImage, for: .normal)
-            //            if let token = ud.string(forKey: "token") {
-            FavoriteOperateService.shareInstance.deleteFavoriteList(productId: button.tag, token: self.token, completion: {
-                print("성공태그\(button.tag)")
-            })
-            { (errCode) in
-                self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
+            if let token = ud.string(forKey: "token") {
+                FavoriteOperateService.shareInstance.deleteFavoriteList(productId: button.tag, token: token, completion: {
+                    print("성공태그\(button.tag)")
+                })
+                { (errCode) in
+                    self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
+                }
             }
-            //            }
             
         } else if button.currentBackgroundImage == unlikeImage{
             button.setBackgroundImage(likeImage, for: .normal)
-            //            if let token = ud.string(forKey: "token") {
-            
-            FavoriteOperateService.shareInstance.setFavoriteList(productId: button.tag, token: self.token, completion: { (res) in
-                
-            }) { (errCode) in
-                self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
+            if let token = ud.string(forKey: "token") {
+                FavoriteOperateService.shareInstance.setFavoriteList(productId: button.tag, token: token, completion: { (res) in
+                    
+                }) { (errCode) in
+                    self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
+                }
             }
-            //            }
         }
         
     }

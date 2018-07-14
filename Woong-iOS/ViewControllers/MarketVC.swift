@@ -13,7 +13,6 @@ class MarketVC: UIViewController {
     @IBOutlet var categoryCollectionView: UICollectionView!
     @IBOutlet var nearMarketTableView: UITableView!
     @IBOutlet var bookMarkTableView: UITableView!
-    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1MCwiZW1haWwiOiJwa3NlMTIxM0BhLmEiLCJpYXQiOjE1MzE0NTk3NjgsImV4cCI6ODc5MzE0NTk3NjgsImlzcyI6InNlcnZpY2UiLCJzdWIiOiJ1c2VyX3Rva2VuIn0.Uktksh977X0jTKtL-aeK1q7g1b0vVBnHfuZ-pUfg8MI"
     
     let likeImage = UIImage(named: "market-favorite-favorite")
     let unlikeImage = UIImage(named: "market-favorite-delete")
@@ -23,7 +22,7 @@ class MarketVC: UIViewController {
     var bookMarkArr: [Bookmark] = []
     var collectionselectNum = 0
     let categoryArr = ["내 주변 마켓", "즐겨찾기"]
-  
+    
     var selectedIndexPath = IndexPath(item: 0, section: 0)
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
     let horizontalBarView: UIView = {
@@ -55,41 +54,40 @@ class MarketVC: UIViewController {
         //T삭제해야됨!!
         
         
-//        if let token = ud.string(forKey: "token"){
+        if let token = ud.string(forKey: "token"){
             // 주변 마켓 데이터
-            NearMarketService.shareInstance.getNearMarket(token: self.token, completion: { (nearMarket) in
+            NearMarketService.shareInstance.getNearMarket(token: token, completion: { (nearMarket) in
                 self.nearMarketArr = nearMarket
                 print("내주변마켓 성공")
                 self.nearMarketTableView.reloadData()
                 
                 
             }) { (errCode) in
-                      print("주변마켓 Xx")
-                 self.simpleAlert(title: "내주변마켓 x", message: "")
+                print("주변마켓 Xx")
+                self.simpleAlert(title: "내주변마켓 x", message: "")
             }
             
             // 즐겨찾기 데이터
-        
-        BookmarkListService.shareInstance.getCartList(token: token, completion: { (bookMark) in
+            
+            BookmarkListService.shareInstance.getCartList(token: token, completion: { (bookMark) in
                 self.bookMarkArr = bookMark
                 print("즐겨찾기 성공")
-            
-            self.bookMarkTableView.reloadData()
-            }) { (errCode) in
                 
+                self.bookMarkTableView.reloadData()
+            }) { (errCode) in
                 self.bookMarkArr = []
             }
-//        }
-      
+        }
+        
     }
     
     private func setupNaviBar() {
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "NanumSquareOTFEB", size: 17)!, NSAttributedStringKey.foregroundColor: UIColor.white]
         
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
-        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.barTintColor = .rgb(red: 82, green: 156, blue: 119)
     }
     
     private func setupView() {
@@ -183,7 +181,6 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == nearMarketTableView {
-            
             return nearMarketArr.count
         } else {
             return bookMarkArr.count
@@ -206,7 +203,7 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
             let cell = bookMarkTableView.dequeueReusableCell(withIdentifier: "BookMarkCell") as! BookMarkCell
             let market = bookMarkArr[indexPath.row]
             cell.starButton.tag = market.marketId
-         
+            
             cell.starButton.addTarget(self, action: #selector(deleteBookMarkFromButton(button:)), for: .touchUpInside)
             
             cell.marketNameLabel.text = market.marketName
@@ -220,11 +217,11 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
             
             let marketId = nearMarketArr[indexPath.row].marketID
             let destvc = UIStoryboard(name: "Market", bundle: nil).instantiateViewController(withIdentifier: "SellerVC") as! SellerVC
+            guard let token = self.ud.string(forKey: "token") else { return }
             MarketIntroService.shareInstance.getMarketIntro(index: marketId, token: token, completion: { (res) in
-               
                 destvc.marketIntro = res
-               destvc.marketId = res.marketID
-                self.navigationController?.pushViewController(destvc, animated: true)
+                destvc.marketId = res.marketID
+                self.present(destvc, animated: true)
                 print("marketintro 성공")
             }) { (errCode) in
                 print("marketintro 실패")
@@ -233,30 +230,29 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func deleteBookMarkFromButton(button: UIButton) {
-       
+        
         if button.currentBackgroundImage == likeImage {
             button.setBackgroundImage(unlikeImage, for: .normal)
-//            if let token = ud.string(forKey: "token") {
-             BookmarkOperateService.shareInstance.deleteBookmarkList(productId: button.tag, token: self.token, completion: {
-                print("성공태그\(button.tag)")
+            if let token = ud.string(forKey: "token") {
+                BookmarkOperateService.shareInstance.deleteBookmarkList(productId: button.tag, token: token, completion: {
+                    print("성공태그\(button.tag)")
                     self.simpleAlert(title: "즐겨찾기 등록이 해제되었습니다", message: "")
                 }) { (errCode) in
                     self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
                 }
-//            }
+            }
             
         } else if button.currentBackgroundImage == unlikeImage{
-             button.setBackgroundImage(likeImage, for: .normal)
-//            if let token = ud.string(forKey: "token") {
-            
-                BookmarkOperateService.shareInstance.setBookmarkList(productId: button.tag, token: self.token, completion: { (res) in
+            button.setBackgroundImage(likeImage, for: .normal)
+            if let token = ud.string(forKey: "token") {
+                BookmarkOperateService.shareInstance.setBookmarkList(productId: button.tag, token: token, completion: { (res) in
                     
                 }) { (errCode) in
                     self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
                 }
-//            }
+            }
         }
         
     }
-
+    
 }
