@@ -8,21 +8,22 @@
 
 import Foundation
 
+
+
 struct BookmarkData: Codable {
-    var message: String
-    var data: [Bookmark]
+    let message: String
+    let data: [Bookmark]
 }
 
 struct Bookmark: Codable {
-    var marketId: Int
-    var marketName: String
-    var marketAddress: String
-    var titleImageKey: String
+    let marketId: Int
+    let marketName, marketAddress, titleImageKey: String
     
-    enum Codingkeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case marketId = "market_id"
         case marketName = "market_name"
         case marketAddress = "market_address"
         case titleImageKey = "title_image_key"
     }
 }
+

@@ -587,7 +587,7 @@
                                                         <constraint firstAttribute="height" constant="48" id="8Ol-eg-iog"/>
                                                         <constraint firstAttribute="width" constant="48" id="zrg-Xu-vSY"/>
                                                     </constraints>
-                                                    <state key="normal" image="product-like"/>
+                                                    <state key="normal" backgroundImage="product-like"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="돼지감자" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9N-1B-vLR">
                                                     <rect key="frame" x="58.5" y="160" width="58.5" height="18"/>

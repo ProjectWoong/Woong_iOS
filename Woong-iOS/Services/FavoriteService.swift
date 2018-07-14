@@ -36,7 +36,7 @@ struct FavoriteListService: APIService, RequestService {
 }
 
 struct FavoriteOperateService: APIService, RequestService {
-    static let shareInstance = CartOperateService()
+    static let shareInstance = FavoriteOperateService()
     let favoriteURL = url("/favorite")
     typealias NetworkData = ResponseData
     

@@ -10,6 +10,9 @@ import UIKit
 
 class CartSumPriceCell: UITableViewCell {
 
+    @IBOutlet weak var productPriceLabel: UILabel!
+    @IBOutlet weak var deliveryPriceLabel: UILabel!
+    @IBOutlet weak var sumPriceLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -43,7 +43,6 @@ class MarketVC: UIViewController {
         setupHorizontalBar()
         setupNaviBar()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupData()
@@ -76,11 +75,11 @@ class MarketVC: UIViewController {
             
             self.bookMarkTableView.reloadData()
             }) { (errCode) in
-                 print("즐겨찾기 Xx")
-                self.simpleAlert(title: "즐겨찾깉x", message: "")
+                
+                self.bookMarkArr = []
             }
 //        }
-        
+      
     }
     
     private func setupNaviBar() {
@@ -193,17 +192,24 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == nearMarketTableView {
             let cell = nearMarketTableView.dequeueReusableCell(withIdentifier: "NearMarketCell") as! NearMarketCell
-            cell.marketNameLabel.text = nearMarketArr[indexPath.row].marketName
-            cell.marketAddressLabel.text = nearMarketArr[indexPath.row].marketAddress
-            cell.hashTagLabel1.text = nearMarketArr[indexPath.row].tagName
+            let market = nearMarketArr[indexPath.row]
+            
+            let tagArr = market.tagName.components(separatedBy: ",")
+            
+            cell.marketNameLabel.text = market.marketName
+            cell.hashTagLabel1.text = "#" + tagArr[1]
+            cell.hashTagLabel2.text = "#" +  tagArr[0]
             
             return cell
         } else {
             let cell = bookMarkTableView.dequeueReusableCell(withIdentifier: "BookMarkCell") as! BookMarkCell
-            
-            cell.tag = indexPath.row
+            let market = bookMarkArr[indexPath.row]
+            cell.starButton.tag = market.marketId
+         
             cell.starButton.addTarget(self, action: #selector(deleteBookMarkFromButton(button:)), for: .touchUpInside)
             
+            cell.marketNameLabel.text = market.marketName
+            cell.marketAddressLabel.text = "[" + market.marketAddress + "]"
             return cell
         }
     }
@@ -230,7 +236,8 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
         if button.currentBackgroundImage == likeImage {
             button.setBackgroundImage(unlikeImage, for: .normal)
 //            if let token = ud.string(forKey: "token") {
-             BookmarkOperateService.shareInstance.deleteBookmarkList(productId: bookMarkArr[button.tag].marketId, token: self.token, completion: {
+             BookmarkOperateService.shareInstance.deleteBookmarkList(productId: button.tag, token: self.token, completion: {
+                print("성공태그\(button.tag)")
                     self.simpleAlert(title: "즐겨찾기 등록이 해제되었습니다", message: "")
                 }) { (errCode) in
                     self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
@@ -241,7 +248,7 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
              button.setBackgroundImage(likeImage, for: .normal)
 //            if let token = ud.string(forKey: "token") {
             
-                BookmarkOperateService.shareInstance.setBookmarkList(productId: bookMarkArr[button.tag].marketId, token: self.token, completion: { (res) in
+                BookmarkOperateService.shareInstance.setBookmarkList(productId: button.tag, token: self.token, completion: { (res) in
                     
                 }) { (errCode) in
                     self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")

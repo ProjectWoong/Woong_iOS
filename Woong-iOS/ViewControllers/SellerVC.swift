@@ -10,7 +10,7 @@ import UIKit
 
 class SellerVC: UIViewController {
     
-    let dummyToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJlbWFpbCI6ImlvczEyM0BhLmEiLCJpYXQiOjE1MzE0NTU5NjIsImV4cCI6ODc5MzE0NTU5NjIsImlzcyI6InNlcnZpY2UiLCJzdWIiOiJ1c2VyX3Rva2VuIn0.Qs507DSf0VzaJ35UuhjyAXJUBg2xVrmN-wOYz61REKo"
+    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1MCwiZW1haWwiOiJwa3NlMTIxM0BhLmEiLCJpYXQiOjE1MzE0NTk3NjgsImV4cCI6ODc5MzE0NTk3NjgsImlzcyI6InNlcnZpY2UiLCJzdWIiOiJ1c2VyX3Rva2VuIn0.Uktksh977X0jTKtL-aeK1q7g1b0vVBnHfuZ-pUfg8MI"
     
     let menuCellId = "SellerMenuCell"
     let introCellId = "SellerIntroCell"
@@ -29,6 +29,9 @@ class SellerVC: UIViewController {
     var selectedIndexPath = IndexPath(item: 0, section: 0)
     var sellerMenuConstraint: NSLayoutConstraint?
     
+    
+    @IBOutlet weak var marketNameLabel: UILabel!
+    @IBOutlet weak var kmLabel: UILabel!
     @IBOutlet var sellerMenuTopConstraint: NSLayoutConstraint!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var sellerProfileView: UIView!
@@ -37,6 +40,12 @@ class SellerVC: UIViewController {
     @IBOutlet var sellerProfileImage: UIImageView!
     @IBOutlet var sellerInfoCollectionView: UICollectionView!
    
+    @IBOutlet weak var hashTag1Label: UILabel!
+    @IBOutlet weak var hashTag2Label: UILabel!
+    @IBOutlet weak var hashTag1View: UIView!
+    @IBOutlet weak var hashTag2View: UIView!
+    
+    
     
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
     let horizontalBarView: UIView = {
@@ -57,8 +66,18 @@ class SellerVC: UIViewController {
     }
     
     private func initMarketData() {
-        MarketIntroService.shareInstance.getMarketIntro(index: gino(marketId), token: dummyToken, completion: { (data) in
+        MarketIntroService.shareInstance.getMarketIntro(index: gino(marketId), token: self.token, completion: { (data) in
             self.marketIntro = data
+         
+            self.marketNameLabel.text = data.marketName
+            self.kmLabel.text = data.youandi + "km"
+            if data.quick == 1 && data.delivery == 1 {
+            } else {
+                self.hashTag2View.isHidden = true
+                if data.quick == 1 {
+                    self.hashTag1Label.text = "#당일배송"
+                }
+            }
         }) { (errCode) in
             if errCode == 500 {
                 self.simpleAlert(title: "네트워크 오류", message: "서버가 응답하지 않습니다.")
@@ -248,8 +267,8 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
                 let cell = sellerInfoCollectionView.dequeueReusableCell(withReuseIdentifier: introCellId, for: indexPath) as! SellerIntroCell
                 if let market = marketIntro {
                     let tagArr = market.tagName.components(separatedBy: ",")
-                    cell.hashTag1Label.text = "#" + tagArr[0]
-                    cell.hashTag2Label.text = "#" +  tagArr[1]
+                    cell.hashTag1Label.text = "#" + tagArr[1]
+                    cell.hashTag2Label.text = "#" +  tagArr[0]
                     cell.helloMessageLabel.text = market.marketInfo
                     
                 }
@@ -263,6 +282,7 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
                 cell.productNameLabel.text = product.productName
                 cell.priceLabel.text = product.packaging
                
+               cell.likeImageButton.tag = product.productID
                 cell.likeImageButton.addTarget(self, action: #selector(deleteBookMarkFromButton(button:)), for: .touchUpInside)
                 
                 return cell
@@ -290,8 +310,20 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         
         if button.currentBackgroundImage == likeImage {
             button.setBackgroundImage(unlikeImage, for: .normal)
+            FavoriteOperateService.shareInstance.deleteFavoriteList(productId: button.tag, token: self.token, completion: {
+                print("찜삭제 성공!")
+            }) { (errCode) in
+                print("찜삭제 실패!")
+            }
+            
         } else if button.currentBackgroundImage == unlikeImage{
             button.setBackgroundImage(likeImage, for: .normal)
+            FavoriteOperateService.shareInstance.setFavoriteList(productId: button.tag, token: token, completion: { (_) in
+                print("찜하기 성공!")
+            }) { (errCode) in
+                print("찜하기 성공!")
+            }
+           
         }
     }
 }

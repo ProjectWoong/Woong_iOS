@@ -10,6 +10,9 @@ import UIKit
 
 class CartCheckCell: UITableViewCell {
 
+    @IBOutlet weak var allCheckButton: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

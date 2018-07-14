@@ -37,7 +37,7 @@ struct BookmarkListService: APIService, RequestService {
 
 struct BookmarkOperateService: APIService, RequestService {
     static let shareInstance = BookmarkOperateService()
-    let bookmarkURL = url("/favorite")
+    let bookmarkURL = url("/bookmark")
     typealias NetworkData = ResponseData
     
     func setBookmarkList(productId: Int, token: String, completion: @escaping (String) -> Void, error: @escaping (Int) -> Void) {

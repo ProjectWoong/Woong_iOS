@@ -391,10 +391,9 @@
                                                             <constraint firstAttribute="height" constant="217" id="aMM-nc-8CE"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현듀 마켓" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlv-Nj-SOd">
-                                                        <rect key="frame" x="144.5" y="46" width="86" height="25"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마켓 이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlv-Nj-SOd">
+                                                        <rect key="frame" x="145" y="46" width="86" height="25"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="9FK-qz-IU3"/>
                                                             <constraint firstAttribute="height" constant="25" id="MBq-19-7Tu"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="22"/>
@@ -490,7 +489,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="market-intro-image-leaf" translatesAutoresizingMaskIntoConstraints="NO" id="Zff-Kq-QSG">
-                                                        <rect key="frame" x="231.5" y="50.5" width="16" height="16"/>
+                                                        <rect key="frame" x="232" y="50.5" width="16" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="16" id="ATZ-YF-lLT"/>
                                                             <constraint firstAttribute="height" constant="16" id="Ebi-gs-tZE"/>
@@ -576,6 +575,12 @@
                     <navigationItem key="navigationItem" id="Gjz-8V-Pbc"/>
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
+                        <outlet property="hashTag1Label" destination="uID-Ov-AsV" id="o3g-XE-1vr"/>
+                        <outlet property="hashTag1View" destination="DjH-qb-ULS" id="XO6-G5-FYa"/>
+                        <outlet property="hashTag2Label" destination="c1I-NT-h1V" id="trJ-4p-8uP"/>
+                        <outlet property="hashTag2View" destination="Bmi-hL-Nd7" id="kjW-fP-dUg"/>
+                        <outlet property="kmLabel" destination="kTG-Yi-peY" id="xvu-9G-yEP"/>
+                        <outlet property="marketNameLabel" destination="Vlv-Nj-SOd" id="lqX-lp-dh9"/>
                         <outlet property="scrollView" destination="jAl-3z-Ora" id="6qQ-Uc-hWd"/>
                         <outlet property="sellerInfoCollectionView" destination="TdO-cd-8hS" id="2mT-6j-C4M"/>
                         <outlet property="sellerMenuCollectionView" destination="A8n-32-AC8" id="ne0-az-LgD"/>

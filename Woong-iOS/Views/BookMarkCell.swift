@@ -12,7 +12,10 @@ import UIKit
 class BookMarkCell: UITableViewCell {
 
     @IBOutlet weak var starButton: UIButton!
-   
+    @IBOutlet weak var marketNameLabel: UILabel!
+    @IBOutlet weak var marketAddressLabel: UILabel!
+    @IBOutlet weak var marketImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

@@ -16,44 +16,45 @@ protocol StepperDelegate{
 
 class CartProductCell: UITableViewCell {
     
-    var delegate: StepperDelegate? = nil
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
+    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var marketAndProductLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var deliveryLabel: UILabel!
+    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var chekButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
-    @IBOutlet var stepperView: StepperCustomView!
-    
-    private var value = 0 {
+    var value = 1 {
         didSet {
-            stepperView.label.text = "\(value)"
+            valueLabel.text = "\(value)"
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        stepperView.leftButton.addTarget(self, action: #selector(leftButtonTouchDown(button:)), for: .touchUpInside)
-        stepperView.rightButton.addTarget(self, action: #selector(rightButtonTouchDown(button:)), for: .touchUpInside)
-//        stepperView.leftButton.addTarget(self, action: #selector(handleLeftButton), for: .touchUpInside)
-//        stepperView.rightButton.addTarget(self, action: #selector(handleRightButton), for: .touchUpInside)
+        leftButton.addTarget(self, action: #selector(leftButtonTouchDown(button:)), for: .touchUpInside)
+        rightButton.addTarget(self, action: #selector(rightButtonTouchDown(button:)), for: .touchUpInside)
+        rightButton.layer.masksToBounds = true
+        rightButton.layer.cornerRadius = 3
+        rightButton.layer.borderColor = #colorLiteral(red: 0.5704585314, green: 0.5704723597, blue: 0.5704649091, alpha: 1)
+        rightButton.layer.borderWidth = 1
+        leftButton.layer.masksToBounds = true
+        leftButton.layer.cornerRadius = 3
+        leftButton.layer.borderColor = #colorLiteral(red: 0.5704585314, green: 0.5704723597, blue: 0.5704649091, alpha: 1)
+        leftButton.layer.borderWidth = 1
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    @objc func handleLeftButton() {
-        if self.delegate != nil {
-            self.delegate?.didLeftButtonPressed()
-        }
-    }
-    
-    @objc func handleRightButton() {
-        if self.delegate != nil {
-            self.delegate?.didRightButtonPressed()
-        }
-    }
-    
 
     @objc func leftButtonTouchDown(button: UIButton) {
         print("left")
-        if value == 0 {
+        if value == 1 {
             return
         } else {
             value -= 1

@@ -9,31 +9,25 @@
 import Foundation
 
 struct CartData: Codable {
-    var message: String
-    var data: CartList
+    let message: String
+    let data: [Cart]
 }
 
-struct CartList: Codable {
-    var cart: Cart
+struct Cart: Codable {
+    let marketID, itemID: Int
+    let carttitle, fileKey, packging: String
+    let itemPrice: Int
+    let itemUnit: String
+    let delivery: Int
     
     enum CodingKeys: String, CodingKey {
-        case cart = "cart_item"
-    }
-}
-struct Cart: Codable {
-    var productImage: String
-    var marketName: String
-    var productName: String
-    var productPrice: Int
-    var productUnit: String
-    var delivery: Int
-    
-    enum Codingkeys: String, CodingKey {
-        case productImage = "item_image"
-        case marketName = "market_name"
-        case productName = "item_name"
-        case productPrice = "item_price"
-        case productUnit = "item_unit"
-        case delivery = "delivery_free"
+        case marketID = "market_id"
+        case itemID = "item_id"
+        case carttitle
+        case fileKey = "file_key"
+        case packging
+        case itemPrice = "item_price"
+        case itemUnit = "item_unit"
+        case delivery
     }
 }

@@ -16,7 +16,7 @@ struct CartListService: APIService, RequestService {
     let cartURL = url("/cart")
     typealias NetworkData = CartData
     
-    func getCartList(token: String, completion: @escaping (CartList) -> Void, error: @escaping (Int) -> Void) {
+    func getCartList(token: String, completion: @escaping ([Cart]) -> Void, error: @escaping (Int) -> Void) {
         let header: HTTPHeaders = [
             "usertoken" : token
         ]

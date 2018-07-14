@@ -77,6 +77,7 @@
 		CB42C0C720F6B66B009B436D /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB42C0C620F6B66B009B436D /* ProductDetail.storyboard */; };
 		CB42C0C920F6B684009B436D /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB42C0C820F6B684009B436D /* ProductDetailVC.swift */; };
 		CB42C0CD20F88D80009B436D /* ios_splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = CB42C0CC20F88D7F009B436D /* ios_splash.gif */; };
+		CB44FFAC20F94EB1000575C1 /* CartSumPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB44FFAB20F94EB1000575C1 /* CartSumPriceCell.swift */; };
 		CB6127DC20F4E5D900012764 /* ReadMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6127DB20F4E5D900012764 /* ReadMessageCell.swift */; };
 		CB6127E020F4E62600012764 /* UnreadMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6127DF20F4E62600012764 /* UnreadMessageCell.swift */; };
 		CB6127E220F52F3E00012764 /* MyPageTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6127E120F52F3E00012764 /* MyPageTableVC.swift */; };
@@ -190,6 +191,7 @@
 		CB42C0C620F6B66B009B436D /* ProductDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
 		CB42C0C820F6B684009B436D /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
 		CB42C0CC20F88D7F009B436D /* ios_splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ios_splash.gif; sourceTree = "<group>"; };
+		CB44FFAB20F94EB1000575C1 /* CartSumPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSumPriceCell.swift; sourceTree = "<group>"; };
 		CB6127DB20F4E5D900012764 /* ReadMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMessageCell.swift; sourceTree = "<group>"; };
 		CB6127DF20F4E62600012764 /* UnreadMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadMessageCell.swift; sourceTree = "<group>"; };
 		CB6127E120F52F3E00012764 /* MyPageTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableVC.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				CB6127E120F52F3E00012764 /* MyPageTableVC.swift */,
 				CB6127DB20F4E5D900012764 /* ReadMessageCell.swift */,
 				CB6127DF20F4E62600012764 /* UnreadMessageCell.swift */,
+				CB44FFAB20F94EB1000575C1 /* CartSumPriceCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				B350A88620F7791D00A6852C /* MarketService.swift in Sources */,
 				CBF7E23B20EBA40D00F9145D /* OrderProductCell.swift in Sources */,
 				B350A89220F78CBE00A6852C /* SpecificProductData.swift in Sources */,
+				CB44FFAC20F94EB1000575C1 /* CartSumPriceCell.swift in Sources */,
 				B33DC33A20F66F8700EE1C6E /* ProductData.swift in Sources */,
 				B350089B20EA3C9C009E0683 /* CategoryVC.swift in Sources */,
 				CBF7E24B20EE23F300F9145D /* DeliveringCell.swift in Sources */,
@@ -844,12 +848,12 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FRGAVA5LR9;
+				DEVELOPMENT_TEAM = N6JH7RBUA4;
 				INFOPLIST_FILE = "$(SRCROOT)/Woong-iOS/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jaehyen;
+				PRODUCT_BUNDLE_IDENTIFIER = com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -863,12 +867,12 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FRGAVA5LR9;
+				DEVELOPMENT_TEAM = N6JH7RBUA4;
 				INFOPLIST_FILE = "$(SRCROOT)/Woong-iOS/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jaehyen;
+				PRODUCT_BUNDLE_IDENTIFIER = com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
