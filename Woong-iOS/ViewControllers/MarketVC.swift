@@ -139,9 +139,13 @@ class MarketVC: UIViewController {
         if flag == 0 {
             nearMarketTableView.isHidden = false
             bookMarkTableView.isHidden = true
+            setupData()
+            nearMarketTableView.reloadData()
         } else  if flag == 1 {
             nearMarketTableView.isHidden = true
             bookMarkTableView.isHidden = false
+            setupData()
+            bookMarkTableView.reloadData()
         }
     }
 }
@@ -167,6 +171,7 @@ extension MarketVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
         changeMenu(indexPath.item)
+        
     }
 }
 
@@ -224,6 +229,20 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
                
                 destvc.marketIntro = res
                destvc.marketId = res.marketID
+                self.navigationController?.pushViewController(destvc, animated: true)
+                print("marketintro 성공")
+            }) { (errCode) in
+                print("marketintro 실패")
+            }
+        } else if tableView == bookMarkTableView {
+            
+            
+            let marketId = bookMarkArr[indexPath.row].marketId
+            let destvc = UIStoryboard(name: "Market", bundle: nil).instantiateViewController(withIdentifier: "SellerVC") as! SellerVC
+            MarketIntroService.shareInstance.getMarketIntro(index: marketId, token: token, completion: { (res) in
+                
+                destvc.marketIntro = res
+                destvc.marketId = res.marketID
                 self.navigationController?.pushViewController(destvc, animated: true)
                 print("marketintro 성공")
             }) { (errCode) in

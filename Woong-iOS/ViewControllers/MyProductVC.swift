@@ -50,6 +50,14 @@ class MyProductVC: UIViewController {
         setupView()
         setupNaviBar()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataInit()
+        productCollectionView.reloadData()
+        cartTableView.reloadData()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         dataInit()
@@ -201,11 +209,16 @@ extension MyProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             //            if let token = ud.string(forKey: "token") {
             FavoriteOperateService.shareInstance.deleteFavoriteList(productId: button.tag, token: self.token, completion: {
                 print("성공태그\(button.tag)")
-                self.simpleAlertWithCompletion(title: "찜한 상품을 해제하시겠습니까?", message: "", okCompletion: { (_) in
+                let alert = UIAlertController(title: "찜한 상품이 삭제되었습니다", message: "", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "확인", style: .default, handler: { (_) in
                     self.dataInit()
-                }, cancelCompletion: { (_) in
-                    
+                    self.productCollectionView.reloadData()
                 })
+            
+                alert.addAction(okAction)
+                self.present(alert, animated: true)
+                self.dataInit()
+                self.productCollectionView.reloadData()
             }) { (errCode) in
                 self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
             }

@@ -127,11 +127,14 @@ extension ProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     @objc func deleteBookMarkFromButton(button: UIButton) {
+        let likeImage = UIImage(named: "market-favorite-favorite")
+        let unlikeImage = UIImage(named: "market-favorite-delete")
         
+        guard let token = self.ud.string(forKey: "token") else { return }
         if button.currentBackgroundImage == likeImage {
             button.setBackgroundImage(unlikeImage, for: .normal)
             //            if let token = ud.string(forKey: "token") {
-            FavoriteOperateService.shareInstance.deleteFavoriteList(productId: button.tag, token: self.token, completion: {
+            FavoriteOperateService.shareInstance.deleteFavoriteList(productId: button.tag, token: token, completion: {
                 print("성공태그\(button.tag)")
             })
             { (errCode) in
@@ -143,7 +146,7 @@ extension ProductVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
             button.setBackgroundImage(likeImage, for: .normal)
             //            if let token = ud.string(forKey: "token") {
             
-            FavoriteOperateService.shareInstance.setFavoriteList(productId: button.tag, token: self.token, completion: { (res) in
+            FavoriteOperateService.shareInstance.setFavoriteList(productId: button.tag, token: token, completion: { (res) in
                 
             }) { (errCode) in
                 self.simpleAlert(title: "서버와 연결할 수 없습니다", message: "")
