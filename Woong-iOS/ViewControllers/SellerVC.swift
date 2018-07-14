@@ -64,6 +64,27 @@ class SellerVC: UIViewController {
         setupHorizontalBar()
         setupNavi()
     }
+    @IBAction func bookMarkAction(_ sender: UIButton) {
+        
+        let likeimage = UIImage(named: "market-intro-not-favorite")
+        let unlikeimage = UIImage(named: "market-intro-favorite")
+        
+        if sender.currentBackgroundImage == likeimage {
+            sender.setBackgroundImage(unlikeimage, for: .normal)
+            BookmarkOperateService.shareInstance.deleteBookmarkList(productId: self.marketId!, token: self.token, completion: {
+            }) { (_) in
+            }
+            
+        } else if sender.currentBackgroundImage == unlikeimage {
+            sender.setBackgroundImage(likeimage, for: .normal)
+            BookmarkOperateService.shareInstance.setBookmarkList(productId: self.marketId!, token: self.token, completion: { (_) in
+                
+            }) { (_) in
+                
+            }
+        }
+        
+    }
     
     private func initMarketData() {
         MarketIntroService.shareInstance.getMarketIntro(index: gino(marketId), token: self.token, completion: { (data) in
@@ -142,17 +163,20 @@ class SellerVC: UIViewController {
     }
     
     private func setupNavi() {
-        let rightBarBtn = UIBarButtonItem(title: "back", style: .plain, target: self, action: nil)
-        let leftBarBtn = UIBarButtonItem(title: "mail", style: .plain, target: self, action: nil)
-        self.navigationItem.rightBarButtonItem = rightBarBtn
-        self.navigationItem.leftBarButtonItem = leftBarBtn
+        let closeImage = UIImage(named: "register-location-list-1-close")
+        let rightBarBtn = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(dismissAction))
+        rightBarBtn.setBackgroundImage(closeImage, for: .normal, barMetrics: .default)
         
+        
+        self.navigationItem.rightBarButtonItem = rightBarBtn
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.alpha = 1.0
         //self.navigationController?.navigationBar.isTranslucent = true
     }
-    
+    @objc func dismissAction(){
+        
+    }
     private func setupCollectionView() {
         sellerMenuView.applyShadow(radius: 5, color: UIColor.darkGray, offset: CGSize(width: 0, height: 0), opacity: 0.7)
         sellerMenuCollectionView.delegate = self

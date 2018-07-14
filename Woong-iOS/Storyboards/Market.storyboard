@@ -501,7 +501,10 @@
                                                             <constraint firstAttribute="width" constant="48" id="FJb-bR-Bh5"/>
                                                             <constraint firstAttribute="height" constant="48" id="tvf-SC-Q1P"/>
                                                         </constraints>
-                                                        <state key="normal" image="market-intro-favorite"/>
+                                                        <state key="normal" backgroundImage="market-intro-not-favorite"/>
+                                                        <connections>
+                                                            <action selector="bookMarkAction:" destination="KcY-b1-kbl" eventType="touchUpInside" id="WhV-DF-bx0"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5W-yG-EVp">
                                                         <rect key="frame" x="319" y="161" width="48" height="48"/>
@@ -616,10 +619,10 @@
     </scenes>
     <resources>
         <image name="market-intro-background" width="375" height="217"/>
-        <image name="market-intro-favorite" width="48" height="48"/>
         <image name="market-intro-image-leaf" width="29" height="29"/>
         <image name="market-intro-message" width="48" height="48"/>
         <image name="market-intro-name-leaf" width="16" height="16"/>
+        <image name="market-intro-not-favorite" width="48" height="48"/>
         <image name="market-review-good-character" width="70" height="53"/>
         <image name="product-not-like" width="48" height="48"/>
     </resources>
