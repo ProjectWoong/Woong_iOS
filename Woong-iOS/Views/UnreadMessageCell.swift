@@ -10,7 +10,8 @@ import UIKit
 
 class UnreadMessageCell: UITableViewCell {
 
-      @IBOutlet weak var marketNameLabel: UILabel!
+    var chattingRoomId: Int = 0
+    @IBOutlet weak var marketNameLabel: UILabel!
     @IBOutlet weak var messageImageView: UIImageView!
     @IBOutlet weak var messageCountLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
@@ -19,14 +20,14 @@ class UnreadMessageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.messageImageView.layer.masksToBounds = true
+        self.messageImageView.layer.cornerRadius = 45/2
         self.messageCountLabel.layer.masksToBounds = true
         self.messageCountLabel.layer.cornerRadius = 12.5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

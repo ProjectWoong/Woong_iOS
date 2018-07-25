@@ -282,17 +282,22 @@
                                                         <constraints>
                                                             <constraint firstItem="PVv-wW-2N1" firstAttribute="leading" secondItem="Fqd-JU-smT" secondAttribute="leading" constant="6" id="00o-5u-slZ"/>
                                                             <constraint firstItem="7Ks-qO-EpJ" firstAttribute="leading" secondItem="Fqd-JU-smT" secondAttribute="leading" id="0f0-KL-qMk"/>
-                                                            <constraint firstItem="7Ks-qO-EpJ" firstAttribute="top" secondItem="Fqd-JU-smT" secondAttribute="top" constant="39" id="MZo-UJ-ByR"/>
+                                                            <constraint firstItem="kUI-2p-oud" firstAttribute="top" secondItem="7Ks-qO-EpJ" secondAttribute="bottom" constant="9" id="1c8-hl-ued"/>
+                                                            <constraint firstItem="7Ks-qO-EpJ" firstAttribute="top" secondItem="PVv-wW-2N1" secondAttribute="bottom" constant="9" id="4Wb-UA-1HO"/>
                                                             <constraint firstItem="kUI-2p-oud" firstAttribute="centerX" secondItem="Fqd-JU-smT" secondAttribute="centerX" id="Ope-vJ-f7t"/>
                                                             <constraint firstAttribute="trailing" secondItem="7Ks-qO-EpJ" secondAttribute="trailing" id="OxK-FU-ADX"/>
                                                             <constraint firstItem="PVv-wW-2N1" firstAttribute="top" secondItem="Fqd-JU-smT" secondAttribute="top" constant="15" id="PsL-bs-oKI"/>
-                                                            <constraint firstAttribute="bottom" secondItem="7Ks-qO-EpJ" secondAttribute="bottom" constant="34" id="Ydz-Pp-1Do"/>
                                                             <constraint firstItem="B1b-8M-fFc" firstAttribute="leading" secondItem="Fqd-JU-smT" secondAttribute="leading" id="aJ9-8e-9Uz"/>
                                                             <constraint firstAttribute="bottom" secondItem="B1b-8M-fFc" secondAttribute="bottom" id="ixj-vf-qo2"/>
                                                             <constraint firstAttribute="bottom" secondItem="kUI-2p-oud" secondAttribute="bottom" constant="9" id="rju-dw-k9f"/>
                                                             <constraint firstAttribute="trailing" secondItem="B1b-8M-fFc" secondAttribute="trailing" id="tgf-ff-BXq"/>
                                                         </constraints>
                                                         <size key="customSize" width="375" height="225"/>
+                                                        <connections>
+                                                            <outlet property="albumDateLabel" destination="PVv-wW-2N1" id="NQv-2v-zH6"/>
+                                                            <outlet property="albumImageView" destination="7Ks-qO-EpJ" id="PW8-6S-fZf"/>
+                                                            <outlet property="albumTextLabel" destination="kUI-2p-oud" id="rif-nc-caN"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SellerReviewCell" id="BSE-qO-wxA">
                                                         <rect key="frame" x="0.0" y="904" width="375" height="375"/>
@@ -578,6 +583,7 @@
                     <navigationItem key="navigationItem" id="Gjz-8V-Pbc"/>
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
+                        <outlet property="bookMarkButton" destination="MyT-LT-Aei" id="OBL-Ic-ncw"/>
                         <outlet property="hashTag1Label" destination="uID-Ov-AsV" id="o3g-XE-1vr"/>
                         <outlet property="hashTag1View" destination="DjH-qb-ULS" id="XO6-G5-FYa"/>
                         <outlet property="hashTag2Label" destination="c1I-NT-h1V" id="trJ-4p-8uP"/>

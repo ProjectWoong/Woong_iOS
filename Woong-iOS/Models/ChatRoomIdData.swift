@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct ChatRoomIdData: Codable {
+    let message: String
+    let data: ChatRoomId
+}
+
+struct ChatRoomId: Codable {
+    let chattingRoomID: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case chattingRoomID = "chatting_room_id"
+    }
+}

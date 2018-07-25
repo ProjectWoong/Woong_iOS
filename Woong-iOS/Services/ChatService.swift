@@ -33,12 +33,37 @@ struct ChatRoomService: APIService, RequestService {
     }
 }
 
+struct ChatRoomIdService: APIService, RequestService {
+    static let shareInstance = ChatRoomIdService()
+    let URL = url("/chat/room")
+    typealias NetworkData = ChatRoomIdData
+    
+    func getRoomId(token: String, marketId: Int, completion: @escaping (ChatRoomId) -> Void, error: @escaping (Int) -> Void) {
+        let chatIdURL = URL + "/\(marketId)"
+        let header: HTTPHeaders = [
+            "usertoken" : token
+        ]
+        gettable(chatIdURL, body: nil, header: header) { res in
+            switch res {
+            case .success(let chatRoomIdData):
+                let data = chatRoomIdData.data
+                completion(data)
+            case .successWithNil(_):
+                break
+            case .error(let errCode):
+                error(errCode)
+            }
+        }
+    }
+    
+}
+
 struct ChatMessageService: APIService, RequestService {
     static let shareInstance = ChatMessageService()
     let chatURL = url("/chat/message")
     typealias NetworkData = ChatData
     
-    func getChatList(roomId: Int, token: String, completion: @escaping (ChatList) -> Void, error: @escaping (Int) -> Void) {
+    func getChatList(roomId: Int, token: String, completion: @escaping ([Chat]) -> Void, error: @escaping (Int) -> Void) {
         let url = chatURL + "/\(roomId)"
         let header: HTTPHeaders = [
             "usertoken" : token
@@ -46,7 +71,7 @@ struct ChatMessageService: APIService, RequestService {
         gettable(url, body: nil, header: header) { (res) in
             switch res {
             case .success(let chatListData):
-                let data = chatListData.data
+                let data = chatListData.data.sendData
                 completion(data)
             case .successWithNil(_):
                 break

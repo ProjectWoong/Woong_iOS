@@ -9,14 +9,16 @@
 import UIKit
 
 class ReadMessageCell: UITableViewCell {
-      @IBOutlet weak var marketNameLabel: UILabel!
+    var chattingRoomId: Int = 0
+    @IBOutlet weak var marketNameLabel: UILabel!
     @IBOutlet weak var messageImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.messageImageView.layer.masksToBounds = true
+        self.messageImageView.layer.cornerRadius = 45/2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

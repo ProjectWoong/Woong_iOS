@@ -1,3 +1,4 @@
+
 //
 //  ProductFavoriteData.swift
 //  Woong-iOS
@@ -7,3 +8,12 @@
 //
 
 import Foundation
+
+
+struct ProductFavoriteData: Codable {
+    let message: String
+    let data: DataClass
+}
+
+struct DataClass: Codable {
+}

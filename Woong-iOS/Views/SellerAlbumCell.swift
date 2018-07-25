@@ -9,5 +9,8 @@
 import UIKit
 
 class SellerAlbumCell: UICollectionViewCell {
+    @IBOutlet weak var albumImageView: UIImageView!
+    @IBOutlet weak var albumTextLabel: UILabel!
+    @IBOutlet weak var albumDateLabel: UILabel!
     
 }

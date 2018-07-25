@@ -51,9 +51,6 @@ class MarketVC: UIViewController {
     }
     
     private func setupData() {
-        //T삭제해야됨!!
-        
-        
         if let token = ud.string(forKey: "token"){
             // 주변 마켓 데이터
             NearMarketService.shareInstance.getNearMarket(token: token, completion: { (nearMarket) in
@@ -198,7 +195,7 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
             let market = nearMarketArr[indexPath.row]
             
             let tagArr = market.tagName.components(separatedBy: ",")
-            
+            cell.marketImageView.imageFromUrl(market.titleImageKey, defaultImgPath: "alarm-message-no-message")
             cell.marketNameLabel.text = market.marketName
             cell.hashTagLabel1.text = "#" + tagArr[1]
             cell.hashTagLabel2.text = "#" +  tagArr[0]
@@ -210,7 +207,7 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
             cell.starButton.tag = market.marketId
             
             cell.starButton.addTarget(self, action: #selector(deleteBookMarkFromButton(button:)), for: .touchUpInside)
-            
+            cell.marketImageView.imageFromUrl(market.titleImageKey, defaultImgPath: "alarm-message-no-message")
             cell.marketNameLabel.text = market.marketName
             cell.marketAddressLabel.text = "[" + market.marketAddress + "]"
             return cell
@@ -226,7 +223,7 @@ extension MarketVC: UITableViewDelegate, UITableViewDataSource {
             MarketIntroService.shareInstance.getMarketIntro(index: marketId, token: token, completion: { (res) in
                 destvc.marketIntro = res
                 destvc.marketId = res.marketID
-                self.present(destvc, animated: true)
+               self.navigationController?.pushViewController(destvc, animated: true)
                 print("marketintro 성공")
             }) { (errCode) in
                 print("marketintro 실패")

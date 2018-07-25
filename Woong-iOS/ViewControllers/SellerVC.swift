@@ -9,21 +9,22 @@
 import UIKit
 
 class SellerVC: UIViewController {
-    
-    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1MCwiZW1haWwiOiJwa3NlMTIxM0BhLmEiLCJpYXQiOjE1MzE0NTk3NjgsImV4cCI6ODc5MzE0NTk3NjgsImlzcyI6InNlcnZpY2UiLCJzdWIiOiJ1c2VyX3Rva2VuIn0.Uktksh977X0jTKtL-aeK1q7g1b0vVBnHfuZ-pUfg8MI"
-    
     let menuCellId = "SellerMenuCell"
     let introCellId = "SellerIntroCell"
     let productCellId = "SellerProductCell"
     let albumCellId = "SellerAlbumCell"
     let reviewCellId = "SellerReviewCell"
     let menu = ["소개", "물품", "앨범", "후기"]
+    let nonBookMarkimage = UIImage(named: "market-intro-not-favorite")
+    let bookMarkimage = UIImage(named: "market-intro-favorite")
+    let likeImage = UIImage(named: "product-like")
+    let unlikeImage = UIImage(named: "product-not-like")
     
     let ud = UserDefaults.standard
     var marketIntro: MarketIntro?
     var marketProductList: [MarketProduct] = []
     var marketAlbumList: [MarketAlbum] = []
-    var marketId: Int?
+    var marketId: Int = 0
     
     var flag = 0
     var selectedIndexPath = IndexPath(item: 0, section: 0)
@@ -39,7 +40,8 @@ class SellerVC: UIViewController {
     @IBOutlet var sellerMenuView: UIView!
     @IBOutlet var sellerProfileImage: UIImageView!
     @IBOutlet var sellerInfoCollectionView: UICollectionView!
-   
+    @IBOutlet weak var bookMarkButton: UIButton!
+    
     @IBOutlet weak var hashTag1Label: UILabel!
     @IBOutlet weak var hashTag2Label: UILabel!
     @IBOutlet weak var hashTag1View: UIView!
@@ -64,44 +66,58 @@ class SellerVC: UIViewController {
         setupHorizontalBar()
         setupNavi()
     }
+    
     @IBAction func bookMarkAction(_ sender: UIButton) {
         
-        let likeimage = UIImage(named: "market-intro-not-favorite")
-        let unlikeimage = UIImage(named: "market-intro-favorite")
-        
-        if sender.currentBackgroundImage == likeimage {
-            sender.setBackgroundImage(unlikeimage, for: .normal)
-            BookmarkOperateService.shareInstance.deleteBookmarkList(productId: self.marketId!, token: self.token, completion: {
-            }) { (_) in
-            }
-            
-        } else if sender.currentBackgroundImage == unlikeimage {
-            sender.setBackgroundImage(likeimage, for: .normal)
-            BookmarkOperateService.shareInstance.setBookmarkList(productId: self.marketId!, token: self.token, completion: { (_) in
+         if let token = ud.string(forKey: "token") {
+            if sender.currentBackgroundImage == bookMarkimage {
+                sender.setBackgroundImage(nonBookMarkimage, for: .normal)
+                BookmarkOperateService.shareInstance.deleteBookmarkList(productId: self.marketId, token: token, completion: {
+                }) { (_) in
+                }
                 
-            }) { (_) in
-                
+            } else if sender.currentBackgroundImage == nonBookMarkimage {
+                sender.setBackgroundImage(bookMarkimage, for: .normal)
+                BookmarkOperateService.shareInstance.setBookmarkList(productId: self.marketId, token: token, completion: { (_) in
+                    
+                }) { (_) in
+                    
+                }
             }
         }
+        
         
     }
     
     private func initMarketData() {
-        MarketIntroService.shareInstance.getMarketIntro(index: gino(marketId), token: self.token, completion: { (data) in
-            self.marketIntro = data
-         
-            self.marketNameLabel.text = data.marketName
-            self.kmLabel.text = data.youandi + "km"
-            if data.quick == 1 && data.delivery == 1 {
-            } else {
-                self.hashTag2View.isHidden = true
-                if data.quick == 1 {
-                    self.hashTag1Label.text = "#당일배송"
+        if let token = ud.string(forKey: "token") {
+            MarketIntroService.shareInstance.getMarketIntro(index: gino(marketId), token: token, completion: { (data) in
+                self.marketIntro = data
+                
+                self.sellerProfileImage.imageFromUrl(data.farmerImageKey, defaultImgPath: "")
+                
+                self.marketNameLabel.text = data.marketName
+                self.kmLabel.text = data.youandi + "km"
+                if data.quick == 1 && data.delivery == 1 {
+                } else {
+                    self.hashTag2View.isHidden = true
+                    if data.quick == 1 {
+                        self.hashTag1Label.text = "#당일배송"
+                    }
+                }
+            }) { (errCode) in
+                if errCode == 500 {
+                    self.simpleAlert(title: "네트워크 오류", message: "서버가 응답하지 않습니다.")
                 }
             }
-        }) { (errCode) in
-            if errCode == 500 {
-                self.simpleAlert(title: "네트워크 오류", message: "서버가 응답하지 않습니다.")
+            
+            MarketBookmarkService.shareInstance.getBookmarkFlag(marketId: marketId, token: token, completion: { (flag) in
+                
+                if flag == 1 {
+                  
+                    self.bookMarkButton.setBackgroundImage(self.bookMarkimage, for: .normal)
+                }
+            }) { (errCode) in
             }
         }
         MarketProductService.shareInstance.getMarketProduct(index: gino(marketId), option: "name", completion: { (data) in
@@ -274,7 +290,7 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             } else if flag == 1 {
                 return marketProductList.count
             } else if flag == 2{
-                return 6
+                return marketAlbumList.count
             } else {
                 return 1
             }
@@ -295,24 +311,29 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
                     cell.hashTag1Label.text = "#" + tagArr[1]
                     cell.hashTag2Label.text = "#" +  tagArr[0]
                     cell.helloMessageLabel.text = market.marketInfo
+                    cell.sellerimageView.imageFromUrl(market.titleImageKey, defaultImgPath: "")
                     
                 }
                 return cell
             } else if flag == 1 {
                 let cell = sellerInfoCollectionView.dequeueReusableCell(withReuseIdentifier: productCellId, for: indexPath) as! SellerProductCell
-               
                 let product = marketProductList[indexPath.item]
-                
                 cell.marketNameLabel.text = "[" + product.marketName + "]"
                 cell.productNameLabel.text = product.productName
                 cell.priceLabel.text = product.packaging
-               
-               cell.likeImageButton.tag = product.productID
-                cell.likeImageButton.addTarget(self, action: #selector(deleteBookMarkFromButton(button:)), for: .touchUpInside)
-                
+                cell.productImageView.imageFromUrl(product.fileKey, defaultImgPath: "")
+                cell.likeImageButton.tag = product.productID
+                cell.likeImageButton.addTarget(self, action: #selector(changeFavoriteFromButton(button:)), for: .touchUpInside)
+            
                 return cell
             } else if flag == 2 {
                 let cell = sellerInfoCollectionView.dequeueReusableCell(withReuseIdentifier: albumCellId, for: indexPath) as! SellerAlbumCell
+                let album = marketAlbumList[indexPath.item]
+                
+                
+                cell.albumImageView.imageFromUrl(album.fileKey, defaultImgPath: "")
+                cell.albumTextLabel.text = album.albumTitle
+                cell.albumDateLabel.text = album.createTime
                 return cell
             } else {
                 let cell = sellerInfoCollectionView.dequeueReusableCell(withReuseIdentifier: reviewCellId, for: indexPath)
@@ -329,26 +350,25 @@ extension SellerVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         }
     }
     
-    @objc func deleteBookMarkFromButton(button: UIButton) {
-        let likeImage = UIImage(named: "product-like")
-        let unlikeImage = UIImage(named: "product-not-like")
-        
-        if button.currentBackgroundImage == likeImage {
-            button.setBackgroundImage(unlikeImage, for: .normal)
-            FavoriteOperateService.shareInstance.deleteFavoriteList(productId: button.tag, token: self.token, completion: {
-                print("찜삭제 성공!")
-            }) { (errCode) in
-                print("찜삭제 실패!")
+    @objc func changeFavoriteFromButton(button: UIButton) {
+        if let token = ud.string(forKey: "token") {
+            if button.currentBackgroundImage == likeImage {
+                button.setBackgroundImage(unlikeImage, for: .normal)
+                FavoriteOperateService.shareInstance.deleteFavoriteList(productId: button.tag, token: token, completion: {
+                    print("찜삭제 성공!")
+                }) { (errCode) in
+                    print("찜삭제 실패!")
+                }
+                
+            } else if button.currentBackgroundImage == unlikeImage{
+                button.setBackgroundImage(likeImage, for: .normal)
+                FavoriteOperateService.shareInstance.setFavoriteList(productId: button.tag, token: token, completion: { (_) in
+                    print("찜하기 성공!")
+                }) { (errCode) in
+                    print("찜하기 성공!")
+                }
+                
             }
-            
-        } else if button.currentBackgroundImage == unlikeImage{
-            button.setBackgroundImage(likeImage, for: .normal)
-            FavoriteOperateService.shareInstance.setFavoriteList(productId: button.tag, token: token, completion: { (_) in
-                print("찜하기 성공!")
-            }) { (errCode) in
-                print("찜하기 성공!")
-            }
-           
         }
     }
 }

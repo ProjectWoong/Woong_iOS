@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct MarketBookMarkData: Codable {
+    let message: String
+    let data: DataClass1
+}
+
+struct DataClass1: Codable {
+}
